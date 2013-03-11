@@ -66,6 +66,8 @@ ActiveRecord::Schema.define(:version => 20130217084534) do
   add_index "portfolios", ["user_id", "league_id"], :name => "index_portfolios_on_user_id_and_league_id"
 
   create_table "users", :force => true do |t|
+    t.string   "name",                   :default => "", :null => false
+    t.boolean  "admin"
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"
