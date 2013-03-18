@@ -1,4 +1,9 @@
 class LeaguesController < ApplicationController
+  before_filter :authenticate_user!
+
+  def create
+
+  end
 
   def index
 
@@ -17,7 +22,6 @@ class LeaguesController < ApplicationController
   end
 
   def new
-
   end
 
 end

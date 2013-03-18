@@ -4,6 +4,7 @@ AnnuitCoeptis::Application.routes.draw do
   resources :leagues
   resources :orders, only: [:create, :show]
   resources :portfolios, only: [:create, :show, :destroy]
+  resources :research, only: [:index, :create]
   root :to => "static_pages#home"
 
   # The priority is based upon order of creation:
