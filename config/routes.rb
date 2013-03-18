@@ -1,10 +1,8 @@
 AnnuitCoeptis::Application.routes.draw do
-
   devise_for :users
+  resources :users, :only => [:index, :show]
+  root :to => "static_pages#home"
 
-  root :to => "home#index"
-
-  match "users/:id"=>"users#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
