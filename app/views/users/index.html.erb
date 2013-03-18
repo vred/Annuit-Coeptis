@@ -1,12 +1,8 @@
-<%=@user.name%>
+<% provide(:title, 'All users') %>
+<h1>Val Sucks</h1>
 
-
-<ul>
-<%
-for i in 1..10
-%>
-<li><%=  i == 10 ? @user.name : "firtbsg"  %></li>
-
-<% end
-%>
-</ul>
+<% @users.each do |user| %>
+    <%=  user.name %>
+    <%=  user.email %>
+    <%= user.id %>
+<% end %>
