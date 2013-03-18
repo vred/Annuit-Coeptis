@@ -1,0 +1,6 @@
+<li>
+  <%= link_to user.name, user %>
+  <% # if current_user.admin? && !current_user?(user) %>
+        <%= link_to "delete", user_registration_path(user.id), method: :delete, confirm: "You sure?" %>
+  <% # end %>
+</li>

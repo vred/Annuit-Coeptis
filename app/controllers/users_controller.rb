@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   # To change this template use File | Settings | File Templates.
   def index
-    @users = User.all
+    @users = User.paginate(:page => params[:page])
   end
 
   def show

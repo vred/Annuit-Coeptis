@@ -1,8 +1,10 @@
 <% provide(:title, 'All users') %>
 <h1>Val Sucks</h1>
 
-<% @users.each do |user| %>
-    <%=  user.name %>
-    <%=  user.email %>
-    <%= user.id %>
-<% end %>
+<%= will_paginate %>
+
+<ul class="users">
+  <%= render @users %>
+</ul>
+
+<%= will_paginate %>

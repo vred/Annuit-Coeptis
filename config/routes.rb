@@ -1,6 +1,9 @@
 AnnuitCoeptis::Application.routes.draw do
   devise_for :users
-  resources :users, :only => [:index, :show]
+  resources :users, only: [:index, :show]
+  resources :leagues
+  resources :orders, only: [:create, :show]
+  resources :portfolios, only: [:create, :show, :destroy]
   root :to => "static_pages#home"
 
   # The priority is based upon order of creation:
