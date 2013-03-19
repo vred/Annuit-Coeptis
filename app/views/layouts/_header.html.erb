@@ -163,8 +163,11 @@ Not logged in
       </div>
       <div class="span4 stufff"> 
         <div class="input-append">
-          <input class="span3" id="appendedInputButton" type="text">
-            <button class="btn" type="button">Search</button>;
+            <%= form_tag("/research", :method => "post") do %> 
+            <%= label_tag(:ticker, "Ticker") %> 
+            <%= text_field_tag(:ticker) %> 
+            <input name="commit" class="btn" type="submit" value="Search" />
+            <% end %> 
           </div>
         </div>  
       </div>
