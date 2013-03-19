@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.12'
 gem 'bootstrap-sass', '2.3' # Adds SASS support to Bootstrap
+gem 'bootswatch-rails'
 gem 'devise', '2.2.3'     # Authentication system generator
 gem 'bcrypt-ruby', '3.0.1' # Adds some security methods
 gem 'faker', '1.1.2'       # Not sure what htis does
@@ -24,6 +25,7 @@ end
 # in production environments (by default)
 group :assets do
   gem 'sass-rails', '3.2.5'
+  gem 'compass-rails'
   gem 'coffee-rails', '3.2.2' # coffeescript, i think
   gem 'uglifier', '1.2.3'     # uglifies javascript
 end
