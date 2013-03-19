@@ -4,6 +4,7 @@ class ResearchController < ApplicationController
   end
 
   def create
+    @ticker = params[:ticker]
   end
 
 end
