@@ -10,6 +10,7 @@ gem 'bootstrap-will_paginate', '0.0.9'  # Enables CSS'ing to the pagination
 gem 'jquery-rails', '2.1.3'           # jquery support for rails
 gem 'lazy_high_charts'               # plugin for using highcharts
 gem 'bundler'
+gem 'money'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'      # in case you don't feel like admin'ing a db

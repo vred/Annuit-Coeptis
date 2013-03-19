@@ -16,9 +16,9 @@ ActiveRecord::Schema.define(:version => 20130217084534) do
   create_table "leagues", :force => true do |t|
     t.string   "name"
     t.boolean  "private"
-    t.decimal  "money"
-    t.decimal  "margin"
-    t.decimal  "commission"
+    t.integer  "capital"
+    t.integer  "margin"
+    t.integer  "commission"
     t.integer  "limits"
     t.date     "start"
     t.date     "end"
@@ -32,14 +32,14 @@ ActiveRecord::Schema.define(:version => 20130217084534) do
   create_table "markets", :force => true do |t|
     t.string   "name"
     t.datetime "date"
-    t.decimal  "price"
+    t.integer  "price"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   create_table "orders", :force => true do |t|
     t.string   "name"
-    t.decimal  "price"
+    t.integer  "price"
     t.integer  "quantity"
     t.string   "type"
     t.datetime "placed"
@@ -54,9 +54,9 @@ ActiveRecord::Schema.define(:version => 20130217084534) do
   add_index "orders", ["portfolio_id", "league_id"], :name => "index_orders_on_portfolio_id_and_league_id"
 
   create_table "portfolios", :force => true do |t|
-    t.string   "role"
-    t.decimal  "capital"
-    t.decimal  "margin"
+    t.boolean  "role"
+    t.integer  "capital"
+    t.integer  "margin"
     t.integer  "user_id"
     t.integer  "league_id"
     t.datetime "created_at", :null => false

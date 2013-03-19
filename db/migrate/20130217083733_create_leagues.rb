@@ -3,9 +3,9 @@ class CreateLeagues < ActiveRecord::Migration
     create_table :leagues do |t|
       t.string :name
       t.boolean :private
-      t.decimal :money
-      t.decimal :margin
-      t.decimal :commission
+      t.integer :capital
+      t.integer :margin
+      t.integer :commission
       t.integer :limits
       t.date :start
       t.date :end

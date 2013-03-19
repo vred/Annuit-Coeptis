@@ -1,0 +1,41 @@
+<%= form_for(@league) do |f| %>
+
+    <div>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+    </div>
+    <div>
+          <%= f.label :private %>
+          <%= f.check_box :private %>
+    </div>
+    <div>
+        <%=  f.label :limits  %>
+        <%=  f.number_field :limits %>
+    </div>
+    <div>
+          <%= f.label :capital %>
+          <%= f.text_field :capital %>
+    </div>
+    <div>
+        <%= f.label :commission %>
+        <%= f.text_field :commission %>
+    </div>
+    <div>
+        <%= f.label :margin %>
+        <%= f.text_field :margin  %>
+    </div>
+
+    <div>
+      <%= f.label :start %>
+      <%= f.date_select :start %>
+    </div>
+    <div>
+      <%= f.label :end %>
+      <%= f.date_select :end %>
+    </div>
+
+    <div>
+        <%= f.submit "Create my league", class: "btn btn-large btn-primary" %>
+    </div>
+
+<% end  %>
