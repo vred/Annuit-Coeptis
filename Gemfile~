@@ -24,7 +24,6 @@ end
 # in production environments (by default)
 group :assets do
   gem 'sass-rails', '3.2.5'
-  gem 'compass-rails'
   gem 'coffee-rails', '3.2.2' # coffeescript, i think
   gem 'uglifier', '1.2.3'     # uglifies javascript
 end
