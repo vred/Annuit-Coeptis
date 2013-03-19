@@ -8,7 +8,7 @@
   <%= stylesheet_link_tag    "application", "application2","http://fonts.googleapis.com/css?family=Open+Sans:400,600,800",  "ui-lightness/jquery-ui-1.8.21.custom","pages/pricing",:media => "all" %>
   <%= javascript_include_tag "application", "bootstrap", "libs/jquery.ui.touch-punch.min", "libs/modernizr-2.5.3.min", "libs/jquery-ui-1.8.21.custom.min", "Theme" %>
   <% if @title=="home" %>
-  	<%= stylesheet_link_tag homepage %>
+  	<%= stylesheet_link_tag "homepage" %>
   <% end %>
   <%= csrf_meta_tags %>
 </head>

@@ -1,15 +1,10 @@
 
-<div id="topbar">	
+<div id="topbar">
+<% if current_user %>
 	<div class="container">
-		<a href="javascript:;" id="menu-trigger" class="dropdown-toggle" data-toggle="dropdown" data-target="#">
-			<i class="icon-cog icon-white"></i>
-		</a>
-	
 		<div id="top-nav">
-			
 			<ul>
 				<li class="dropdown">
-					
 					<ul class="dropdown-menu pull-right">
 						<li><a href="javascript:;">View Site #1</a></li>
 						<li><a href="javascript:;">View Site #2</a></li>
@@ -26,7 +21,7 @@
 			</ul>
 			
 			<ul class="pull-right">
-				<li><a href="javascript:;"><i class="icon-user icon-white"></i> Logged in as John Doe</a></li>
+				<li><a href="javascript:;"><i class="icon-user icon-white"></i> Logged in as <%= current_user.name.capitalize %></a></li>
 				<li><a href="javascript:;"><span class="badge badge-primary">1</span> New Message</a></li>
 				<li class="dropdown">
 					<a href="./pages/settings.html" class="dropdown-toggle" data-toggle="dropdown">
@@ -47,13 +42,16 @@
 		                </li>
 					</ul> 
 				</li>
-				<li><a href="login.html">Logout</a></li>
+				<li><%= link_to "logout", destroy_user_session_path, method: :delete %></li>
+				
 			</ul>
 			
 		</div> <!-- /#top-nav -->
 		
 	</div> <!-- /.container -->
-	
+<% else %>
+Not logged in
+<%end%>	
 </div> <!-- /#topbar -->
 <div id="header">
 	
@@ -152,3 +150,30 @@
 	</div> <!-- /.container -->
 	
 </div> <!-- /#header -->
+
+
+
+
+
+<div id="masthead">
+  <div class="container">
+    <div class="masthead-pad">
+      <div class="masthead-text span7">
+        <h2>Page</h2>
+        <p>Description</p>
+      </div>
+      <div class="span4 stufff"> 
+        <div class="input-append">
+            <%= form_tag("/research", :method => "post") do %> 
+            <%= label_tag(:ticker, "Ticker") %> 
+            <%= text_field_tag(:ticker) %> 
+            <input name="commit" class="btn" type="submit" value="Search" />
+            <% end %> 
+          </div>
+        </div>  
+      </div>
+       <!-- /.masthead-text -->
+    </div>
+  </div> <!-- /.container --> 
+</div> <!-- /#masthead -->
+
