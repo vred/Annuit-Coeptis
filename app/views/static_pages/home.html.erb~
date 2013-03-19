@@ -1,0 +1,27 @@
+<div id="content">
+<div class="container">		
+		<div id="pricing-header">
+			<h1>Play the Game, Learn the Trade.</h1>
+			<h2>Sign up today!</h2>
+		</div> <!-- /#pricing-header -->
+		
+		</br></br>
+		
+		<center>	
+			<div class="span4">
+				<%= link_to "Sign in", "users/sign_in",
+              class: "btn btn-large btn-primary huge" %>
+			</div>	
+			<div class="span4">
+				  <%= link_to "Sign up", "users/sign_up",
+              class: "btn btn-large btn-primary huge" %>
+			</div>	
+			<div class="span4">
+				<a href="javascript:;" class="btn btn-large btn-primary huge">Take a tour!</a>
+			</div>	
+		</center>		
+		</div> <!-- container -->
+	</div> <!-- /#content -->
+</div> <!-- /#wrapper -->
+
+<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
