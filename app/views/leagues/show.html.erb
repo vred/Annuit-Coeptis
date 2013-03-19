@@ -4,3 +4,7 @@
 <%= @league.commission %>
 <%= @league.start %>
 <%= @league.end %>
+
+<%= form_for [@league, @portfolio] do |f| %>
+    <%= f.submit "Join", class: "btn btn-large btn-primary" %>
+<% end %>

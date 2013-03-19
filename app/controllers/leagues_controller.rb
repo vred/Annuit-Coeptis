@@ -26,9 +26,14 @@ class LeaguesController < ApplicationController
 
   def show
      @league = League.find(params[:id])
+     @portfolio = @league.portfolios.build
   end
 
   def edit
+
+  end
+
+  def update
 
   end
 
