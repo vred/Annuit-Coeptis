@@ -1,0 +1,8 @@
+<% provide(:title, "Research") %>
+<h2>Research Companies</h2>
+
+<%= form_tag("/research", :method => "post") do %>
+    <%= label_tag(:ticker, "Ticker") %>
+    <%= text_field_tag(:ticker) %>
+    <%= submit_tag("Research") %>
+<% end %>

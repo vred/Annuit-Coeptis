@@ -10,6 +10,6 @@ class User < ActiveRecord::Base
   attr_accessible :name, :admin, :email, :password, :password_confirmation, :remember_me
   has_many :portfolios
   has_many :orders
-  has_and_belongs_to_many :leagues
+  has_many :leagues, :through => :portfolios
   # attr_accessible :title, :body
 end

@@ -68,7 +68,7 @@ function routeContent () {
 	hash = hash.split ('#')[1];
 	
 	if (hash === undefined || hash === '') {
-		hash = 'home';
+		hash = 'static_pages';
 	}
 	
 	$('#nav li').removeClass ('active');
