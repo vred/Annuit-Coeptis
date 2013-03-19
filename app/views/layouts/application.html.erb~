@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
 <head>
   <title>AnnuitCoeptis</title>
-  <%= stylesheet_link_tag    "application", "application2","http://fonts.googleapis.com/css?family=Open+Sans:400,600,800",  "ui-lightness/jquery-ui-1.8.21.custom","pages/pricing",:media => "all" %>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-
 </head>
 <body>
 
@@ -14,7 +15,7 @@
 <div id="topbar">	
 	<div class="container">
 		<a href="javascript:;" id="menu-trigger" class="dropdown-toggle" data-toggle="dropdown" data-target="#">
-			<i class="icon-cog icon-white"></i>
+			<i class="icon-cog"></i>
 		</a>
 	
 		<div id="top-nav">
@@ -38,11 +39,11 @@
 			</ul>
 			
 			<ul class="pull-right">
-				<li><a href="javascript:;"><i class="icon-user icon-white"></i> Logged in as John Doe</a></li>
+				<li><a href="javascript:;"><i class="icon-user"></i> Logged in as John Doe</a></li>
 				<li><a href="javascript:;"><span class="badge badge-primary">1</span> New Message</a></li>
 				<li class="dropdown">
 					<a href="./pages/settings.html" class="dropdown-toggle" data-toggle="dropdown">
-						Account						
+						Settings						
 						<b class="caret"></b>
 					</a>
 					
@@ -81,15 +82,15 @@
 			<ul id="main-nav" class="nav pull-right">
 				<li class="nav-icon">
 					<a href="./index.html">
-						<i class="icon-home icon-white"></i>
+						<i class="icon-home"></i>
 						<span>Home</span>        					
 					</a>
 				</li>
 				
 				<li class="dropdown">					
 					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-						<i class="icon-th icon-white"></i>
-						<span>Leagues</span> 
+						<i class="icon-th"></i>
+						<span>Components</span> 
 						<b class="caret"></b>
 					</a>	
 				
@@ -112,8 +113,8 @@
 				
 				<li class="dropdown active">					
 					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-						<i class="icon-book"></i>
-						<span>Learn</span> 
+						<i class="icon-copy"></i>
+						<span>Sample Pages</span> 
 						<b class="caret"></b>
 					</a>	
 				
@@ -128,24 +129,8 @@
 				
 				<li class="dropdown">					
 					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-						<i class="icon-user icon-white"></i>
-						<span>Users</span> 
-						<b class="caret"></b>
-					</a>	
-				
-					<ul class="dropdown-menu">							
-						<li><a href="./login.html">Login</a></li>
-						<li><a href="./signup.html">Signup</a></li>
-						<li><a href="./error.html">Error</a></li>
-						<li><a href="./skins.html">Skins</a></li>
-						<li><a href="./sticky.html">Sticky Footer</a></li>
-					</ul>    				
-				</li>
-
-                <li class="dropdown">					
-					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-						<i class="icon-briefcase icon-white"></i>
-						<span>Companies</span> 
+						<i class="icon-external-link"></i>
+						<span>Extras</span> 
 						<b class="caret"></b>
 					</a>	
 				
@@ -169,17 +154,6 @@
 
 
 <%= yield %>
-
-
-<div id="footer">		
-	<div class="container">
-		<div class="row">
-			<div class="span6">
-				© 2013 <a href="http://jumpstartui.com">Capital Games</a>, all rights reserved.
-			</div> <!-- /span6 -->
-		</div> <!-- /row -->
-	</div> <!-- /container -->
-</div> <!-- /#footer -->
 
 </body>
 </html>
