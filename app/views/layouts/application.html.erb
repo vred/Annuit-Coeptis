@@ -3,9 +3,16 @@
 <head>
   <title>AnnuitCoeptis</title>
   <%= stylesheet_link_tag    "application", "application2","http://fonts.googleapis.com/css?family=Open+Sans:400,600,800",  "ui-lightness/jquery-ui-1.8.21.custom","pages/pricing",:media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "application", "bootstrap", "Theme", "libs/jquery.ui.touch-punch.min.js","libs/jquery.ui.touch-punch.min.js" %>
   <%= csrf_meta_tags %>
-
+  <style>
+  #footer
+  {
+  	bottom:0;
+  	position:absolute;
+  	width:100%;
+  }	
+  </style>
 </head>
 <body>
 
