@@ -5,7 +5,7 @@ class LeaguesController < ApplicationController
       @league = League.new(params[:league])
       @league.user_id = current_user.id
       # Create the signed in user's portfolio as a league manager
-      create_manager_portfolio(params[:league])
+      # create_manager_portfolio(params[:league])
       if @league.save and @portfolio.save
         # Flash a success message
         flash[:success] = "Created your league!"

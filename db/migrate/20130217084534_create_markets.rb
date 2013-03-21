@@ -3,7 +3,7 @@ class CreateMarkets < ActiveRecord::Migration
     create_table :markets do |t|
       t.string :name
       t.datetime :date
-      t.integer :price
+      t.money :price
 
       t.timestamps
     end

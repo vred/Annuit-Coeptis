@@ -3,18 +3,19 @@ class CreateLeagues < ActiveRecord::Migration
     create_table :leagues do |t|
       t.string :name
       t.boolean :private
-      t.integer :capital
-      t.integer :margin
-      t.integer :commission
-      t.integer :limits
-      t.date :start
-      t.date :end
+      t.money :capital
+      t.money :margin
+      t.money :commission
+      t.integer :member_limit
+      t.integer :count, :default => 0
+      t.date :start_date
+      t.date :end_date
 
-      t.integer :user_id
+      t.integer :creator_id
 
 
       t.timestamps
     end
-    add_index :leagues, [:user_id]
+    add_index :leagues, [:creator_id]
   end
 end

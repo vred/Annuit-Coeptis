@@ -12,6 +12,7 @@ gem 'jquery-rails', '2.1.3'           # jquery support for rails
 gem 'lazy_high_charts'               # plugin for using highcharts
 gem 'bundler'
 gem 'money'
+gem 'money-rails'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'      # in case you don't feel like admin'ing a db

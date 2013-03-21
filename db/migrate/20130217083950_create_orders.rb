@@ -2,7 +2,7 @@ class CreateOrders < ActiveRecord::Migration
   def change
     create_table :orders do |t|
       t.string :name
-      t.integer :price
+      t.money :price
       t.integer :quantity
       t.string :type
       t.datetime :placed

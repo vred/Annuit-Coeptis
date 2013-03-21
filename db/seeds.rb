@@ -1,7 +1,6 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+# We're going to use Factory Girl here to create the the seed data we need when we
+# start data testing.
+#require Rails.root.join('spec', 'helpers.rb')
+#require 'rubygems'
+#require 'factory_girl_rails'
+#seed_data

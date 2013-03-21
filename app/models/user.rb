@@ -11,5 +11,7 @@ class User < ActiveRecord::Base
   has_many :portfolios
   has_many :orders
   has_many :leagues, :through => :portfolios
+
+  validates :name, :length => { :minimum => 4, :maximum => 50 }
   # attr_accessible :title, :body
 end

@@ -1,9 +1,9 @@
 class CreatePortfolios < ActiveRecord::Migration
   def change
     create_table :portfolios do |t|
-      t.boolean :role
-      t.integer :capital
-      t.integer :margin
+      t.boolean :manager, :default => false
+      t.money :capital
+      t.money :margin
 
       t.integer :user_id
       t.integer :league_id

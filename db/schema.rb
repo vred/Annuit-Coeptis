@@ -16,30 +16,36 @@ ActiveRecord::Schema.define(:version => 20130217084534) do
   create_table "leagues", :force => true do |t|
     t.string   "name"
     t.boolean  "private"
-    t.integer  "capital"
-    t.integer  "margin"
-    t.integer  "commission"
-    t.integer  "limits"
-    t.date     "start"
-    t.date     "end"
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "capital_cents",       :default => 0,     :null => false
+    t.string   "capital_currency",    :default => "USD", :null => false
+    t.integer  "margin_cents",        :default => 0,     :null => false
+    t.string   "margin_currency",     :default => "USD", :null => false
+    t.integer  "commission_cents",    :default => 0,     :null => false
+    t.string   "commission_currency", :default => "USD", :null => false
+    t.integer  "member_limit"
+    t.integer  "count",               :default => 0
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "creator_id"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
   end
 
-  add_index "leagues", ["user_id"], :name => "index_leagues_on_user_id"
+  add_index "leagues", ["creator_id"], :name => "index_leagues_on_creator_id"
 
   create_table "markets", :force => true do |t|
     t.string   "name"
     t.datetime "date"
-    t.integer  "price"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "price_cents",    :default => 0,     :null => false
+    t.string   "price_currency", :default => "USD", :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
   end
 
   create_table "orders", :force => true do |t|
     t.string   "name"
-    t.integer  "price"
+    t.integer  "price_cents",    :default => 0,     :null => false
+    t.string   "price_currency", :default => "USD", :null => false
     t.integer  "quantity"
     t.string   "type"
     t.datetime "placed"
@@ -47,29 +53,31 @@ ActiveRecord::Schema.define(:version => 20130217084534) do
     t.integer  "valid"
     t.integer  "portfolio_id"
     t.integer  "league_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
   end
 
   add_index "orders", ["portfolio_id", "league_id"], :name => "index_orders_on_portfolio_id_and_league_id"
 
   create_table "portfolios", :force => true do |t|
-    t.boolean  "role"
-    t.integer  "capital"
-    t.integer  "margin"
+    t.boolean  "manager",          :default => false
+    t.integer  "capital_cents",    :default => 0,     :null => false
+    t.string   "capital_currency", :default => "USD", :null => false
+    t.integer  "margin_cents",     :default => 0,     :null => false
+    t.string   "margin_currency",  :default => "USD", :null => false
     t.integer  "user_id"
     t.integer  "league_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
   end
 
   add_index "portfolios", ["user_id", "league_id"], :name => "index_portfolios_on_user_id_and_league_id"
 
   create_table "users", :force => true do |t|
-    t.string   "name",                   :default => "", :null => false
-    t.boolean  "admin"
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "name",                   :default => "",    :null => false
+    t.boolean  "admin",                  :default => false
+    t.string   "email",                  :default => "",    :null => false
+    t.string   "encrypted_password",     :default => "",    :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -78,8 +86,8 @@ ActiveRecord::Schema.define(:version => 20130217084534) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
