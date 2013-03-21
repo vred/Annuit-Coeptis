@@ -2,8 +2,8 @@
 <%= @league.capital %>
 <%= @league.margin %>
 <%= @league.commission %>
-<%= @league.start %>
-<%= @league.end %>
+<%= @league.start_date %>
+<%= @league.end_date %>
 
 <%= form_for [@league, @portfolio] do |f| %>
     <%= f.submit "Join", class: "btn btn-large btn-primary" %>

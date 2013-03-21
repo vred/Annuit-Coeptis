@@ -44,7 +44,7 @@ class LeaguesController < ApplicationController
   private
   def create_manager_portfolio(params)
     @portfolio = Portfolio.new(:capital => params[:capital],
-                               :margin => params[:margin], :role => 1)
+                               :margin => params[:margin], :manager => manager)
     @portfolio.user_id = current_user.id
   end
 end
