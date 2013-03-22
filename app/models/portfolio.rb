@@ -1,12 +1,13 @@
 class Portfolio < ActiveRecord::Base
   require 'money'
   require 'money-rails'
-  attr_accessible :capital, :margin, :manager
+  attr_accessible :capital, :margin, :manager, :user_id, :league_id
   belongs_to :user
-  belongs_to :league
+  belongs_to :league, :counter_cache => true
   has_many :orders, :dependent => :destroy
 
-  monetize :capital, :margin
+  monetize :capital_cents, :numericality => { :greater_than_or_equal_to => 0 }
+  monetize :margin_cents, :numericality => { :greater_than_or_equal_to => 0 }
 
   #composed_of :capital,
   #            :class_name  => "Money",
@@ -22,20 +23,14 @@ class Portfolio < ActiveRecord::Base
 
   validates :capital, presence: true
   validates :margin, presence: true
+  validates :user_id, presence: true
+  validates :league_id, presence: true
 
   after_create do
-    @league = League.find(:league_id)
-    @league.increment_users
+    League.increment_counter(:portfolios_count, :league_id)
   end
 
   after_destroy do
-    @league = League.find(:league_id)
-    @league.decrement_users
-  end
-
-  private
-
-  def manager?
-      self.role
+    League.decrement_counter(:portfolios_count, :league_id)
   end
 end

@@ -7,7 +7,7 @@ class CreateLeagues < ActiveRecord::Migration
       t.money :margin
       t.money :commission
       t.integer :member_limit
-      t.integer :count, :default => 0
+      t.integer :portfolios_count, :default => 0
       t.date :start_date
       t.date :end_date
 

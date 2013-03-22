@@ -1,13 +1,15 @@
 class CreateOrders < ActiveRecord::Migration
   def change
     create_table :orders do |t|
-      t.string :name
-      t.money :price
+      t.string :ticker
+      t.money :price_executed
+      t.money :threshold_price
       t.integer :quantity
       t.string :type
-      t.datetime :placed
-      t.datetime :filled
-      t.integer :valid
+      t.datetime :time_placed
+      t.datetime :time_filled
+      t.datetime :expiration_date
+      t.boolean :valid_order
 
       t.integer :portfolio_id
       t.integer :league_id

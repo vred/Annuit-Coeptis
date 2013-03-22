@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'money-rails/test_helpers'
 
 describe League do
   before do
@@ -20,7 +21,7 @@ describe League do
   it { should respond_to(:capital) }
   it { should respond_to(:margin) }
   it { should respond_to(:member_limit) }
-  it { should respond_to(:count) }
+  it { should respond_to(:portfolios_count) }
   it { should respond_to(:creator_id) }
 
   describe "when name is not present" do
@@ -77,7 +78,11 @@ describe League do
   end
 
   describe "when league is full" do
-    before { @league.count = @league.member_limit + 1 }
+    before { @league.portfolios_count = @league.member_limit + 1 }
     it { should_not be_valid }
+  end
+
+  describe "converts to Money" do
+    monetize(:capital_cents).should be_true
   end
 end

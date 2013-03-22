@@ -1,6 +1,12 @@
 class Orders < ActiveRecord::Base
   require 'money'
-  attr_accessible :filled, :name, :placed, :price, :quantity, :type, :valid
+  attr_accessible :time_filled, :ticker, :time_placed, :price_executed, :quantity, :type
+
+  validates :ticker, :presence => true, :length => { :maximum => 5 }
+  validate :filled_date_greater_than_placed_date
+  validates :quantity, :numericality => { :greater_than => 0 }
+  validates :time_placed, :presence => true
+
   belongs_to :portfolio
   belongs_to :league
   monetize :price
@@ -9,4 +15,20 @@ class Orders < ActiveRecord::Base
   #            :mapping     => [%w(price cents)],
   #            :constructor => Proc.new { |cents, currency| Money.new(cents || 0, Money.default_currency) },
   #            :converter   => Proc.new { |value| value.respond_to?(:to_money) ? value.to_money : raise(ArgumentError, "Can't conver #{value.class} to Money") }
+
+  def filled_date_greater_than_placed_date
+    :end_date > :start_date
+  end
+end
+
+class MarketOrders < Orders
+
+end
+
+class StopOrders < Orders
+  attr_accessible :expiration_date, :threshold_price, :valid_order
+end
+
+class LimitOrders < Orders
+  attr_accessible :expiration_date, :threshold_price, :valid_order
 end

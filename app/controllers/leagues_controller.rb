@@ -3,15 +3,19 @@ class LeaguesController < ApplicationController
 
   def create
       @league = League.new(params[:league])
-      @league.user_id = current_user.id
+      @league.creator_id = current_user.id
+      # attempt to save league so as to get its id
+      @league.save
       # Create the signed in user's portfolio as a league manager
-      # create_manager_portfolio(params[:league])
-      if @league.save and @portfolio.save
+      @portfolio = create_manager_portfolio(@league)
+      if @portfolio.save
         # Flash a success message
         flash[:success] = "Created your league!"
         # Send them to the league
         redirect_to @league
       else
+        @league.delete
+        flash[:fail] = "Sorry, that didn't work!"
         render 'new'
       end
   end
@@ -42,9 +46,9 @@ class LeaguesController < ApplicationController
   end
 
   private
-  def create_manager_portfolio(params)
-    @portfolio = Portfolio.new(:capital => params[:capital],
-                               :margin => params[:margin], :manager => manager)
-    @portfolio.user_id = current_user.id
+  def create_manager_portfolio(league)
+    @portfolio = Portfolio.new(:capital => league.capital, :user_id => current_user,
+                               :margin => league.capital, :manager => true,
+                                :league_id => league.id)
   end
 end

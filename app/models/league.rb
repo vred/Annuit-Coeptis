@@ -1,7 +1,8 @@
 class League < ActiveRecord::Base
   require 'money'
   attr_accessible :commission, :end_date, :member_limit, :margin, :capital, :name,
-                  :private, :start_date, :creator_id, :count
+                  :private, :start_date, :creator_id
+  attr_readonly :portfolios_count
   has_many :portfolios, :dependent => :destroy
   has_many :users, :through => :portfolios
   has_many :orders, :through => :portfolios
@@ -15,7 +16,7 @@ class League < ActiveRecord::Base
 
   validates :name, :uniqueness => true, :presence => true
   validates :private, :inclusion => {:in => [true, false]}
-  validates :count, :presence => true, :numericality => { :less_than_or_equal_to => :member_limit }
+  validates :portfolios_count, :presence => true, :numericality => { :less_than_or_equal_to => :member_limit }
 
   validates :start_date, :presence => true
   validates :creator_id, :presence => true
@@ -23,15 +24,7 @@ class League < ActiveRecord::Base
   validate :end_date_greater_than_start_date
 
   def end_date_greater_than_start_date
-     :end_date > :start_date
-  end
-
-  def increment_users
-    self.count += 1
-  end
-
-  def decrement_users
-    self.count -= 1
+    :end_date > :start_date
   end
 
   #validates :capital, :numericality => { :only_integer => true,
