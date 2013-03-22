@@ -1,0 +1,64 @@
+<div class="tabbable">
+  <ul id="myTab" class="nav nav-tabs">
+    <li class="active"><a href="#tab1" data-toggle="tab">Market</a></li>
+    <li class=""><a href="#tab2" data-toggle="tab">Stop</a></li>
+    <li class=""><a href="#tab3" data-toggle="tab">Limit</a></li>
+  </ul>
+  <div id="myTabContent" class="tab-content">
+    <div class="tab-pane fade active in" id="tab1">
+      <%= form_for @market do |f| %>
+      <div>
+        <%=  f.label :quantity  %>
+        <%=  f.number_field :quantity %>
+      </div>
+      <div>
+        <%= f.radio_button("trade","type","buy" ) %>
+        <%= f.radio_button("trade","type","sell" ) %>
+        <%= f.radio_button("trade","type","short" ) %>
+        <%= f.radio_button("trade","type","cover" ) %>
+      </div>
+      <div>
+        <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
+      </div>
+      <% end  %>
+    </div>
+    <div class="tab-pane fade" id="tab2">
+      <%= form_for @stop do |f| %>
+      <div>
+        <%=  f.label :quantity  %>
+        <%=  f.number_field :quantity %>
+      </div>
+      <div>
+        <%= f.radio_button("trade","type","buy" ) %>
+        <%= f.radio_button("trade","type","sell" ) %>
+      </div>
+      <div>
+      	<%= f.label :valid_until %>
+      	<%= f.date_select :valid_until %>
+      </div>
+      <div>
+        <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
+      </div>
+      <% end  %>
+    </div>
+    <div class="tab-pane fade" id="tab3">
+      <%= form_for @limit do |f| %>
+      <div>
+        <%=  f.label :quantity  %>
+        <%=  f.number_field :quantity %>
+      </div>
+      <div>
+        <%= f.radio_button("trade","type","buy" ) %>
+        <%= f.radio_button("trade","type","sell" ) %>
+      </div>
+      <div>
+      	<%= f.label :valid_until %>
+      	<%= f.date_select :valid_until %>
+      </div>
+      <div>
+        <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
+      </div>
+      <% end  %>
+    </div>
+  </div>
+</div>
