@@ -24,7 +24,7 @@ class OrdersController < ApplicationController
   
   def check_league_is_open
     @league = League.find(params[:league_id])
-    if @league.end_date < Time.zone.now or @league.start_date > Time.zone.now
+    if @league.end_date < Date.today or @league.start_date > Date.today
       flash[:fail] = "This league is not currently open!"
       redirect_to :back
     end

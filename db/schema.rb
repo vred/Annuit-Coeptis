@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(:version => 20130217084534) do
     t.datetime "time_filled"
     t.datetime "expiration_date"
     t.boolean  "valid_order"
+    t.string   "trade_type"
     t.integer  "portfolio_id"
     t.integer  "league_id"
     t.datetime "created_at",                                  :null => false

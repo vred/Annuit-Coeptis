@@ -1,4 +1,4 @@
-class Markets < ActiveRecord::Base
+class Market < ActiveRecord::Base
   require 'money'
   attr_accessible :date, :name, :price
   monetize :price

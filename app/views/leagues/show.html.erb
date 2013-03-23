@@ -1,10 +1,16 @@
-<%= @league.id %>
-<%= @league.capital %>
-<%= @league.margin %>
-<%= @league.commission %>
-<%= @league.start_date %>
-<%= @league.end_date %>
+<h1><%= @league.name %></h1>
 
-<%= form_for [@league, @portfolio] do |f| %>
-    <%= f.submit "Join", class: "btn btn-large btn-primary" %>
+
+<%= will_paginate(@portfolios) %>
+
+<ul class="portfolios">
+  <%= render @portfolios %>
+</ul>
+
+<%= will_paginate(@portfolios) %>
+
+<% if @portfolio.id.nil? %>
+    <%= form_for [@league, @portfolio] do |f| %>
+        <%= f.submit "Join", class: "btn btn-large btn-primary" %>
+    <% end %>
 <% end %>

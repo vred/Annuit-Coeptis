@@ -10,6 +10,7 @@ class CreateOrders < ActiveRecord::Migration
       t.datetime :time_filled
       t.datetime :expiration_date
       t.boolean :valid_order
+      t.string :trade_type
 
       t.integer :portfolio_id
       t.integer :league_id

@@ -1,6 +1,6 @@
-class Orders < ActiveRecord::Base
+class Order < ActiveRecord::Base
   require 'money'
-  attr_accessible :time_filled, :ticker, :time_placed, :price_executed, :quantity, :type
+  attr_accessible :time_filled, :ticker, :time_placed, :price_executed, :quantity, :type, :trade_type
 
   validates :ticker, :presence => true, :length => { :maximum => 5 }
   validate :filled_date_greater_than_placed_date
@@ -21,14 +21,14 @@ class Orders < ActiveRecord::Base
   end
 end
 
-class MarketOrders < Orders
+class MarketOrders < Order
 
 end
 
-class StopOrders < Orders
+class StopOrders < Order
   attr_accessible :expiration_date, :threshold_price, :valid_order
 end
 
-class LimitOrders < Orders
+class LimitOrders < Order
   attr_accessible :expiration_date, :threshold_price, :valid_order
 end
