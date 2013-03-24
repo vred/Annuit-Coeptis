@@ -1,5 +1,4 @@
 class League < ActiveRecord::Base
-  require 'money'
   attr_accessible :commission, :end_date, :member_limit, :margin, :capital, :name,
                   :private, :start_date, :creator_id
   attr_readonly :portfolios_count
@@ -7,6 +6,11 @@ class League < ActiveRecord::Base
   has_many :users, :through => :portfolios
   has_many :orders, :through => :portfolios
 
+
+  # Monetize eliminates the need to have a composed_of translation
+  # also provides internal conversion
+  # internally, the database appends "_cents" to a monetized attribute
+  # depends on the Money and MoneyRails gems
   monetize :margin_cents, :numericality => { :greater_than_or_equal_to => 0,
       :less_than_or_equal_to => 1000000 }
   monetize :commission_cents, :numericality => { :greater_than_or_equal_to => 0,
@@ -26,34 +30,6 @@ class League < ActiveRecord::Base
   def end_date_greater_than_start_date
     :end_date > :start_date
   end
-
-  #validates :capital, :numericality => { :only_integer => true,
-  #                        :greater_than_or_equal_to => 1000.to_money,
-  #                        :less_than_or_equal_to => 1000000.to_money }
-  #validates :margin, :numericality => { :only_integer => true,
-  #                                       :greater_than_or_equal_to => 0.to_money,
-  #                                       :less_than_or_equal_to => :capital }
-  #validates :commission, :numericality => { :only_integer => true,
-  #                                       :greater_than_or_equal_to => 0.to_money,
-  #                                       :less_than_or_equal_to => 1000.to_money }
-
-  #composed_of :commission,
-  #            :class_name  => "Money",
-  #            :mapping     => [%w(commission cents)],
-  #            :constructor => Proc.new { |cents, currency| Money.new(cents || 0, Money.default_currency) },
-  #            :converter   => Proc.new { |value| value.respond_to?(:to_money) ? value.to_money : raise(ArgumentError, "Can't conver #{value.class} to Money") }
-  #
-  #composed_of :capital,
-  #            :class_name  => "Money",
-  #            :mapping     => [%w(capital cents)],
-  #            :constructor => Proc.new { |cents, currency| Money.new(cents || 0, Money.default_currency) },
-  #            :converter   => Proc.new { |value| value.respond_to?(:to_money) ? value.to_money : raise(ArgumentError, "Can't conver #{value.class} to Money") }
-  #
-  #composed_of :margin,
-  #            :class_name  => "Money",
-  #            :mapping     => [%w(margin cents)],
-  #            :constructor => Proc.new { |cents, currency| Money.new(cents || 0, Money.default_currency) },
-  #            :converter   => Proc.new { |value| value.respond_to?(:to_money) ? value.to_money : raise(ArgumentError, "Can't conver #{value.class} to Money") }
 
   private
 

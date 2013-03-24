@@ -3,8 +3,14 @@ class OrdersController < ApplicationController
   before_filter :authenticate_user!
   before_filter :check_league_is_open, only: [:new, :create]
 
+  # Very much a work in progress
   def create
+    @league = League.find(params[:league_id])
+    @portfolio = Portfolio.find(params[:portfolio_id])
     @order = Order.new(params[:order])
+    @order.league_id = @league.id
+    @order.portfolio_id = @portfolio.id
+
     if @order.save
       flash[:success] = "Order placed!"
     else

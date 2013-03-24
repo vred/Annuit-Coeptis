@@ -13,14 +13,15 @@ class PortfoliosController < ApplicationController
                                             :league_id => @league.id)
       if @portfolio.save
         flash[:success] = "Welcome to the league!"
-        redirect_to league_portfolio_url(:league_id => params[:league_id], :id => params[:id])
+        redirect_to league_url(params[:league_id])
       else
         flash[:fail] = "Sorry, you were unable to join this league."
-        redirect_to leagues_url(params[:league_id])
+        redirect_to league_url(params[:league_id])
       end
+    else
+      flash[:fail] = "You're already in the league!"
+      redirect_to :back
     end
-    flash[:fail] = "You're already in the league!"
-    redirect_to :back
   end
 
   # Implemented but not tested

@@ -6,16 +6,18 @@
   </ul>
   <div id="myTabContent" class="tab-content">
     <div class="tab-pane fade active in" id="tab1">
-      <%= form_for(@order) do |f| %>
+      <%= form_for :market_order, :url => league_portfolio_orders_path do |f| %>
+      <div>
+        <%= f.label :ticker %>
+        <%= f.text_field :ticker, :placeholder => "Enter company ticker" %>
+      </div>
       <div>
         <%=  f.label :quantity  %>
         <%=  f.number_field :quantity %>
       </div>
       <div>
-        <%= f.radio_button("trade","type","buy" ) %>
-        <%= f.radio_button("trade","type","sell" ) %>
-        <%= f.radio_button("trade","type","short" ) %>
-        <%= f.radio_button("trade","type","cover" ) %>
+        <%= f.label :trade_type, "What type of trade would you like?" %>
+        <%= f.select :trade_type, [["Buy", 'buy'], ["Sell",'sell'],["Short Sell",'short'],["Buy to Cover",'cover']] %>
       </div>
       <div>
         <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
@@ -23,18 +25,28 @@
       <% end  %>
     </div>
     <div class="tab-pane fade" id="tab2">
-      <%= form_for(@order,:url => order_path)  do |f| %>
+      <%= form_for :stop_order, :url => league_portfolio_orders_path  do |f| %>
+      <div>
+        <%= f.label :ticker %>
+        <%= f.text_field :ticker, :placeholder => "Enter company ticker" %>
+      </div>
       <div>
         <%=  f.label :quantity  %>
         <%=  f.number_field :quantity %>
       </div>
       <div>
-        <%= f.radio_button("trade","type","buy" ) %>
-        <%= f.radio_button("trade","type","sell" ) %>
+        <div>
+          <%= f.label :trade_type, "What type of trade would you like?" %>
+          <%= f.select :trade_type, [["Buy", 'buy'], ["Sell",'sell']] %>
+        </div>
       </div>
       <div>
-      	<%= f.label :valid_until %>
-      	<%= f.date_select :valid_until %>
+        <%= f.label :threshold_price, "At what price would you like this order triggered?" %>
+        <%= f.text_field :threshold_price %>
+      </div>
+      <div>
+      	<%= f.label :duration_valid, "How long would you like this order to remain valid?" %>
+      	<%= f.number_field :duration_valid, :in => 0..60 %>
       </div>
       <div>
         <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
@@ -42,18 +54,26 @@
       <% end  %>
     </div>
     <div class="tab-pane fade" id="tab3">
-      <%= form_for @order,:url => order_path do |f| %>
+      <%= form_for :limit_order, :url => league_portfolio_orders_path do |f| %>
+      <div>
+        <%= f.label :ticker %>
+        <%= f.text_field :ticker, :placeholder => "Enter company ticker" %>
+      </div>
       <div>
         <%=  f.label :quantity  %>
         <%=  f.number_field :quantity %>
       </div>
       <div>
-        <%= f.radio_button("trade","type","buy" ) %>
-        <%= f.radio_button("trade","type","sell" ) %>
+        <%= f.label :trade_type, "What type of trade would you like?" %>
+        <%= f.select :trade_type, [["Buy", 'buy'], ["Sell",'sell']] %>
       </div>
       <div>
-      	<%= f.label :valid_until %>
-      	<%= f.date_select :valid_until %>
+        <%= f.label :threshold_price, "At what price would you like this order triggered?" %>
+        <%= f.text_field :threshold_price %>
+      </div>
+      <div>
+      	<%= f.label :duration_valid, "How long would you like this order to remain valid?" %>
+        <%= f.number_field :duration_valid, :in => 0..60 %>
       </div>
       <div>
         <%= f.submit "Submit", class: "btn btn-large btn-primary" %>

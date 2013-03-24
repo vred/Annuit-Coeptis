@@ -4,8 +4,7 @@ AnnuitCoeptis::Application.routes.draw do
   resources :research, only: [:index, :create]
 
   resources :leagues do
-    resources :portfolios, only: [:create, :show,
-                                  :destroy] do
+    resources :portfolios, only: [:create, :show, :destroy] do
       resources :orders, only: [:create, :show, :new]
     end
   end

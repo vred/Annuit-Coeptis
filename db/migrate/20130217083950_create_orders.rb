@@ -8,7 +8,7 @@ class CreateOrders < ActiveRecord::Migration
       t.string :type
       t.datetime :time_placed
       t.datetime :time_filled
-      t.datetime :expiration_date
+      t.integer :duration_valid
       t.boolean :valid_order
       t.string :trade_type
 
