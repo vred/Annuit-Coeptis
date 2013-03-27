@@ -1,6 +1,6 @@
 <div id="topbar">
-	<div class="container">
-		<div id="top-nav">
+	<div class="container"> 
+    <div id="top-nav">
 			<ul class="pull-right">
 				<li><%= link_to "Sign up", new_user_registration_url %></li>
 				<li><%= link_to "Sign in", new_user_session_url %></li>
@@ -10,7 +10,7 @@
 </div> <!-- /#topbar -->
 <div id="header">
 	<div class="container">	
-		<a href="./index.html" class="brand">Dashboard Admin</a>	
+    <%= link_to image_tag("logo.png", :border=>0), root_path, :class=>"brand", :position=>"absolute"%>
 		</div> <!-- /.container -->	
 </div> <!-- /#header -->
 

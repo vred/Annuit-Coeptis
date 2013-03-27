@@ -1,24 +1,6 @@
 <div id="topbar">
 	<div class="container">
 		<div id="top-nav">
-			
-      <ul>
-				<li class="dropdown">
-					<ul class="dropdown-menu pull-right">
-						<li><a href="javascript:;">View Site #1</a></li>
-						<li><a href="javascript:;">View Site #2</a></li>
-						<li class="dropdown-submenu">
-		          <a tabindex="-1" href="#">Dropdown menu</a>
-		          <ul class="dropdown-menu">
-		            <li><a tabindex="-1" href="#">Second level link</a></li>
-		            <li><a tabindex="-1" href="#">Second level link</a></li>
-		            <li><a tabindex="-1" href="#">Second level link</a></li>
-		          </ul>
-		        </li>
-					</ul> 
-				</li>
-			</ul>
-			
 			<ul class="pull-right">
 				<li><a href="javascript:;"><i class="icon-user icon-white"></i> Logged in as <%= current_user.name.capitalize %></a></li>
 				<li><a href="javascript:;"><span class="badge badge-primary">1</span> New Message</a></li>
@@ -47,7 +29,7 @@
 
 <div id="header">
 	<div class="container">
-		<a href="./index.html" class="brand">Dashboard Admin</a>		
+    <%= link_to image_tag("logo.png", :border=>0), root_path, :class=>"brand", :position=>"absolute"%>
 		<a href="javascript:;" class="btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
       <i class="icon-reorder"></i>
     </a>
