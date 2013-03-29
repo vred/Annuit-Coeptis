@@ -11,15 +11,18 @@
 #
 # Copyright (c) 2006 Nicholas Rahn <nick at transparentech.com>
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-#     Red Edit
+# Red Edit (yfinadaptor.rb)
+# Homepage: TBA
 #    ----------
-# Copyright (c) 2013 Val A. Red <val.a.red at scarletmail.rutgers.edu>
-#   My edit bug fixes an error I encountered with the string. Fixed for the purposes of
+# Copyright (c) 2013 Val A. Red <val.a.red at rutgers.edu>
+#   My edit bug fixes an error encountered with the string that made. 
+# previous build incompatible with current Ruby versions. Fixed for the purposes of
 # being deployed on a student project website, capitalgam.es; a fantasy stock market league.
+#   Same licensing (GPL) still applies, below.
 #
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 # This software may be freely redistributed under the terms of the GNU
-# public license version 2.
+# public license version 3. !!! Amended. 
 #
 # This package is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -275,8 +278,31 @@ module YahooFinance
     def get_info()
       "#{symbol} : #{name}"
     end
-
+# Val A. Red: wrote a new to_s function that replaces the string writing with a hash containing all the fields necessary for
+#             API use within the website. 
     def to_s()
+      ret = Hash.new("rethash")
+      #ret << self.class.name << "\n"
+      @formathash.each_value { |val|
+        #Val A. Red: The below IF statement ORs all monetary values and converts them to
+        #           floats, multiplying them by 100 and then converting
+        #           them into integers (i.e. cents) to be compatible with the Money module
+        if (val[0]=="lastTrade" || val[0]=="changePoints" || val[0]=="previousClose" || val[0]=="open" || val[0]=="dayHigh" || val[0]=="dayLow" || val[0]=="bid" || val[0]=="ask" || val[0]=="weeks52ChangeFromLow" || val[0]=="weeks52ChangeFromHigh" || val[0]=="earningsPerShare" || val[0]=="bookValue" || val[0]=="pricePerBook" || val[0]=="pricePerSales" )
+          ret.store(val[0], (send( val[0] ).to_f*100).to_int)
+        elsif (val[0]=="changePercent" || val[0]=="shortRatio" || val[0]=="pegRatio" || val[0]=="peRatio")
+          ret.store(val[0], (send( val[0] ).to_f))
+        else
+          ret.store(val[0], send( val[0] ).to_s)
+        end
+        #ret << "\n"
+      }
+      puts ret["symbol"]
+      puts ret["name"]
+      puts ret["lastTrade"]
+      return ret
+    end
+
+    def to_s_old()
       ret = String.new
       ret << self.class.name << "\n"
       @formathash.each_value { |val|
