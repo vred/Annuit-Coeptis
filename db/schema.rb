@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(:version => 20130217084534) do
     t.string   "type"
     t.datetime "time_placed"
     t.datetime "time_filled"
-    t.datetime "expiration_date"
+    t.integer  "duration_valid"
     t.boolean  "valid_order"
     t.string   "trade_type"
     t.integer  "portfolio_id"

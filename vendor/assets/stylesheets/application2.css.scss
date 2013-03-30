@@ -108,9 +108,6 @@ ul.list li {
   font-size: 24px;
 }
 [class^="icon-"]:not(.ui-icon),
-[class*="icon-"]:not(.ui-icon) {
-  background: none;
-}
 .icon-white,
 .nav-tabs > .active > a > [class^="icon-"],
 .nav-tabs > .active > a > [class*=" icon-"],
@@ -124,7 +121,7 @@ ul.list li {
 .dropdown-menu > li > a:hover > [class*=" icon-"],
 .dropdown-menu > .active > a > [class^="icon-"],
 .dropdown-menu > .active > a > [class*=" icon-"] {
-  background-image: none;
+  background-image: image-url("white-icons.png");
 }
 /*------------------------------------------------------------------
  

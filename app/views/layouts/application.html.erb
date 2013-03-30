@@ -23,6 +23,14 @@
     height: 20px;
     width: 100px;
   }
+  #pageTitle
+  {
+    padding-top:3px;
+  }
+  .searchBar
+  {
+    margin-top:-10px;
+  }
   </style>
 
 </head>
@@ -38,7 +46,7 @@
 		<%= content_tag(:div,value,class:"alert alert-#{key}") %>
 	<% end %>
 	<%= yield %>
-	<%= debug(params) if Rails.env.development? %>
+  <%= debug(params) if Rails.env.development? %>
   <div class="push"></div></div> <!-- /#wrapper -->
 
 	<%= render 'layouts/footer' %>

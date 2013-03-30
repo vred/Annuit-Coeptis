@@ -33,7 +33,7 @@
 		<a href="javascript:;" class="btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
       <i class="icon-reorder"></i>
     </a>
-	
+    <!-- Buttons for navigating website -->	
 		<div class="nav-collapse">
 			<ul id="main-nav" class="nav pull-right">
 				<li class="nav-icon">
@@ -66,8 +66,13 @@
 		        </li>
 					</ul>    				
 				</li>
-				
-				<li class="dropdown active">					
+			  <!-- To make this active, use class "active" 
+             You may want to do that with the rails 
+             function down at the page description
+             so we can automatically detect the page
+             to have highlighted
+        -->	
+				<li class="dropdown">					
 					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
 						<i class="icon-book"></i>
 						<span>Learn</span> 
@@ -124,10 +129,10 @@
   <div class="container">
     <div class="masthead-pad">
       <div class="masthead-text span7">
-        <h2>Page</h2>
-        <p>Description</p>
+        <h2 id="pageTitle"><%= controller.controller_name %>.<%= controller.action_name %> </h2>
+        <p id="pageDescription">Description</p>
       </div>
-      <div class="span4 stufff"> 
+      <div class="span4 pull-right searchBar"> 
         <div class="input-append">
           <%= form_tag("/research", :method => "post") do %> 
           <%= label_tag(:ticker, "Ticker") %> 
