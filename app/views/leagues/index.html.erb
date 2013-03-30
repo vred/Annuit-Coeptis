@@ -15,7 +15,7 @@
     <% for league in @leags %>
       <tr>
         <td><%= league.id %></td>
-        <td><a href="<%=leagues_path(league.id)%>"><%= league.name  %></a></td>
+        <td><a href="<%=league_path(league.id)%>"><%= league.name  %></a></td>
         <td><%= league.portfolios_count %></td>
         <td><%= league.member_limit %></td>
       </tr>
