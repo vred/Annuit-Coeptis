@@ -1,6 +1,36 @@
+
+<div class="container">
+<% numLeagues = @leags.length %>
+<h1> There <% if numLeagues == 1 %>is<%else%>are<%end%> <%= numLeagues %> league<% if numLeagues != 1 %>s<%end%>. </h1>
+<table class="table table-bordered table-striped table-highlight">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Number of members</th>
+      <th>Member limit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for league in @leags %>
+      <tr>
+        <td><%= league.id %></td>
+        <td><a href="<%=leagues_path(league.id)%>"><%= league.name  %></a></td>
+        <td><%= league.portfolios_count %></td>
+        <td><%= league.member_limit %></td>
+      </tr>
+    <% end %>
+  </tbody>  
+  </tbody>
+</table>
+
+
+<!-- Leave this when we implement pagination
 <%= will_paginate %>
 
 <ul class="leagues">
     <%= render @leagues %>
 </ul>
 <%= will_paginate %>
+-->
+</div>
