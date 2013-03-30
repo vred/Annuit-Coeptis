@@ -1,10 +1,37 @@
 <% @title="All Users" %>
+<div class="container">
 <h1>Val Sucks</h1>
 
-<%= will_paginate %>
+<table class="table table-bordered table-striped table-highlight">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Account created</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for user in @us %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><a href="<%=user_path(user.id)%>"><%= user.name  %></a></td>
+        <td><%= user.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>  
+  </tbody>
+</table>
 
+
+<!-- For when we must paginate, here is the old data
+
+<%= will_paginate %>
 <ul class="users">
   <%= render @users %>
 </ul>
-
 <%= will_paginate %>
+
+-->
+
+
+</div>
