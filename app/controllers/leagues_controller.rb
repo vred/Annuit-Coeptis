@@ -36,6 +36,8 @@ class LeaguesController < ApplicationController
   # implemented and partially tested
   def show
      @league = League.find(params[:id])
+     @title = @league.name   
+
      # List of portfolios to render
      @portfolios = Portfolio.where(:league_id=>@league.id).paginate(:page=>params[:page], :per_page=>10)
      # Create a local portfolio if user isn't in league and decides to join
