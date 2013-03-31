@@ -1,3 +1,6 @@
+
+<!--
+
 <h2>Sign in</h2>
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
@@ -7,7 +10,7 @@
   <div><%= f.label :password %><br />
   <%= f.password_field :password %></div>
 
-  <% if devise_mapping.rememberable? -%>
+  <% if devise_mapping.rememberable? %>
     <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
   <% end -%>
 
@@ -15,3 +18,73 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+<body class="login">
+
+-->
+
+<div class="login">
+
+<div class="account-container login stacked">
+  
+  <div class="content clearfix">
+    
+    
+      <h1>Sign In</h1>    
+      
+      <div class="login-fields">
+
+        <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %> 
+        <p>Sign in using your registered account:</p>
+
+        <div class="field">
+          <%= f.label :email %>
+          <%= f.email_field :email, :placeholder=>"Email", :class=>"login username-field", :autofocus => true %>
+        </div> <!-- /field -->
+        
+        <div class="field">
+          <%= f.label :password %>
+          <%= f.password_field :password, :placeholder=>"Password", :class=>"login password-field", :autofocus => true %>
+        </div> <!-- /password -->
+        
+      </div> <!-- /login-fields -->
+      
+      <div class="login-actions">
+        
+        <span class="login-checkbox">
+                        
+          <% if devise_mapping.rememberable? -%>
+            <%= f.check_box :remember_me, :class=>"field login-checkbox" %> <%= f.label :remember_me, :class=>"choice" %>
+          <% end %>
+        </span>
+                  
+        <%= f.submit "Sign in", :class=>"button btn btn-primary btn-large" %>
+        <% end %>
+      </div> <!-- .actions -->
+      
+      <div class="login-social">
+        <p>Sign in using social network:</p>
+        
+        <div class="twitter">
+          <a href="#" class="btn_1">Login with Twitter</a>        
+        </div>
+        
+        <div class="fb">
+          <a href="#" class="btn_2">Login with Facebook</a>       
+        </div>
+      </div>
+      
+    
+  </div> <!-- /content -->
+  
+</div> <!-- /account-container -->
+
+
+<!-- Text Under Box -->
+<div class="login-extra">
+  <%= render "devise/shared/links" %>
+</div> <!-- /login-extra -->
+
+
+</div>
+
