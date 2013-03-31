@@ -12,5 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
-require_tree plugins
+//= require plugins/highstock.js
+//= require plugins/highcharts-more.js
+//= require_tree ./plugins/modules

@@ -1,16 +1,33 @@
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<div class="container">
+    <div class="row">
+      <div class="span4" style="vertical-align: middle; margin: 0 auto;">
+        <ul style="list-style:none">
+          <li>Company Title: </li>
+          <li>Ticker: </li>
+          <li>Today's Open: </li>
+          <li>Today's High: </li>
+          <li>Today's Low: </li>
+          <li>Current Price: </li>
+        </ul>
+      </div>
+
+      <div class="span8" id="simple_graph"></div>
+
+      <div class="span8" id="candlestick" style="display:none"></div>
+    </div>
+</div>
+
 <script type="text/javascript" charset="utf-8">
     $(function() {
         var chart = new Highcharts.StockChart({
-
             chart: {
-                renderTo: 'graph_div'
+                renderTo: 'simple_graph'
                 // alignTicks: true // by default
             },
 
             yAxis: {
                 title: {
-                    text: 'GOOGL'
+                    text: '<%= @ticker %>'
                 }
             },
 
@@ -19,11 +36,57 @@
             },
 
             series: [{
-                name: 'GOOGL',
-                data: [[10,10],[12,12]]
+                name: '<%= @ticker %>',
+                data: <%= @data %>
+            }]
+        });
+        var chart2 = new Highcharts.StockChart({
+            chart: {
+                renderTo: 'candlestick'
+                // alignTicks: true // by default
+            },
+
+            yAxis: {
+                title: {
+                    text: '<%= @ticker %>'
+                }
+            },
+
+            rangeSelector: {
+                selected: 1
+            },
+
+            series : [{
+                type : 'candlestick',
+                name : '<%= @ticker %>',
+                data : <%= @data_candlestick %>,
+                dataGrouping : {
+                    units : [
+                        ['week', // unit name
+                            [1] // allowed multiples
+                        ], [
+                            'month',
+                            [1, 2, 3, 4, 6]]
+                    ]
+                }
             }]
         });
     });
 </script>
 
-<div id="graph_div" style="height: 400px; min-width: 600px"></div>
+<a id="graph_switch" onclick="switchGraph()">Candlestick</a>
+               <script>
+                 function switchGraph(){
+                    if($("#simple_graph").is(":visible")){
+                        $("#simple_graph").hide();
+                        $("#candlestick").show();
+                        $("#graph_switch").text("Simple Graph")
+                    }
+                    else{
+                        $("#simple_graph").show();
+                        $("#candlestick").hide();
+                        $("#graph_switch").text("Candlestick")
+                    }
+
+                 }
+               </script>
