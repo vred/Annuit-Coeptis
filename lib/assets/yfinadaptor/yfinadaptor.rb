@@ -517,6 +517,16 @@ module YahooFinance
     YahooFinance.get_historical_quotes( symbol, startDate, endDate, &block )
   end
 
+  def YahooFinance.get_graph_data(ticker)
+    data = YahooFinance::get_historical_quotes_days(ticker, 1000)
+    return data.map{|new_data| [Time.parse(new_data[0]).to_i*1000, new_data[4].to_f]}.sort_by{|d| d[0]}
+  end
+
+  def YahooFinance.get_candlestick_data(ticker)
+    data = YahooFinance::get_historical_quotes_days(ticker, 1000)
+    return data.map{|new_data| [Time.parse(new_data[0]).to_i*1000, new_data[1].to_f, new_data[2].to_f, new_data[3].to_f, new_data[4].to_f]}.sort_by{|d| d[0]}
+  end
+
   def YahooFinance.get_HistoricalQuotes( symbol, startDate, endDate ) 
     ret = []
     YahooFinance.get_historical_quotes( symbol, startDate, endDate ) { |row|
