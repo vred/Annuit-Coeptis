@@ -7,7 +7,7 @@
 <h1 class="span2 or-text"><center>or</center></h1>
 <div class="span5 searchBar"> 
   <div class="input-append">
-    <%= form_tag("/leagues", :method => "get") do %> 
+    <%= form_tag("/league", :method => "post") do %> 
     <%= text_field_tag :filter,nil, :class=>"league-bar" %> 
     <input name="commit" class="btn" type="submit" value="Search for a League" />
     <% end %> 
@@ -15,7 +15,7 @@
 </div> <!-- span4 -->
 <% numLeagues = @leags.length %>
 <div class="span12">
-<h1> There <% if numLeagues == 1 %>is<%else%>are<%end%> <%= numLeagues %> league<% if numLeagues != 1 %>s<%end%><%if @filtered%> after filtering with "<%=params[:filter]%>"<%end%>. </h1>
+<h1> There <% if numLeagues == 1 %>is<%else%>are<%end%> <%= numLeagues %> league<% if numLeagues != 1 %>s<%end%>. </h1>
 <table class="table table-bordered table-striped table-highlight">
   <thead>
     <tr>
