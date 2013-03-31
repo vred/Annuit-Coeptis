@@ -7,9 +7,7 @@
         <%= f.submit "Join this League", class: "btn btn-primary btn-quarter fixedButtons" %>
     <% end %>
 <% else %>
-    <%= form_for [@league, @portfolio] do |f| %>
-        <%= f.submit "Leave this League", class: "btn btn-primary btn-quarter fixedButtons" %>
-    <% end %>
+  <%= button_to "Leave this League", league_portfolio_path(@league, @portfolio),:method=>:delete, :class=>"btn btn-primary btn-quarter fixedButtons" %>
 <% end %>
 
 </div>
@@ -19,7 +17,7 @@
       <td class="btn-table-cell top-cell">Members</td>
     </tr>
     <tr>
-      <td class="btn-table-cell bottom-cell"><%=@league.portfolios_count%></td>
+      <td class="btn-table-cell bottom-cell"><%=@portfolios.length%></td>
     </tr>
   </table>
 </div>

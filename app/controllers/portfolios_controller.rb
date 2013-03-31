@@ -29,8 +29,13 @@ class PortfoliosController < ApplicationController
     @portfolio = Portfolio.find(params[:id])
   end
 
-  # Currently not implemented
   def destroy
+    port = Portfolio.find(params[:id])
+    redir = port.league_id
+    if port.present?
+      port.delete
+    end
+    redirect_to league_url(redir)
   end
 
   protected
