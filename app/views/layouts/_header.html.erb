@@ -107,7 +107,7 @@
       <div class="span4 pull-right searchBar"> 
         <div class="input-append">
           <%= form_tag("/research", :method => "post") do %> 
-          <%= label_tag(:ticker, "Ticker") %> 
+          <div class="searchWhiteSpace"></div>
           <%= text_field_tag(:ticker) %> 
           <input name="commit" class="btn" type="submit" value="Search" />
           <% end %> 

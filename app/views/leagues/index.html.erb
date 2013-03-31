@@ -1,6 +1,20 @@
 
 <div class="container">
+<div class="whiteSpace"></div>
+<div class="span5">
+  <%= link_to "Create a league",new_league_path, :class=>"btn btn-primary btn-league" %>
+</div>
+<h1 class="span2 or-text"><center>or</center></h1>
+<div class="span5 searchBar"> 
+  <div class="input-append">
+    <%= form_tag("/research", :method => "post") do %> 
+    <%= text_field_tag :ticker,nil, :class=>"league-bar" %> 
+    <input name="commit" class="btn" type="submit" value="Search for a League" />
+    <% end %> 
+  </div> <!-- input-append -->
+</div> <!-- span4 -->
 <% numLeagues = @leags.length %>
+<div class="span12">
 <h1> There <% if numLeagues == 1 %>is<%else%>are<%end%> <%= numLeagues %> league<% if numLeagues != 1 %>s<%end%>. </h1>
 <table class="table table-bordered table-striped table-highlight">
   <thead>
@@ -23,7 +37,7 @@
   </tbody>  
   </tbody>
 </table>
-
+</div>
 
 <!-- Leave this when we implement pagination
 <%= will_paginate %>
