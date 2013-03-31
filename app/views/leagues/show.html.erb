@@ -1,3 +1,5 @@
+<div class="container">
+
 <h1><%= @league.name %></h1>
 
 
@@ -8,9 +10,11 @@
 </ul>
 
 <%= will_paginate(@portfolios) %>
-
+<div class="span3">
 <% if @portfolio.id.nil? %>
     <%= form_for [@league, @portfolio] do |f| %>
-        <%= f.submit "Join", class: "btn btn-large btn-primary" %>
+        <%= f.submit "Join this League", class: "btn btn-primary btn-quarter" %>
     <% end %>
 <% end %>
+</div>
+</div>
