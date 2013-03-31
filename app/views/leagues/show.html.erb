@@ -49,7 +49,7 @@
   <thead>
     <tr>
       <th>#</th>
-      <th>Name</th>
+      <th>User</th>
       <th>Account created</th>
     </tr>
   </thead>
@@ -57,7 +57,7 @@
     <% for portfolio in @portfolios %>
       <tr>
         <td><%= portfolio.id %></td>
-        <td><a href="<%=league_portfolio_path(portfolio.user_id)%>"><%if User.all[portfolio.user_id]%><%= User.all[portfolio.user_id].name  %><% end %></a></td>
+        <td><a href="<%=league_portfolio_path(portfolio.user_id)%>"><%if User.all[portfolio.user_id-1]%><%= User.all[portfolio.user_id-1].name  %><% end %></a></td>
         <td><%= portfolio.created_at %></td>
       </tr>
     <% end %>
