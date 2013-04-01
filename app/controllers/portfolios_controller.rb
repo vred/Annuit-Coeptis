@@ -42,7 +42,7 @@ class PortfoliosController < ApplicationController
 
   def check_league_not_full
     @league = League.find(params[:league_id])
-    if @league.member_limit < @league.portfolios_count
+    if @league.member_limit < Portfolio.where("league_id = ?", params[:league_id]).length
        flash[:fail] = "Sorry, that league is full!"
         redirect_to :back
     end
