@@ -2,12 +2,14 @@
     <div class="row">
       <div class="span4" style="vertical-align: middle; margin: 0 auto;">
         <ul style="list-style:none">
-          <li>Company Title: </li>
-          <li>Ticker: </li>
-          <li>Today's Open: </li>
-          <li>Today's High: </li>
-          <li>Today's Low: </li>
-          <li>Current Price: </li>
+          <li>Company: <%= @data_now.name %></li>
+          <li>Ticker: <%= @data_now.symbol %></li>
+          <li>Today's Open: $<%= number_with_precision(@data_now.open,:precision => 2) %></li>
+          <li>Today's High: $<%= number_with_precision(@data_now.dayHigh,:precision => 2) %></li>
+          <li>Today's Low: $<%= number_with_precision(@data_now.dayLow,:precision => 2) %></li>
+          <li>Last Trade: $<%= number_with_precision(@data_now.lastTrade,:precision => 2) %></li>
+          <li>Bid: $<%= number_with_precision(@data_now.bid,:precision => 2) %></li>
+          <li>Ask: $<%= number_with_precision(@data_now.ask,:precision => 2) %></li>
         </ul>
       </div>
 
@@ -37,7 +39,7 @@
 
             series: [{
                 name: '<%= @ticker %>',
-                data: <%= @data %>
+                data: <%= @data_simple %>
             }]
         });
         var chart2 = new Highcharts.StockChart({

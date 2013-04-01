@@ -6,8 +6,9 @@ class ResearchController < ApplicationController
 
   def create
     @ticker = params[:ticker].upcase
-    @data = YahooFinance::get_graph_data(@ticker)
+    @data_simple = YahooFinance::get_graph_data(@ticker)
     @data_candlestick = YahooFinance::get_candlestick_data(@ticker)
+    @data_now = YahooFinance::get_standard_quotes(@ticker)[@ticker]
   end
 
 end

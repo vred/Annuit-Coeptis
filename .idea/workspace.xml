@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\Nick\Documents\College\Spring 2013\Software Engineering\Annuit-Coeptis\app\assets\javascripts\plugins\highcharts-more.src.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nick\Documents\College\Spring 2013\Software Engineering\Annuit-Coeptis\app\assets\javascripts\plugins\highstock.src.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nick\Documents\College\Spring 2013\Software Engineering\Annuit-Coeptis\app\assets\javascripts\plugins\modules\canvas-tools.src.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nick\Documents\College\Spring 2013\Software Engineering\Annuit-Coeptis\app\assets\javascripts\plugins\modules\data.src.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nick\Documents\College\Spring 2013\Software Engineering\Annuit-Coeptis\app\assets\javascripts\plugins\modules\exporting.src.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Annuit-Coeptis.iml" afterPath="$PROJECT_DIR$/.idea/Annuit-Coeptis.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/research_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/research_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/research/create.html.erb" afterPath="$PROJECT_DIR$/app/views/research/create.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/assets/yfinadaptor/yfinadaptor.rb" afterPath="$PROJECT_DIR$/lib/assets/yfinadaptor/yfinadaptor.rb" />
     </list>
     <ignored path="Annuit-Coeptis.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,10 +52,10 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="create.html.erb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="create.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/research/create.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="28" selection-start="248" selection-end="248" vertical-scroll-proportion="-3.9230769">
+            <state line="14" column="82" selection-start="842" selection-end="842" vertical-scroll-proportion="0.44320297">
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -85,16 +77,16 @@
       <file leaf-file-name="research_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/research_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="24" selection-start="283" selection-end="283" vertical-scroll-proportion="0.0">
+            <state line="5" column="27" selection-start="104" selection-end="104" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="yfinadaptor.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="yfinadaptor.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/assets/yfinadaptor/yfinadaptor.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="223" column="21" selection-start="8140" selection-end="8140" vertical-scroll-proportion="0.26857144">
+            <state line="524" column="64" selection-start="17357" selection-end="17357" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -121,8 +113,10 @@
       <file leaf-file-name="portfolios_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/portfolios_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="21" selection-start="1279" selection-end="1279" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="44" column="21" selection-start="1396" selection-end="1396" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1364791539050" expanded="true" signature="26:1526" placeholder=" ... end" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -1338,13 +1332,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/orders/_orders.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -1377,8 +1364,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/portfolios_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="21" selection-start="1279" selection-end="1279" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="44" column="21" selection-start="1396" selection-end="1396" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1364791539050" expanded="true" signature="26:1526" placeholder=" ... end" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1396,28 +1385,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/research/create.html.erb">
+    <entry file="file://$PROJECT_DIR$/lib/assets/yfinadaptor/yfinadaptor.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="28" selection-start="248" selection-end="248" vertical-scroll-proportion="-3.9230769">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state line="524" column="64" selection-start="17357" selection-end="17357" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/research_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="24" selection-start="283" selection-end="283" vertical-scroll-proportion="0.0">
+        <state line="5" column="27" selection-start="104" selection-end="104" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/assets/yfinadaptor/yfinadaptor.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/research/create.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="223" column="21" selection-start="8140" selection-end="8140" vertical-scroll-proportion="0.26857144">
-          <folding />
+        <state line="14" column="82" selection-start="842" selection-end="842" vertical-scroll-proportion="0.44320297">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
