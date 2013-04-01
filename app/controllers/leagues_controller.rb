@@ -46,7 +46,7 @@ class LeaguesController < ApplicationController
      # List of portfolios to render
      @portfolios = Portfolio.where(:league_id=>@league.id).paginate(:page=>params[:page], :per_page=>10)
      # Create a local portfolio if user isn't in league and decides to join
-     @portfolio = Portfolio.find_by_user_id(current_user.id)
+     @portfolio = Portfolio.where("user_id = ? AND league_id = ?",current_user.id, @league.id).first
      @portfolio = @league.portfolios.build if @portfolio.nil?
   end
 
