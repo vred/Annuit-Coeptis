@@ -20,9 +20,11 @@
       <td class="btn-table-cell bottom-cell"><%=@data_now.lastTrade%>
         <% if @data_now.changePoints > 0 %>
           <span style="color: green; font-size: .7em;"> &#9650; <%= @data_now.changePoints %> (<%= @data_now.changePercent %>%) </span>
-        <% else %>
+        <% elsif @data_now.changePoints < 0 %>
           <span style="color: red; font-size: .7em;"> &#9660; <%= @data_now.changePoints %> (<%= @data_now.changePercent %>%) </span>
-        <% end %>
+        <% else %>
+            <span style="font-size: .7em;"> <%= @data_now.changePoints %> (<%= @data_now.changePercent %>%) </span>
+      <% end %>
       </td>
     </tr>
   </table>
@@ -48,29 +50,34 @@
   </table>
   </div>
   <div class="span12 whiteSpace"></div>
-
-  <div class="span11" id="simple_graph"></div>
-
-  <div class="span11" id="candlestick" style="display:none"></div>
-
-  <div class="span4" style="vertical-align: middle; margin: 0 auto;">
-    More Information: <br>
+  <div class="span1"> <!-- EMPTY --> </div>
+  <div class="span2">
+    Daily Statistics: <br>
     <table>
       <tr>
-        <td style="font-weight:bold">Today's Open:</td> <td>$<%= number_with_precision(@data_now.open,:precision => 2) %></td>
+        <td style="font-weight:bold">Open:</td> <td>$<%= number_with_precision(@data_now.open,:precision => 2) %></td>
       </tr>
       <tr class="green_table_row" style="background-color: #D2E8CF;">
-        <td style="font-weight:bold">Today's High:</td> <td>$<%= number_with_precision(@data_now.dayHigh,:precision => 2) %></td>
+        <td style="font-weight:bold">High:</td> <td>$<%= number_with_precision(@data_now.dayHigh,:precision => 2) %></td>
       </tr>
       <tr>
-        <td style="font-weight:bold">Today's Low:</td> <td>$<%= number_with_precision(@data_now.dayLow,:precision => 2) %></td>
+        <td style="font-weight:bold">Low:</td> <td>$<%= number_with_precision(@data_now.dayLow,:precision => 2) %></td>
+      </tr>
+      <tr class="green_table_row" style="background-color: #D2E8CF;">
+        <td style="font-weight:bold">Volume:</td> <td><%= @data_now.volume %></td>
+      </tr>
+      <tr>
+        <td style="font-weight:bold">Avg. Volume:</td> <td><%= @data_now.averageDailyVolume %></td>
       </tr>
     </table>
+    <br>
+    Switch graph: <a class="btn btn-primary btn-mini" id="graph_switch" onclick="switchGraph()">Candlestick</a>
+
   </div>
-  <div class="span4"> <!-- EMPTY --> </div>
-  <div class="span4" style="text-align: right;">
-    <a id="graph_switch" onclick="switchGraph()">Candlestick</a>
-  </div>
+
+  <div class="span8" id="simple_graph"></div>
+
+  <div class="span8" id="candlestick" style="display:none"></div>
 </div>
 
 <script type="text/javascript" charset="utf-8">
