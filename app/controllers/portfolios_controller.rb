@@ -30,12 +30,17 @@ class PortfoliosController < ApplicationController
   end
 
   def destroy
-    port = Portfolio.find(params[:id])
-    redir = port.league_id
-    if port.present?
+    #Get the portfolio we want to remove
+    port = Portfolio.find_by_id(params[:id])
+
+    #Find out if it has already been removed (If someone presses it twice)
+    if port != nil
+      #If not, delete it
       port.delete
     end
-    redirect_to league_url(redir)
+
+    #Go back to the league page
+    redirect_to league_url(params[:league_id])
   end
 
   protected
