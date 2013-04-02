@@ -14,6 +14,10 @@ class StaticPagesController < ApplicationController
     @title = "Learn"
   end
 
+  def settings
+    @title = "My settings"
+  end
+
   def about
     @title = "About"
   end
