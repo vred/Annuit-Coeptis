@@ -56,13 +56,13 @@
     More Information: <br>
     <table>
       <tr>
-        <td><strong>Today's Open:</strong></td> <td>$<%= number_with_precision(@data_now.open,:precision => 2) %></td>
+        <td style="font-weight:bold">Today's Open:</td> <td>$<%= number_with_precision(@data_now.open,:precision => 2) %></td>
       </tr>
       <tr class="green_table_row" style="background-color: #D2E8CF;">
-        <td><strong>Today's High:</strong></td> <td>$<%= number_with_precision(@data_now.dayHigh,:precision => 2) %></td>
+        <td style="font-weight:bold">Today's High:</td> <td>$<%= number_with_precision(@data_now.dayHigh,:precision => 2) %></td>
       </tr>
       <tr>
-        <td><strong>Today's Low:</strong></td> <td>$<%= number_with_precision(@data_now.dayLow,:precision => 2) %></td>
+        <td style="font-weight:bold">Today's Low:</td> <td>$<%= number_with_precision(@data_now.dayLow,:precision => 2) %></td>
       </tr>
     </table>
   </div>
