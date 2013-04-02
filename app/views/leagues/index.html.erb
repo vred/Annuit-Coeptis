@@ -5,11 +5,11 @@
   <%= link_to "Create a league",new_league_path, :class=>"btn btn-primary btn-league" %>
 </div>
 <h1 class="span2 or-text"><center>or</center></h1>
-<div class="span5 searchBar"> 
+<div class="span5"> 
   <div class="input-append">
     <%= form_tag("/leagues", :method => "get") do %> 
-    <%= text_field_tag :filter,nil, :class=>"league-bar" %> 
-    <input name="commit" class="btn" type="submit" value="Search for a League" />
+    <%= text_field_tag :filter,nil, :class=>"league-bar", :placeholder=>"Search for a league" %> 
+    <input name="commit" class="btn" type="submit" value="Go!" />
     <% end %> 
   </div> <!-- input-append -->
 </div> <!-- span4 -->
