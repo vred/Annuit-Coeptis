@@ -1,22 +1,75 @@
+<% @title = @data_now.name %>
+<div class="whiteSpace"></div>
 <div class="container">
-    <div class="row">
-      <div class="span4" style="vertical-align: middle; margin: 0 auto;">
-        <ul style="list-style:none">
-          <li>Company: <%= @data_now.name %></li>
-          <li>Ticker: <%= @data_now.symbol %></li>
-          <li>Today's Open: $<%= number_with_precision(@data_now.open,:precision => 2) %></li>
-          <li>Today's High: $<%= number_with_precision(@data_now.dayHigh,:precision => 2) %></li>
-          <li>Today's Low: $<%= number_with_precision(@data_now.dayLow,:precision => 2) %></li>
-          <li>Last Trade: $<%= number_with_precision(@data_now.lastTrade,:precision => 2) %></li>
-          <li>Bid: $<%= number_with_precision(@data_now.bid,:precision => 2) %></li>
-          <li>Ask: $<%= number_with_precision(@data_now.ask,:precision => 2) %></li>
-        </ul>
-      </div>
+  <div class="span3">
+    <table class="btn-table">
+      <tr class="cell-height">
+        <td class="btn-table-cell top-cell">Symbol</td>
+      </tr>
+      <tr>
+        <td class="btn-table-cell bottom-cell"><%=@ticker%></td>
+      </tr>
+    </table>
+  </div>
+  <div class="span3">
+  <table class="btn-table">
+    <tr class="cell-height">
+      <td class="btn-table-cell top-cell">Last Trade</td>
+    </tr>
+    <tr>
+      <td class="btn-table-cell bottom-cell"><%=@data_now.lastTrade%>
+        <% if @data_now.changePoints > 0 %>
+          <span style="color: green; font-size: .7em;"> &#9650; <%= @data_now.changePoints %> (<%= @data_now.changePercent %>%) </span>
+        <% else %>
+          <span style="color: red; font-size: .7em;"> &#9660; <%= @data_now.changePoints %> (<%= @data_now.changePercent %>%) </span>
+        <% end %>
+      </td>
+    </tr>
+  </table>
+  </div>
+  <div class="span3">
+  <table class="btn-table">
+    <tr class="cell-height">
+      <td class="btn-table-cell top-cell">Bid</td>
+    </tr>
+    <tr>
+      <td class="btn-table-cell bottom-cell"><%=number_with_precision(@data_now.bid,:precision => 2)%></td>
+    </tr>
+  </table>
+  </div>
+  <div class="span3">
+  <table class="btn-table">
+    <tr class="cell-height">
+      <td class="btn-table-cell top-cell">Ask</td>
+    </tr>
+    <tr>
+      <td class="btn-table-cell bottom-cell"><%=number_with_precision(@data_now.ask,:precision => 2)%></td>
+    </tr>
+  </table>
+  </div>
 
-      <div class="span8" id="simple_graph"></div>
+  <div class="span12" id="simple_graph"></div>
 
-      <div class="span8" id="candlestick" style="display:none"></div>
-    </div>
+  <div class="span12" id="candlestick" style="display:none"></div>
+
+  <div class="span4" style="vertical-align: middle; margin: 0 auto;">
+    More Information: <br>
+    <table>
+      <tr>
+        <td><strong>Today's Open:</strong></td> <td>$<%= number_with_precision(@data_now.open,:precision => 2) %></td>
+      </tr>
+      <tr class="green_table_row" style="background-color: #D2E8CF;">
+        <td><strong>Today's High:</strong></td> <td>$<%= number_with_precision(@data_now.dayHigh,:precision => 2) %></td>
+      </tr>
+      <tr>
+        <td><strong>Today's Low:</strong></td> <td>$<%= number_with_precision(@data_now.dayLow,:precision => 2) %></td>
+      </tr>
+    </table>
+  </div>
+  <div class="span4"> <!-- EMPTY --> </div>
+  <div class="span4" style="text-align: right;">
+    <a id="graph_switch" onclick="switchGraph()">Candlestick</a>
+  </div>
 </div>
 
 <script type="text/javascript" charset="utf-8">
@@ -76,7 +129,6 @@
     });
 </script>
 
-<a id="graph_switch" onclick="switchGraph()">Candlestick</a>
                <script>
                  function switchGraph(){
                     if($("#simple_graph").is(":visible")){

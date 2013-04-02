@@ -3,39 +3,38 @@
   <component name="ChangeListManager">
     <list default="true" id="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/research_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/research_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/research/create.html.erb" afterPath="$PROJECT_DIR$/app/views/research/create.html.erb" />
     </list>
     <ignored path="Annuit-Coeptis.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Gemfile" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1363827429040" ignored="false" />
-    <file path="/README.md" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1360553516027" ignored="false" />
-    <file path="/Dummy.txt" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1363993539936" ignored="false" />
-    <file path="/user_spec.rb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1363795684117" ignored="false" />
-    <file path="/user.rb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1363735866820" ignored="false" />
-    <file path="/league_spec.rb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1363983046046" ignored="false" />
-    <file path="/seeds.rb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1363796466765" ignored="false" />
-    <file path="/factories.rb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1363821706386" ignored="false" />
-    <file path="/league.rb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1363983149231" ignored="false" />
-    <file path="/portfolio.rb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1363986045779" ignored="false" />
-    <file path="/20130217083733_create_leagues.rb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1363981597307" ignored="false" />
-    <file path="/Ruby Console" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1364000708985" ignored="false" />
-    <file path="/application.rb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1363824439234" ignored="false" />
-    <file path="/20130217084534_create_markets.rb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1363828055064" ignored="false" />
-    <file path="/20130217083950_create_orders.rb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1364001524321" ignored="false" />
-    <file path="/20130217082840_create_portfolios.rb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1363831959058" ignored="false" />
-    <file path="/markets.rb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1363828259567" ignored="false" />
-    <file path="/orders.rb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1363842155548" ignored="false" />
-    <file path="/20130215220023_devise_create_users.rb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1363830279183" ignored="false" />
-    <file path="/leagues_controller.rb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1363999864610" ignored="false" />
-    <file path="/new.html.erb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1364002005443" ignored="false" />
-    <file path="/show.html.erb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1363999080652" ignored="false" />
-    <file path="/orders_controller.rb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1364001993644" ignored="false" />
-    <file path="/portfolios_controller.rb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1363999661699" ignored="false" />
-    <file path="/_portfolio.html.erb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1363997799618" ignored="false" />
-    <file path="/routes.rb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1363999925914" ignored="false" />
-    <file path="/order.rb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1364001495048" ignored="false" />
     <file path="/temp.rb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1364002664443" ignored="false" />
+    <file path="/order.rb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1364001495048" ignored="false" />
+    <file path="/routes.rb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1363999925914" ignored="false" />
+    <file path="/_portfolio.html.erb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1363997799618" ignored="false" />
+    <file path="/portfolios_controller.rb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1363999661699" ignored="false" />
+    <file path="/orders_controller.rb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1364001993644" ignored="false" />
+    <file path="/show.html.erb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1363999080652" ignored="false" />
+    <file path="/new.html.erb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1364002005443" ignored="false" />
+    <file path="/leagues_controller.rb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1363999864610" ignored="false" />
+    <file path="/20130215220023_devise_create_users.rb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1363830279183" ignored="false" />
+    <file path="/orders.rb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1363842155548" ignored="false" />
+    <file path="/markets.rb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1363828259567" ignored="false" />
+    <file path="/20130217082840_create_portfolios.rb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1363831959058" ignored="false" />
+    <file path="/20130217083950_create_orders.rb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1364001524321" ignored="false" />
+    <file path="/20130217084534_create_markets.rb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1363828055064" ignored="false" />
+    <file path="/application.rb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1363824439234" ignored="false" />
+    <file path="/Ruby Console" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1364000708985" ignored="false" />
+    <file path="/20130217083733_create_leagues.rb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1363981597307" ignored="false" />
+    <file path="/portfolio.rb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1363986045779" ignored="false" />
+    <file path="/league.rb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1363983149231" ignored="false" />
+    <file path="/factories.rb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1363821706386" ignored="false" />
+    <file path="/seeds.rb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1363796466765" ignored="false" />
+    <file path="/league_spec.rb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1363983046046" ignored="false" />
+    <file path="/user.rb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1363735866820" ignored="false" />
+    <file path="/user_spec.rb" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1363795684117" ignored="false" />
+    <file path="/Dummy.txt" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1363993539936" ignored="false" />
+    <file path="/README.md" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1360553516027" ignored="false" />
+    <file path="/Gemfile" changelist="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" time="1363827429040" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,12 +54,24 @@
       <file leaf-file-name="create.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/research/create.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="82" selection-start="842" selection-end="842" vertical-scroll-proportion="0.44320297">
+            <state line="55" column="26" selection-start="1752" selection-end="1752" vertical-scroll-proportion="0.38358778">
               <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#td#0;n#tr#1;n#table#0;n#div#1;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#1;n#td#0;n#tr#1;n#table#0;n#div#1;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#5;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#6;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#tr#1;n#table#0;n#div#6;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#8;n#div#1;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="show.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/leagues/show.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="21" selection-start="1" selection-end="32" vertical-scroll-proportion="7.1923075">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -77,7 +88,7 @@
       <file leaf-file-name="research_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/research_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="27" selection-start="104" selection-end="104" vertical-scroll-proportion="0.0">
+            <state line="5" column="0" selection-start="104" selection-end="104" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -86,7 +97,7 @@
       <file leaf-file-name="yfinadaptor.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/assets/yfinadaptor/yfinadaptor.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="524" column="64" selection-start="17357" selection-end="17357" vertical-scroll-proportion="0.0">
+            <state line="524" column="47" selection-start="17357" selection-end="17357" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -101,22 +112,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="new.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/leagues/new.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="106" selection-start="258" selection-end="258" vertical-scroll-proportion="-7.1923075">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="portfolios_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/portfolios_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state line="44" column="21" selection-start="1396" selection-end="1396" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1364791539050" expanded="true" signature="26:1526" placeholder=" ... end" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -198,7 +198,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+    <navigator currentView="Scope" currentSubView="Project Files" proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -210,8 +210,16 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="RailsProjectView" />
       <pane id="Scope">
-        <subPane subId="Project Files" />
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
       </pane>
       <pane id="ProjectPane">
         <subPane>
@@ -675,20 +683,19 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="RailsProjectView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="preferences.general" />
-    <property name="ChangesBrowser.SHOW_FLATTEN" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/spec/models" />
+    <property name="ChangesBrowser.SHOW_FLATTEN" value="false" />
+    <property name="options.lastSelected" value="preferences.sourceCode.General" />
     <property name="restartRequiresConfirmation" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/spec/models" />
     <property name="RakeTaksPopup.undocumentedIncluded" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -941,6 +948,13 @@
       <IRB_RUN_CONFIG NAME="IS_RAILS_CONSOLE" VALUE="false" />
       <method />
     </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Remote" singleton="true">
+      <JSRemoteDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSRemoteDebuggerConfigurationSettings>
+      <method />
+    </configuration>
     <configuration default="true" type="CucumberRunConfigurationType" factoryName="Cucumber">
       <predefined_log_file id="RUBY_CUCUMBER" enabled="true" />
       <module name="" />
@@ -970,13 +984,6 @@
       <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="CUCUMBER_RUNNER_PATH" VALUE="" />
       <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_RUNNER" VALUE="false" />
       <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="SETTINGS_VERSION" VALUE="2" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugSession" factoryName="Remote" singleton="true">
-      <JSRemoteDebuggerConfigurationSettings>
-        <option name="engineId" value="embedded" />
-        <option name="fileUrl" />
-      </JSRemoteDebuggerConfigurationSettings>
       <method />
     </configuration>
     <configuration default="false" name="bundle exec rspec" type="RSpecRunConfigurationType" factoryName="RSpec">
@@ -1229,10 +1236,9 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298647" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32730263" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.67105263" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23560606" sideWeight="0.67269737" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23939393" sideWeight="0.67269737" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3995943" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32730263" sideWeight="0.49772036" order="7" side_tool="true" content_ui="tabs" />
@@ -1241,6 +1247,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32730263" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32894737" sideWeight="0.4969605" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1306,68 +1313,69 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/db/migrate/20130215220023_devise_create_users.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20130217082840_create_portfolios.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20130217083733_create_leagues.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/leagues/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="106" selection-start="258" selection-end="258" vertical-scroll-proportion="-7.1923075">
+        <state line="11" column="106" selection-start="258" selection-end="258" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/orders/_orders.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/leagues_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="58" selection-start="786" selection-end="786" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="23" column="58" selection-start="786" selection-end="786" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/users/_user.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="26" selection-start="64" selection-end="64" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="2" column="26" selection-start="64" selection-end="64" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/plugins/highcharts-more.js">
       <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20130217084534_create_markets.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="95" selection-start="45" selection-end="157" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/portfolios_controller.rb">
+    <entry file="file://$PROJECT_DIR$/lib/assets/yfinadaptor/yfinadaptor.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="21" selection-start="1396" selection-end="1396" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1364791539050" expanded="true" signature="26:1526" placeholder=" ... end" />
-          </folding>
+        <state line="524" column="47" selection-start="17357" selection-end="17357" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/research_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="0" selection-start="104" selection-end="104" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1378,41 +1386,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20130217084534_create_markets.rb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/portfolios_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="95" selection-start="45" selection-end="157" vertical-scroll-proportion="0.0">
+        <state line="44" column="21" selection-start="1396" selection-end="1396" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/assets/yfinadaptor/yfinadaptor.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/leagues/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="524" column="64" selection-start="17357" selection-end="17357" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/research_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="27" selection-start="104" selection-end="104" vertical-scroll-proportion="0.0">
+        <state line="1" column="21" selection-start="1" selection-end="32" vertical-scroll-proportion="7.1923075">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/research/create.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="82" selection-start="842" selection-end="842" vertical-scroll-proportion="0.44320297">
+        <state line="55" column="26" selection-start="1752" selection-end="1752" vertical-scroll-proportion="0.38358778">
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#td#0;n#tr#1;n#table#0;n#div#1;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#td#0;n#tr#1;n#table#0;n#div#1;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#5;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#6;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#tr#1;n#table#0;n#div#6;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#8;n#div#1;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
