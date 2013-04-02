@@ -1,18 +1,21 @@
 <div id="topbar">
 	<div class="container">
+	  <a href="javascript:;" id="menu-trigger" class="dropdown-toggle" data-toggle="dropdown" data-target="#">
+      <i class="icon-cog"></i>
+    </a>
 		<div id="top-nav">
-			<ul class="pull-right">
-				<li><a href="javascript:;"><i class="icon-user icon-white"></i> Logged in as <%= current_user.name.split(' ').map {|w| w.capitalize }.join(' ') %></a></li>
+      <ul class="pull-right">
+				<li><a href="<%= user_path(current_user.id) %>"><i class="icon-user icon-white"></i> Logged in as <%= current_user.name.split(' ').map {|w| w.capitalize }.join(' ') %></a></li>
 				<li><a href="javascript:;"><span class="badge badge-primary">1</span> New Message</a></li>
 				<li class="dropdown">
 					<a href="./pages/settings.html" class="dropdown-toggle" data-toggle="dropdown">Account<b class="caret"></b>
 					</a>
 					
 					<ul class="dropdown-menu pull-right">
-						<li><a href="javascript:;">My Portfolio</a></li>
-						<li><a href="javascript:;">Settings</a></li>
+						<li><a href="<%= user_path(current_user.id) %>">My Portfolios</a></li>
+						<li><a href="<%= settings_path %>">Settings</a></li>
 						<li><a href="javascript:;">Friends</a></li>
-						<li><a href="javascript:;">Help</a></li>
+						<li><a href="<%= help_path %>">Help</a></li>
 					</ul> 
 				</li>
 				<li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>

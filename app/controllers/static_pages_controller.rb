@@ -1,5 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
+    #If the user is signed in, redirect to the dashboard
     if current_user
       redirect_to dashboard_path
     end
@@ -12,6 +13,10 @@ class StaticPagesController < ApplicationController
   
   def learn
     @title = "Learn"
+  end
+
+  def settings
+    @title = "My settings"
   end
 
   def about

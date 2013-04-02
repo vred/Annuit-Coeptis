@@ -25,13 +25,23 @@ class LeaguesController < ApplicationController
 
   # implemented and partially tested
   def index
-      @leags = League.all
-      @filtered = false
-      if params[:filter] != nil
-        @leags = League.where("name LIKE ?", "%"+params[:filter]+"%")
-        @filtered = true
-      end
-      @leagues = League.where(:private => false).paginate(:page => params[:page])
+    #Get an array of all leagues
+    @leags = League.all
+    
+    #Set a variable to false for later
+    @filtered = false
+
+    #If we are filtering, we want to go in here
+    if params[:filter] != nil
+      #Lessen the array we had according to the filter set
+      @leags = League.where("name LIKE ?", "%"+params[:filter]+"%")
+
+      #Set the variable from before to true so we know that we did infact filter.
+      @filtered = true
+    end
+
+    #Save this for later just incase we want to paginate with different pages
+    @leagues = League.where(:private => false).paginate(:page => params[:page])
   end
 
   # not implemented
