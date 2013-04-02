@@ -2,6 +2,8 @@ AnnuitCoeptis::Application.routes.draw do
   devise_for :users
   resources :users, only: [:index, :show]
   resources :research, only: [:index, :create]
+  match 'dashboard' => 'static_pages#dashboard', :format => false
+  match 'learn' => 'static_pages#learn', :format => false
 
   resources :leagues do
     resources :portfolios, only: [:create, :show, :destroy] do

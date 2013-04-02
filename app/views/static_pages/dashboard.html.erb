@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="span3">
+    <div class="whiteSpace"></div>
+    <h2>Leagues</h2>
+    <div class="searchWhiteSpace span12"></div>
+    <div class="span3">
+      <%= link_to "Create a league",new_league_path, :class=>"btn btn-primary btn-league" %>
+    </div>
+    <div class="whiteSpace span12"></div>
+      <h1 class="span3 or-text"><center>or</center></h1>
+    <div class="whiteSpace span12"></div>
+      <div class="span3 searchDashboard">
+        <div class="input-append">
+          <%= form_tag("/leagues", :method => "get") do %> 
+          <%= text_field_tag :filter,nil, :placeholder => "Search for a league" %>
+          <input name="commit" class="btn" type="submit" value="Go!" />
+          <% end %>        
+        </div> <!-- input-append -->
+      </div> <!-- span5 -->
+    </div> <!-- whiteSpace --> 
+  </div> <!-- span3 -->
+</div> <!-- container --> 
