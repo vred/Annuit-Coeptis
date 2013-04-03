@@ -105,7 +105,7 @@
     <div class="masthead-pad">
       <div class="masthead-text span7">
         <h2 id="pageTitle"><% if @title %><%= @title %><%else%><%= controller.controller_name %>.<%= controller.action_name %><%end%> </h2>
-        <p id="pageDescription">Description</p>
+        <p id="pageDescription"><% if @description %><%= @description %><%else%>Description<%end%> </p>
       </div>
       <div class="span4 pull-right searchBar"> 
         <div class="input-append">
