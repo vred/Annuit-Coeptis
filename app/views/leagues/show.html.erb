@@ -66,7 +66,11 @@
 <div class="span6">
   <div class="input-append">
   <%= form_for(Comment.new) do |f| %>
-    <%= f.text_field :comment %>
+    <% if @focus %>
+      <%= f.text_field :comment, :autofocus => true %>
+    <% else %>
+      <%= f.text_field :comment %>
+    <% end %>
     <%= f.hidden_field :location_id, :value => @league.id %>
     <%= f.hidden_field :comment_type, :value => 1 %>
     <%= f.submit "Send", :class=>"btn" %>
