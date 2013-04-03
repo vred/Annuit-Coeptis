@@ -25,12 +25,18 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(params[:message])
     @message.senderID = current_user.id
-    @message.recipientID = User.where("name = ?", @message.username).first.id
+    if User.where("name = ?", @message.username).exists?
+      @message.recipientID = User.where("name = ?", @message.username).first.id
+    else
+      flash[:fail] = "Sorry, that user doesn't exist!"
+      @message.delete
+      render 'new'
+      return
+    end
     @message.date = DateTime.now
     if @message.save
       # Flash a success message
       flash[:success] = "Sent your message!"
-      # Send them to the league
       redirect_to @message
     else
       @message.delete
