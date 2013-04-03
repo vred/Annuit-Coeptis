@@ -27,7 +27,13 @@
 	<% end %> 
 
 	<% flash.each do |key,value| %>
-		<%= content_tag(:div,value,class:"alert alert-#{key}") %>
+
+        <%= if !value.instance_of?(Array)
+             content_tag(:div,value,:class => "alert alert-#{key}");
+           else
+             ul_list_content_tags(value,"alert alert-#{key}");
+           end
+        %>
 	<% end %>
 	<%= yield %>
   <%= debug(params) if Rails.env.development? %>

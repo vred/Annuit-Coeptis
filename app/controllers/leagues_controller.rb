@@ -6,19 +6,26 @@ class LeaguesController < ApplicationController
       @league = League.new(params[:league])
       @league.creator_id = current_user.id
       # attempt to save league so as to get its id
-      @league.save
-      # Need to reload to get the league id back after the save
-      @league.reload
-      # Create the signed in user's portfolio as a league manager
-      @portfolio = create_manager_portfolio(@league)
-      if @portfolio.save
-        # Flash a success message
-        flash[:success] = "Created your league!"
-        # Send them to the league
-        redirect_to @league
+      if @league.save == true
+        # Need to reload to get the league id back after the save
+        @league.reload
+        # Create the signed in user's portfolio as a league manager
+        @portfolio = create_manager_portfolio(@league)
+        if @portfolio.save
+          # Flash a success message
+          flash[:success] = "Created your league!"
+          # Send them to the league
+          redirect_to @league
+        else
+          logger.info("Portfolio creation failed.")
+          @league.delete
+          flash[:fail] = "Sorry, portfolio couldn't be created."
+          render 'new'
+        end
       else
-        @league.delete
-        flash[:fail] = "Sorry, that didn't work!"
+        logger.info(@league.errors.full_messages)
+        logger.info("League creation failed.")
+        flash[:fail] = @league.errors.full_messages;
         render 'new'
       end
   end
