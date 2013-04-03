@@ -1,0 +1,15 @@
+<%= form_for(@message) do |f| %>
+
+  <div>
+    <%= f.label :senderID %>
+    <%= f.text_field :senderID %>
+  </div>
+  <div>
+    <%= f.label :message %>
+    <%= f.text_field :message %>
+  </div>
+  <div>
+    <%= f.submit "Send", :class=>"btn btn-large btn-primary" %>
+  </div>
+
+<% end  %>
