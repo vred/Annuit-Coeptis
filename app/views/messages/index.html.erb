@@ -1,28 +1,22 @@
 <h1>Listing messages</h1>
-
-<table>
+<div class="container">
+<table class="table table-bordered table-striped table-highlight">
+  <thead>
   <tr>
-    <th>Message</th>
-    <th>Senderid</th>
-    <th>Recipientid</th>
-    <th>Date</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Name</th>
+    <th>ID</th>
   </tr>
-
-<% @messages.each do |message| %>
+  </thead>
+  <tbody>
+<% @conversations.each do |conversation| %>
   <tr>
-    <td><%= message.message %></td>
-    <td><%= message.senderID %></td>
-    <td><%= message.recipientID %></td>
-    <td><%= message.date %></td>
-    <td><%= link_to 'Show', message %></td>
-    <td><%= link_to 'Edit', edit_message_path(message) %></td>
-    <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><a href="<%=message_path(Message.select("id").where("(senderID = ? AND recipientID = ?) OR (senderID = ? AND recipientID = ?)",conversation,current_user.id,current_user.id,conversation).map(&:id).last)%>"><%= conversation.name %></a></td>
+    <td><%= conversation.id %></td>
   </tr>
 <% end %>
+  </tbody>
 </table>
+</div
 
 <br />
 
