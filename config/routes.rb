@@ -1,4 +1,7 @@
 AnnuitCoeptis::Application.routes.draw do
+  resources :comments
+
+
   resources :messages
 
 

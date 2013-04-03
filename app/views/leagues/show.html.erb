@@ -62,6 +62,22 @@
   </tbody>  
   </tbody>
 </table>
+<div class="span1"></div>
+<div class="span6">
+  <div class="input-append">
+  <%= form_for(Comment.new) do |f| %>
+    <%= f.text_field :comment %>
+    <%= f.hidden_field :location_id, :value => @league.id %>
+    <%= f.hidden_field :comment_type, :value => 1 %>
+    <%= f.submit "Send", :class=>"btn" %>
+  <% end %>
+  </div>
+  <% for comment in Comment.where("location_id = ? AND comment_type = ?", @league.id, 1).reverse %>
+    <div class="commentsFix"><span style="font-weight:600;"><%=User.find(comment.user_id).name%></span>: <%=comment.comment%></div>
+  <% end %>
+</div>
+
+
 <!-- Save for later for pagination
 <h1><%= @league.name %></h1>
 <%= will_paginate(@portfolios) %>

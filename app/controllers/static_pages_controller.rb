@@ -8,6 +8,9 @@ class StaticPagesController < ApplicationController
   end
 
   def dashboard
+    if !current_user
+      redirect_to root_path
+    end
     @title = "Dashboard"
   end
   
@@ -16,6 +19,9 @@ class StaticPagesController < ApplicationController
   end
 
   def settings
+    if !current_user
+      redirect_to root_path
+    end
     @title = "My settings"
   end
 
@@ -24,6 +30,9 @@ class StaticPagesController < ApplicationController
   end
 
   def help
+    if !current_user
+      redirect_to root_path
+    end
     @title = "Help and FAQ"
   end
 
