@@ -8,6 +8,9 @@ class OrdersController < ApplicationController
     @league = League.find(params[:league_id])
     @portfolio = Portfolio.find(params[:portfolio_id])
     @order = Order.new(params[:order])
+	# change "duration_valid" to "experiation_date" using the datetime emthods
+	unless @order.type == "Market"	
+		@order.expiration_date = params[:order][:duration_valid].days.from_now
     @order.league_id = @league.id
     @order.portfolio_id = @portfolio.id
 
