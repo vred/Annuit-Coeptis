@@ -37,14 +37,17 @@
 		  <%= render 'layouts/headersignedout' %>
 	  <% end %> 
 
-	  <% flash.each do |key,value| %>
-		  <%= content_tag(:div,value,class:"alert alert-#{key}") %>
+  	<% flash.each do |key,value| %>
+    <%   if !value.instance_of?(Array) %>
+    <%     content_tag(:div,value,:class => "alert alert-#{key}"); %>
+    <%   else %>
+    <%     ul_list_content_tags(value,"alert alert-#{key}"); %>
+    <%   end %>
 	  <% end %>
-	  
-    <%= yield %>
+	  <%= yield %>
     <%= debug(params) if Rails.env.development? %>
-    <div class="push"></div></div> <!-- /#wrapper -->
-
+    <div class="push"></div>
+  </div> <!-- /#wrapper -->
 	<%= render 'layouts/footer' %>
 </body>
 </html>
