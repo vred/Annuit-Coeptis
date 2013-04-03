@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/helpers/view_helper.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/orders/#Untitled-1#" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Annuit-Coeptis.iml" afterPath="$PROJECT_DIR$/.idea/Annuit-Coeptis.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/leagues_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/leagues_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/leagues/new.html.erb" afterPath="$PROJECT_DIR$/app/views/leagues/new.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/_header.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/_header.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/static_pages/dashboard.html.erb" afterPath="$PROJECT_DIR$/app/views/static_pages/dashboard.html.erb" />
     </list>
     <ignored path="Annuit-Coeptis.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -98,10 +104,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="leagues_controller.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="leagues_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/leagues_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="84" selection-start="355" selection-end="355" vertical-scroll-proportion="0.0">
+            <state line="31" column="29" selection-start="1083" selection-end="1083" vertical-scroll-proportion="0.93605685">
               <folding />
             </state>
           </provider>
@@ -116,10 +122,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="new.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="new.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/messages/new.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="30" selection-start="101" selection-end="101" vertical-scroll-proportion="0.12662943">
+            <state line="10" column="123" selection-start="199" selection-end="199" vertical-scroll-proportion="-6.5384617">
               <folding />
             </state>
           </provider>
@@ -173,7 +179,6 @@
         <option value="$PROJECT_DIR$/lib/assets/yfinadaptor/yfinadaptor.rb" />
         <option value="$PROJECT_DIR$/app/controllers/research_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/research/create.html.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/leagues_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/messages/_form.html.erb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/views/leagues/new.html.erb" />
@@ -181,6 +186,7 @@
         <option value="$PROJECT_DIR$/db/migrate/20130402235517_create_messages.rb" />
         <option value="$PROJECT_DIR$/app/models/message.rb" />
         <option value="$PROJECT_DIR$/app/views/messages/new.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/leagues_controller.rb" />
       </list>
     </option>
   </component>
@@ -1568,13 +1574,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/leagues_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="84" selection-start="355" selection-end="355" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/leagues/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="63" selection-start="42" selection-end="42" vertical-scroll-proportion="8.115385">
@@ -1619,7 +1618,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/messages/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="30" selection-start="101" selection-end="101" vertical-scroll-proportion="0.12662943">
+        <state line="10" column="123" selection-start="199" selection-end="199" vertical-scroll-proportion="-6.5384617">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/leagues_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="29" selection-start="1083" selection-end="1083" vertical-scroll-proportion="0.93605685">
           <folding />
         </state>
       </provider>

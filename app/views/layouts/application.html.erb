@@ -1,38 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <!-- Set up page header -->
   <title><%= @title %> <% if @description %>| <%= @description %> <%end%></title>
+
+  <!-- Load some predefined stuff from shim.html.erb --> 
   <%= render 'layouts/shim' %>
+
+  <!-- Set up some mobile support information -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<meta name="apple-mobile-web-app-capable" content="yes">
   
+  <!-- Include all of our css and javascript files -->
   <%= stylesheet_link_tag  "application", "application2","http://fonts.googleapis.com/css?family=Open+Sans:400,600,800",  "ui-lightness/jquery-ui-1.8.21.custom","global","pages/pricing",:media => "all" %>
-
   <%= javascript_include_tag "application", "bootstrap", "libs/jquery.ui.touch-punch.min", "libs/modernizr-2.5.3.min", "libs/jquery-ui-1.8.21.custom.min", "Theme" %>
   
+  <!-- Different stylesheet if we're in the homepage --> 
   <% if @title=="Home" %>
  		<%= stylesheet_link_tag "homepage" %>
   <% end %>  
 
+  <!-- Helps protect from forgery -->
   <%= csrf_meta_tags %>
-
-
 </head>
+
 <body>
-<div id="wrapper">
-	<% if current_user %>
-		<%= render 'layouts/header' %>
-	<% else %>
-		<%= render 'layouts/headersignedout' %>
-	<% end %> 
+  <!-- Allows for correct spacing from our page to our footer --> 
+  <div id="wrapper">
+    
+    <!-- If you are signed in, load the normal header --> 
+	  <% if current_user %>
+		  <%= render 'layouts/header' %>
 
-	<% flash.each do |key,value| %>
-		<%= content_tag(:div,value,class:"alert alert-#{key}") %>
-	<% end %>
-	<%= yield %>
-  <%= debug(params) if Rails.env.development? %>
-  <div class="push"></div></div> <!-- /#wrapper -->
+    <!-- If you're not, load the header for those who are not logged in -->
+	  <% else %>
+		  <%= render 'layouts/headersignedout' %>
+	  <% end %> 
 
+  	<% flash.each do |key,value| %>
+    <%   if !value.instance_of?(Array) %>
+    <%     content_tag(:div,value,:class => "alert alert-#{key}"); %>
+    <%   else %>
+    <%     ul_list_content_tags(value,"alert alert-#{key}"); %>
+    <%   end %>
+	  <% end %>
+	  <%= yield %>
+    <%= debug(params) if Rails.env.development? %>
+    <div class="push"></div>
+  </div> <!-- /#wrapper -->
 	<%= render 'layouts/footer' %>
 </body>
 </html>

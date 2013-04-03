@@ -6,7 +6,7 @@
 		<div id="top-nav">
       <ul class="pull-right">
 				<li><a href="<%= user_path(current_user.id) %>"><i class="icon-user icon-white"></i> Logged in as <%= current_user.name.split(' ').map {|w| w.capitalize }.join(' ') %></a></li>
-				<li><a href="javascript:;"><span class="badge badge-primary">1</span> New Message</a></li>
+				<li><a href="<%= messages_path %>"><span class="badge badge-primary">1</span> New Message</a></li>
 				<li class="dropdown">
 					<a href="./pages/settings.html" class="dropdown-toggle" data-toggle="dropdown">Account<b class="caret"></b>
 					</a>
@@ -105,7 +105,7 @@
     <div class="masthead-pad">
       <div class="masthead-text span7">
         <h2 id="pageTitle"><% if @title %><%= @title %><%else%><%= controller.controller_name %>.<%= controller.action_name %><%end%> </h2>
-        <p id="pageDescription">Description</p>
+        <p id="pageDescription"><% if @description %><%= @description %><%else%>Description<%end%> </p>
       </div>
       <div class="span4 pull-right searchBar"> 
         <div class="input-append">
