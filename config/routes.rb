@@ -1,4 +1,7 @@
 AnnuitCoeptis::Application.routes.draw do
+  resources :messages
+
+
   devise_for :users
   resources :users, only: [:index, :show]
   resources :research, only: [:index, :create]

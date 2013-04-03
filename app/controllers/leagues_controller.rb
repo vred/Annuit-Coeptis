@@ -10,7 +10,7 @@ class LeaguesController < ApplicationController
       # Need to reload to get the league id back after the save
       @league.reload
       # Create the signed in user's portfolio as a league manager
-      @portfolio = create_manager_portfolio(@league)
+      @portfolio = create_manager_portfolio+(@league)
       if @portfolio.save
         # Flash a success message
         flash[:success] = "Created your league!"

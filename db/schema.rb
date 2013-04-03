@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130217084534) do
+ActiveRecord::Schema.define(:version => 20130402235517) do
 
   create_table "leagues", :force => true do |t|
     t.string   "name"
@@ -40,6 +40,15 @@ ActiveRecord::Schema.define(:version => 20130217084534) do
     t.string   "price_currency", :default => "USD", :null => false
     t.datetime "created_at",                        :null => false
     t.datetime "updated_at",                        :null => false
+  end
+
+  create_table "messages", :force => true do |t|
+    t.string   "message"
+    t.integer  "senderID"
+    t.integer  "recipientID"
+    t.datetime "date"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "orders", :force => true do |t|
