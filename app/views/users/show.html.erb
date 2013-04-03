@@ -1,4 +1,24 @@
+<div class = "container">
 <% @title=@user.name+"'s Profile" %>
 
-<%= @user.name%>
-<%= @user.id %>
+<div class="span6">
+  <div class="whiteSpace"></div>
+  <h2>Comments</h2>
+  <div class="whiteSpace"></div>
+  <div class="input-append">
+  <%= form_for(Comment.new) do |f| %>
+    <% if @focus %>
+      <%= f.text_field :comment, :autofocus => true %>
+    <% else %>
+      <%= f.text_field :comment %>
+    <% end %>
+    <%= f.hidden_field :location_id, :value => @user.id %>
+    <%= f.hidden_field :comment_type, :value => 2 %>
+    <%= f.submit "Send", :class=>"btn" %>
+  <% end %>
+  </div>
+  <% for comment in Comment.where("location_id = ? AND comment_type = ?", @user.id, 2).reverse %>
+    <div class="commentsFix"><span style="font-weight:600;"><%=User.find(comment.user_id).name%></span>: <%=comment.comment%></div>
+  <% end %>
+</div>
+</div>

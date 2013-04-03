@@ -57,6 +57,9 @@ class LeaguesController < ApplicationController
 
   # implemented and partially tested
   def show
+      if flash[:focus] == true
+        @focus = true
+      end
      @league = League.find(params[:id])
      @title = @league.name   
 

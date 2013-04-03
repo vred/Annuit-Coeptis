@@ -21,15 +21,16 @@ class CommentsController < ApplicationController
     @comment = Comment.new(params[:comment])
     @comment.posted_at = DateTime.now
     @comment.user_id = current_user.id
+    flash[:focus] = true
     
 
     respond_to do |format|
       if @comment.save
         if @comment.comment_type == 1
           format.html { redirect_to league_url(@comment.location_id), notice: 'Comment was successfully posted' }
-        elsif
+        elsif @comment.comment_type == 2
           format.html { redirect_to user_url(@comment.location_id), notice: 'Comment was successfully posted' }
-        elsif
+        elsif @comment.commene_type == 3
           format.html { redirect_to league_url(@comment.location_id), notice: 'Comment was successfully posted' }
         end
 

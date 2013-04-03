@@ -2,7 +2,7 @@
 
     <div>
         <%= f.label :name %>
-        <%= f.text_field :name %>
+        <%= f.text_field :name, :placeholder => "Enter League name" %>
     </div>
     <div>
           <%= f.label :private %>
@@ -14,15 +14,15 @@
     </div>
     <div>
           <%= f.label :capital %>
-          <%= f.text_field :capital %>
+          <%= f.number_field :capital, :value => "", :placeholder => "Between 10000 and 1000000", :in => 10000..1000000 %>
     </div>
     <div>
         <%= f.label :commission %>
-        <%= f.text_field :commission %>
+        <%= f.number_field :commission, :value => "", :placeholder => "Between 0 and 10000", :in => 0..10000 %>
     </div>
     <div>
         <%= f.label :margin %>
-        <%= f.text_field :margin  %>
+        <%= f.number_field :margin, :value => "", :placeholder => "Between 0 and 100000", :in => 0..1000000  %>
     </div>
 
     <div>

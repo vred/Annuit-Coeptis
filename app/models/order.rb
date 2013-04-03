@@ -2,7 +2,7 @@ class Order < ActiveRecord::Base
   require 'money'
   attr_accessible :time_filled, :ticker, :price_executed, :quantity, :type,
                   :trade_type, :portfolio_id, :league_id
-  attr_readable :created_at
+  attr_reader :created_at
 
   validates :ticker, :presence => true, :length => { :maximum => 5 }
   validate :filled_date_greater_than_placed_date
