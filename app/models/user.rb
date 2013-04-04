@@ -14,4 +14,23 @@ class User < ActiveRecord::Base
 
   validates :name, :length => { :minimum => 4, :maximum => 50 }
   # attr_accessible :title, :body
+
+
+
+  #Sorts a set of userIDs by date of the last message sent between them and the current user
+  def self.sort_conversations(users,current_user)
+
+    temp_array = []
+
+    users.each do |user|
+      msg = Message.where("(senderID = ? AND recipientID = ?) OR (senderID = ? AND recipientID = ?)",current_user.id,user,user,current_user.id).last
+      temp_array.push([msg.date,user]) unless msg.nil?
+    end
+
+    temp_array.sort_by! {|x| x[0]}
+
+    return temp_array.map{|new| new[1]}.reverse
+
+  end
+
 end

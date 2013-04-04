@@ -9,7 +9,7 @@ class MessagesController < ApplicationController
     messages2 = messages2.map(&:senderID)
     messages = messages.concat(messages2)
     userids = userids & messages
-    @conversations = User.find(userids)
+    @conversations = User.sort_conversations(User.find(userids),current_user)
   end
 
   def show
@@ -17,10 +17,10 @@ class MessagesController < ApplicationController
     # Choose the messages that are between the current user and the message to be shown
     # This will create a "conversation" of all the messages these two users have sent between one another
     if message.senderID == current_user.id
-      @set_of_msg = Message.where("senderID = ? OR recipientID = ?",message.recipientID,message.recipientID).reverse
+      @set_of_msg = Message.where("(senderID = ? AND recipientID = ?) OR (senderID = ? AND recipientID = ?)",message.recipientID,current_user.id,current_user.id,message.recipientID).reverse
       @recipient = message.recipientID
     elsif message.recipientID == current_user.id
-      @set_of_msg = Message.where("senderID = ? OR recipientID = ?",message.senderID,message.senderID).reverse
+      @set_of_msg = Message.where("(senderID = ? AND recipientID = ?) OR (senderID = ? AND recipientID = ?)",message.senderID,current_user.id,current_user.id,message.senderID).reverse
       @recipient = message.senderID
     else
       flash[:fail] = "Something went wrong!"
