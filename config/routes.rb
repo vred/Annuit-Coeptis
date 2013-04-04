@@ -1,9 +1,7 @@
 AnnuitCoeptis::Application.routes.draw do
   resources :comments
 
-
   resources :messages
-
 
   devise_for :users
   resources :users, only: [:index, :show]

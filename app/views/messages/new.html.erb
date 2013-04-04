@@ -1,8 +1,13 @@
 <%= form_for(@message) do |f| %>
 
   <div>
-    <%= f.label :username %>
-    <%= f.text_field :username %>
+    <% if @send_to != nil %>
+      <%= f.label :username %>
+      <%= f.text_field :username, :value => User.select("name").where("id = ?",@send_to).map(&:name)[0] %>
+    <% else %>
+      <%= f.label :username %>
+      <%= f.text_field :username %>
+    <% end %>
   </div>
   <div>
     <%= f.label :message %>

@@ -1,6 +1,13 @@
 <div class = "container">
 <% @title=@user.name+"'s Profile" %>
 
+  <div class="span5">
+    <%= link_to "Send a message",new_message_path(:send_to => @user.id),:class=>"btn btn-primary" %>
+  </div>
+
+
+  </div>
+
 <div class="span6">
   <div class="whiteSpace"></div>
   <h2>Comments</h2>

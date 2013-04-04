@@ -1,25 +1,32 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Message:</b>
-  <%= @message.message %>
-</p>
+<h1>Listing messages</h1>
+<div class="container">
+  <div class="input-append">
+    <%= form_for(Message.new) do |f| %>
+      <%= f.text_field :message, :autofocus => true %>
+      <%= f.hidden_field :date, :value => DateTime.now %>
+      <%= f.hidden_field :senderID, :value => current_user.id %>
+      <%= f.hidden_field :recipientID, :value => @recipient %>
+      <%= f.hidden_field :username, :value => User.select("name").where("id = ?",@recipient).map(&:name)[0] %>
+      <%= f.submit "Send", :class=>"btn" %>
+    <% end %>
+  </div>
 
-<p>
-  <b>Senderid:</b>
-  <%= @message.senderID %>
-</p>
+  <% @set_of_msg.each do |message| %>
+    <div class="span2">
+      <%= message.date.strftime("%b %d %I:%M%p") %>:
+    </div>
+    <div class="span10">
+      <%= message.message %> <br>
+      <span style="font-size:.7em; color:#a9a9a9;">Sent by: <%= User.select("name").where("id = ?",message.senderID).map(&:name)[0] %></span>
+      <br>
+    </div>
+  <% end %>
 
-<p>
-  <b>Recipientid:</b>
-  <%= @message.recipientID %>
-</p>
+</div>
 
-<p>
-  <b>Date:</b>
-  <%= @message.date %>
-</p>
+<br />
 
 
-<%= link_to 'Edit', edit_message_path(@message) %> |
 <%= link_to 'Back', messages_path %>
