@@ -16,7 +16,7 @@
   .btn-quarter
   {
     width: 95% !important;
-    padding: 24px 14px;
+    padding: 24px 0px;
     font-size: 20px;
     line-height: normal;
     -webkit-border-radius: 5px;
@@ -32,6 +32,31 @@
     margin-left:2.5%;
     margin-right:2.5%;
   }
+  .modal
+  {
+    top: 40%;
+  }
+  .modal-body
+  {
+    max-height: 520px;
+  }
+  .modal-fieldset
+  {
+    width: 90%;
+    padding-right: 20px;
+  }
+    .modal-fieldset .control-label{
+      width: 180px;
+    }
+    .modal-fieldset .controls{
+      margin-left: 205px;
+    }
+      .modal-fieldset .controls input[type=radio], .modal-fieldset .controls input[type=submit]{
+        width: auto;
+      }
+      .modal-fieldset .controls input, .modal-fieldset .controls select{
+        width: 100%;
+      }
   .whiteSpace
   { 
     height:15px;

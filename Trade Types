@@ -1,0 +1,21 @@
+Trade Types
+ - Buy
+  - Unrestricted, only restricted by your capital
+ - Sell
+  - Restricted by how many you currently have
+ - Short (Type of Sell)
+   - Selling a stock which you don't even have
+   - Restricted by your margin
+ - Cover (Type of Buy)
+   - Buying to exit the debt that you created when you make a short sale
+   - Need to have enough cash to buy stocks & need to have stocks you borrowed
+
+ Order Types
+ - Market
+  - Place it now, goes through immediately
+ - Limit
+  - Say how long it is valid
+  - Set threshold above which you want a certain thing to be sold
+  - Triggers, but only executes within the threshold
+ - Stop
+  - Converts itself into market order immediately when condition is met
