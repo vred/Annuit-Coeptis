@@ -4,9 +4,7 @@
     <list default="true" id="28dc9ab7-66c7-4663-8c18-5cf56672fdf3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/messages_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/messages_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/messages_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/messages_helper.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/message.rb" afterPath="$PROJECT_DIR$/app/models/message.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/static_pages_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/static_pages_controller.rb" />
     </list>
     <ignored path="Annuit-Coeptis.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -54,19 +52,28 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="messages_controller.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="messages_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/messages_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="31" selection-start="1332" selection-end="1332" vertical-scroll-proportion="0.0">
+            <state line="18" column="33" selection-start="740" selection-end="740" vertical-scroll-proportion="0.18545455">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="static_pages_controller.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/static_pages_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="43" column="32" selection-start="706" selection-end="706" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/user.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="47" selection-start="1120" selection-end="1120" vertical-scroll-proportion="0.77272725">
+            <state line="31" column="47" selection-start="1120" selection-end="1120" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -168,7 +175,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/messages/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/views/leagues/new.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/leagues_controller.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20130402235517_create_messages.rb" />
@@ -182,8 +188,9 @@
         <option value="$PROJECT_DIR$/app/views/static_pages/permission_denied.html.erb" />
         <option value="$PROJECT_DIR$/app/models/message.rb" />
         <option value="$PROJECT_DIR$/app/helpers/messages_helper.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/messages_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/static_pages_controller.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/messages_controller.rb" />
       </list>
     </option>
   </component>
@@ -1635,13 +1642,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/leagues/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="0" selection-start="56" selection-end="171" vertical-scroll-proportion="-1.9615384">
@@ -1660,15 +1660,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="87" selection-start="189" selection-end="189" vertical-scroll-proportion="-3.2692308">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/messages/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="107" selection-start="440" selection-end="501" vertical-scroll-proportion="-6.5384617">
-          <folding>
-            <element signature="n#style#0;n#span#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1744,16 +1735,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/messages_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="31" selection-start="1332" selection-end="1332" vertical-scroll-proportion="0.0">
+        <state line="31" column="47" selection-start="1120" selection-end="1120" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/messages/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="47" selection-start="1120" selection-end="1120" vertical-scroll-proportion="0.77272725">
+        <state line="10" column="107" selection-start="440" selection-end="501" vertical-scroll-proportion="-6.5384617">
+          <folding>
+            <element signature="n#style#0;n#span#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/static_pages_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="32" selection-start="706" selection-end="706" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/messages_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="33" selection-start="740" selection-end="740" vertical-scroll-proportion="0.18545455">
           <folding />
         </state>
       </provider>

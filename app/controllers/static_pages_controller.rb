@@ -39,4 +39,9 @@ class StaticPagesController < ApplicationController
   def contact
     @title = "Contact Us"
   end
+
+  def permission_denied
+    @title = "Permission denied"
+  end
+
 end

@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
 
   def index
+    @title = "Conversations"
     userids = User.select("id")
     userids = userids.map(&:id)
     messages = Message.select("recipientID").where("senderID = ?",current_user.id)
@@ -14,6 +15,11 @@ class MessagesController < ApplicationController
 
   def show
     message = Message.find(params[:id])
+    unless message.senderID == current_user.id || message.recipientID == current_user.id
+      @title = "Permission denied"
+      render 'static_pages/permission_denied'
+      return
+    end
     # Choose the messages that are between the current user and the message to be shown
     # This will create a "conversation" of all the messages these two users have sent between one another
     if message.senderID == current_user.id
@@ -25,10 +31,13 @@ class MessagesController < ApplicationController
     else
       flash[:fail] = "Something went wrong!"
       render 'new'
+      return
     end
+    @title = "Conversation with "+User.select("name").where("id = ?",@recipient).map(&:name)[0]
   end
 
   def new
+    @title = "Compose new message"
     @message = Message.new
     @send_to = params[:send_to]
   end
@@ -55,5 +64,4 @@ class MessagesController < ApplicationController
       render 'new'
     end
   end
-
 end
