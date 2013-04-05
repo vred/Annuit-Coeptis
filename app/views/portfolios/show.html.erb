@@ -1,5 +1,23 @@
 <% @title = current_user.name+"'s portfolio for "+ League.find(@portfolio.league_id).name %>
 <% @description = "" %>
+<div class = "whiteSpace"></div>
 <div class = "container">
-<%= @portfolio.capital %>
+  <table class = "span3">
+    <tr>
+      <td style="font-weight:bold">Capital:</td> <td><%=@portfolio.capital%></td>
+    </tr>
+    <tr class="green_table_row" style="background-color: #D2E8CF;">
+      <td style="font-weight:bold">Last updated:</td> <td><%= @portfolio.updated_at %></td>
+    </tr>
+    <tr>
+      <td style="font-weight:bold">Margin:</td> <td><%= @portfolio.margin %></td>
+    </tr>
+    <tr class="green_table_row" style="background-color: #D2E8CF;">
+      <td style="font-weight:bold">Rank:</td> <td>N/A</td>
+    </tr>
+  </table>
+  <div class="span1"></div>
+  <div class="span8">
+    <h2>Recent Orders:</h2>
+  </div>
 </div>

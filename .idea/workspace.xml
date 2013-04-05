@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83663fdd-cff2-478c-902c-df2c5b12be88" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/order.rb" afterPath="$PROJECT_DIR$/app/models/order.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/static_pages/dashboard.html.erb" afterPath="$PROJECT_DIR$/app/views/static_pages/dashboard.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Project.iml" afterPath="$PROJECT_DIR$/.idea/Project.iml" />
+      <change type="MODIFICATION" beforePath="C:\Users\Nick\Documents\College\Spring 2013\Software Engineering\Annuit-Coeptis\.idea\workspace.xml" afterPath="C:\Users\Nick\Documents\College\Spring 2013\Software Engineering\Annuit-Coeptis\.idea\workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/orders_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/orders_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/_header.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/_header.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/leagues/show.html.erb" afterPath="$PROJECT_DIR$/app/views/leagues/show.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/portfolios/show.html.erb" afterPath="$PROJECT_DIR$/app/views/portfolios/show.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/show.html.erb" afterPath="$PROJECT_DIR$/app/views/users/show.html.erb" />
     </list>
     <ignored path="Annuit-Coeptis.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,7 +43,7 @@
       <file leaf-file-name="dashboard.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/static_pages/dashboard.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="51" selection-start="2419" selection-end="2419" vertical-scroll-proportion="0.29166666">
+            <state line="66" column="26" selection-start="3347" selection-end="3347" vertical-scroll-proportion="0.9325397">
               <folding>
                 <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#2;n#div#5;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#2;n#div#5;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -119,7 +122,7 @@
       <file leaf-file-name="show.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/users/show.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="4" selection-start="1053" selection-end="1111" vertical-scroll-proportion="-10.461538">
+            <state line="29" column="4" selection-start="1059" selection-end="1117" vertical-scroll-proportion="-10.461538">
               <folding />
             </state>
           </provider>
@@ -835,7 +838,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/users/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="4" selection-start="1053" selection-end="1111" vertical-scroll-proportion="-10.461538">
+        <state line="29" column="4" selection-start="1059" selection-end="1117" vertical-scroll-proportion="-10.461538">
           <folding />
         </state>
       </provider>
@@ -898,7 +901,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/static_pages/dashboard.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="51" selection-start="2419" selection-end="2419" vertical-scroll-proportion="0.29166666">
+        <state line="66" column="26" selection-start="3347" selection-end="3347" vertical-scroll-proportion="0.9325397">
           <folding>
             <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#2;n#div#5;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#2;n#div#5;n#div#0;n#div#0;n#!!top" expanded="true" />

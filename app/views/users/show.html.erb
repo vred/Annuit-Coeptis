@@ -19,7 +19,7 @@
     <%= f.submit "Send", :class=>"btn" %>
   <% end %>
   </div>
-  <% for comment in Comment.where("location_id = ? AND comment_type = ?", @user.id, 2).reverse %>
+  <% for comment in Comment.where("location_id = ? AND comment_type = ?", @user.id, 2).reverse[0,20] %>
     <div class="commentsFix"><span style="font-weight:600;"><%=User.find(comment.user_id).name%></span>: <%=comment.comment%></div>
   <% end %>
   </div>

@@ -6,7 +6,7 @@
 		<div id="top-nav">
       <ul class="pull-right">
 				<li><a href="<%= user_path(current_user.id) %>"><i class="icon-user icon-white"></i> Logged in as <%= current_user.name.split(' ').map {|w| w.capitalize }.join(' ') %></a></li>
-				<li><a href="<%= messages_path %>"><span class="badge badge-primary">1</span> New Message</a></li>
+				<li><a href="<%= messages_path %>"><!--<span class="badge badge-primary">1</span>--> Messages</a></li>
 				<li class="dropdown">
 					<a href="./pages/settings.html" class="dropdown-toggle" data-toggle="dropdown">Account<b class="caret"></b>
 					</a>
