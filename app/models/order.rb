@@ -1,6 +1,6 @@
 class Order < ActiveRecord::Base
   require 'money'
-  attr_accessible :time_filled, :ticker, :price_executed, :quantity, :type,
+  attr_accessible :time_filled, :ticker, :price_executed, :quantity, :order_type,
                   :trade_type, :portfolio_id, :league_id
   attr_reader :created_at
 
@@ -22,16 +22,16 @@ class Order < ActiveRecord::Base
   end
 end
 
-class MarketOrders < Order
+class MarketOrder < Order
 
 end
 
-class StopOrders < Order
+class StopOrder < Order
   attr_accessible :duration_valid, :threshold_price, :valid_order
   monetize :threshold_price_cents, :numericality => { :greater_than => 0 }
 end
 
-class LimitOrders < Order
+class LimitOrder < Order
   attr_accessible :duration_valid, :threshold_price, :valid_order
   monetize :threshold_price_cents, :numericality => { :greater_than => 0 }
 end
