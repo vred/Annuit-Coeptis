@@ -1,14 +1,9 @@
 <div class = "container">
-<% @title=@user.name+"'s Profile" %>
-
+<% @title=@user.name+"'s Portfolios" %>
+<% @description=""%>
+<div class= "whiteSpace span12"></div>
   <div class="span5">
     <%= link_to "Send a message",new_message_path(:send_to => @user.id),:class=>"btn btn-primary" %>
-  </div>
-
-
-  </div>
-
-<div class="span6">
   <div class="whiteSpace"></div>
   <h2>Comments</h2>
   <div class="whiteSpace"></div>
@@ -27,5 +22,9 @@
   <% for comment in Comment.where("location_id = ? AND comment_type = ?", @user.id, 2).reverse %>
     <div class="commentsFix"><span style="font-weight:600;"><%=User.find(comment.user_id).name%></span>: <%=comment.comment%></div>
   <% end %>
+  </div>
 </div>
-</div>
+
+
+  </div>
+

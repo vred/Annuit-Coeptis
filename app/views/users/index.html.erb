@@ -1,6 +1,8 @@
-<% @title="All Users" %>
+<% @title="Users" %>
+<% @description="Find a friend!" %>
 <div class="container">
-<h1>Val Sucks</h1>
+<% numUsers = User.all.length %>
+<h1> There <% if numUsers == 1 %>is<%else%>are<%end%> <%= numUsers %> user<% if numUsers != 1 %>s<%end%>. </h1>
 
 <table class="table table-bordered table-striped table-highlight">
   <thead>

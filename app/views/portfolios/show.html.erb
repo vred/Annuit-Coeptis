@@ -1,3 +1,5 @@
-<h1>Tests</h1>
-
+<% @title = current_user.name+"'s portfolio for "+ League.find(@portfolio.league_id).name %>
+<% @description = "" %>
+<div class = "container">
 <%= @portfolio.capital %>
+</div>
