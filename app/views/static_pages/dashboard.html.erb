@@ -37,6 +37,26 @@
   <div class="whiteSpace"></div>
   <h2 class="fixTextAlign">Your performance</h2>
     <div class="whiteSpace"></div>
+  <div class="span8">
+    <% portfolio = Portfolio.where("user_id = ?",current_user.id).first %>
+    <% positions = Order.find_positions(portfolio.id)%>
+    Current positions: <br>
+    <table>
+      <tr>
+        <td style="font-weight:bold">Capital:</td> <td>$<%= number_with_precision(portfolio.capital,:precision => 2) %></td>
+      </tr>
+      <% @total_worth = portfolio.capital_cents/100 %>
+      <% positions.each do |position| %>
+      <tr class="green_table_row" style="background-color: #D2E8CF;">
+        <% @total_worth += YahooFinance::get_standard_quotes(position[0])[position[0]].lastTrade*position[1] %>
+        <td style="font-weight:bold"> <%= position[0]%>:</td> <td><%= position[1] %> shares worth $<%= number_with_precision(YahooFinance::get_standard_quotes(position[0])[position[0]].lastTrade*position[1], :precision => 2) %></td>
+      </tr>
+      <% end %>
+      <tr>
+        <td style="font-weight:bold">Total Value:</td> <td>$<%= number_with_precision(@total_worth, :precision => 2) %></td>
+      </tr>
+    </table>
+  </div>
   <div class="span8" id="simple_graph_dashboard"></div>
 
 <script type="text/javascript" charset="utf-8">
@@ -64,7 +84,7 @@
         });
         var chart2 = new Highcharts.StockChart({
             chart: {
-                renderTo: 'candlestick'
+                renderTo: 'candlestick_dashboard'
                 // alignTicks: true // by default
             },
 
