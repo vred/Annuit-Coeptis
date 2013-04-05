@@ -1,3 +1,7 @@
 <div class="error-container">
+  <% unless flash[:research_fail] == true %>
   <h2>You are not allowed to view this page.</h2>
+  <% else %>
+  <h2>I'm sorry, that company does not seem to exist!</h2>
+<% end %>
 </div>

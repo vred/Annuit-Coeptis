@@ -11,6 +11,14 @@ class ResearchController < ApplicationController
     @data_now = YahooFinance::get_standard_quotes(@ticker)[@ticker]
     @current_user = current_user;
 
+    if @data_now.lastTrade == 0
+
+      flash[:research_fail] = true
+      render 'static_pages/permission_denied'
+      return
+
+    end
+
     @league_portfolios = Array.new;
 
     @current_user.leagues.each do |league|
