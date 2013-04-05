@@ -1,5 +1,6 @@
   .commentsFix
   {
+    color:black;
     word-wrap: break-word;
   }
 
@@ -145,6 +146,7 @@
   .activityContainer
   {
     padding:5px;
+    line-height:2.3;
     height:500px;
     background-color:#9DB268;
     color:white;
@@ -152,8 +154,10 @@
   .innerActivity
   {
     background-color:white;
-    height:96%;
+    height:92%;
     border-radius:5px;
+    padding:7px;
+    overflow-y:scroll;
   }
 
   .long
