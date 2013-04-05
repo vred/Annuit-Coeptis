@@ -22,24 +22,30 @@
             <script type="text/javascript">
 
               $(function() {
-                  $(".order_form").attr("action", $($(".league_select")[0]).val()+"/orders/new");
+                  $(".order_form").attr("action", $($(".league_select")[0]).val()+"/orders");
               });
 
               $(".league_select").live('change', function() {
-                 $(".order_form").attr("action", $(this).val()+"/orders/new");
+                 $(".order_form").attr("action", $(this).val()+"/orders");
                  $(".league_select").val($(this).val());
+              });
+
+              $('.order_form').bind('ajax:before', function() {
+                  alert("hello");
               });
             </script>
 
 
             <div class="tab-pane fade active in" id="tab1">
-              <%=  form_tag("/orders/create/buy", :remote => true, :class => ["form-horizontal", "order_form"], :novalidate => "novalidate"); %>
+              <%=  form_tag("/", :remote => false, :class => ["form-horizontal", "order_form"], :novalidate => "novalidate"); %>
 
+
+              <input type="hidden" name="order_type" value="MarketOrder" />
                   <fieldset class="modal-fieldset">
                     <div class="control-group">
                       <label class="control-label" for="market_order_ticker">Company</label>
                       <div class="controls">
-                        <input type="text" class="input-large" name="market_order[ticker]" id="market_order_ticker" value="<%=@ticker%>" disabled="disabled">
+                        <input type="text" class="input-large" name="ticker" id="market_order_ticker" value="<%=@ticker%>" readonly>
                       </div>
                     </div>
                     <div class="control-group">
@@ -47,7 +53,7 @@
                       <div class="controls">
                         <span id="market_order_quantity_slider_amount" style="border:0; font-weight:bold;"></span>
                         <div id="market_order_quantity_slider" class="slider-primary" style="margin-top: 5px;"></div>
-                        <input type="hidden" id="market_order_quantity_field" name="market_order[quantity]" />
+                        <input type="hidden" id="market_order_quantity_field" name="quantity" />
                       </div>
                       <script type="text/javascript">
 
@@ -61,12 +67,12 @@
                                   step: 1,
                                   slide: function( event, ui ) {
                                       $( "#market_order_quantity_slider_amount" ).text ( ui.value + " shares" );
-                                      $( "#market_order_quantity_field" ).text ( ui.value );
+                                      $( "#market_order_quantity_field" ).val ( ui.value );
                                   }
                               });
 
                               $( "#market_order_quantity_slider_amount" ).text ( $( "#market_order_quantity_slider" ).slider( "value" )  + " shares");
-                              $( "#market_order_quantity_field" ).text ( $( "#market_order_quantity_slider" ).slider( "value" ));
+                              $( "#market_order_quantity_field" ).val ( $( "#market_order_quantity_slider" ).slider( "value" ));
                           });
 
                       </script>
@@ -75,19 +81,19 @@
                       <label class="control-label">What type of trade would you like to make?</label>
                       <div class="controls">
                         <label class="radio">
-                          <input type="radio" name="market_order[trade_type]" id="market_order_trade_type_1" value="buy">
+                          <input type="radio" name="trade_type" id="market_order_trade_type_1" value="buy" checked="checked">
                           Buy
                         </label>
                         <label class="radio">
-                          <input type="radio" name="market_order[trade_type]" id="market_order_trade_type_2" value="sell">
+                          <input type="radio" name="trade_type" id="market_order_trade_type_2" value="sell">
                           Sell
                         </label>
                         <label class="radio">
-                          <input type="radio" name="market_order[trade_type]" id="market_order_trade_type_3" value="short">
+                          <input type="radio" name="trade_type" id="market_order_trade_type_3" value="short">
                           Short Sell
                         </label>
                         <label class="radio">
-                          <input type="radio" name="market_order[trade_type]" id="market_order_trade_type_4" value="cover">
+                          <input type="radio" name="trade_type" id="market_order_trade_type_4" value="cover">
                           Buy to Cover
                         </label>
                       </div>
@@ -95,7 +101,7 @@
                     <div class="control-group">
                       <label class="control-label" for="market_order_league">In which league?</label>
                       <div class="controls">
-                        <select id="market_order_league" name="market_order[league]" class="league_select">
+                        <select id="market_order_league" name="league" class="league_select">
                           <% @league_portfolios.each do |league_portfolio| %>
                               <%= raw("<option value='/leagues/"+league_portfolio[:league].id.to_s+"/portfolios/"+league_portfolio[:portfolio].id.to_s+"'>"+league_portfolio[:league].name+"</option>"); %>
                           <% end %>
@@ -114,13 +120,14 @@
               </form>
             </div>
             <div class="tab-pane fade" id="tab2">
-              <%=  form_tag("/orders/create/market", :remote => true, :class => ["form-horizontal", "order_form"], :novalidate => "novalidate"); %>
+              <%=  form_tag("", :remote => false, :class => ["form-horizontal", "order_form"], :novalidate => "novalidate"); %>
 
+              <input type="hidden" name="order_type" value="StopOrder" />
               <fieldset class="modal-fieldset">
                 <div class="control-group">
                   <label class="control-label" for="stop_order_ticker">Company</label>
                   <div class="controls">
-                    <input type="text" class="input-large" name="stop_order[ticker]" id="stop_order_ticker" value="<%=@ticker%>" disabled="disabled">
+                    <input type="text" class="input-large" name="ticker" id="stop_order_ticker" value="<%=@ticker%>" readonly>
                   </div>
                 </div>
                 <div class="control-group">
@@ -128,7 +135,7 @@
                   <div class="controls">
                     <span id="stop_order_quantity_slider_amount" style="border:0; font-weight:bold;"></span>
                     <div id="stop_order_quantity_slider" class="slider-primary" style="margin-top: 5px;"></div>
-                    <input type="hidden" id="stop_order_quantity_field" name="stop_order[quantity]" />
+                    <input type="hidden" id="stop_order_quantity_field" name="quantity" />
                   </div>
                   <script type="text/javascript">
 
@@ -142,12 +149,12 @@
                               step: 1,
                               slide: function( event, ui ) {
                                   $( "#stop_order_quantity_slider_amount" ).text ( ui.value + " shares" );
-                                  $( "#stop_order_quantity_field" ).text ( ui.value );
+                                  $( "#stop_order_quantity_field" ).val ( ui.value );
                               }
                           });
 
                           $( "#stop_order_quantity_slider_amount" ).text ( $( "#stop_order_quantity_slider" ).slider( "value" )  + " shares");
-                          $( "#stop_order_quantity_field" ).text ( $( "#stop_order_quantity_slider" ).slider( "value" ));
+                          $( "#stop_order_quantity_field" ).val ( $( "#stop_order_quantity_slider" ).slider( "value" ));
                       });
 
                   </script>
@@ -155,7 +162,7 @@
                 <div class="control-group">
                   <label class="control-label">At what price would you like this order triggered?</label>
                   <div class="controls">
-                    <input type="text" class="input-large" name="stop_order[threshold_price]" id="stop_order_threshold_price">
+                    <input type="text" class="input-large" name="threshold_price" id="stop_order_threshold_price" value="<%= @data_now.lastTrade+100 %>">
                   </div>
                 </div>
                 <div class="control-group">
@@ -163,7 +170,7 @@
                   <div class="controls">
                     <span id="stop_order_valid_duration_slider_amount" style="border:0; font-weight:bold;"></span>
                     <div id="stop_order_valid_duration_slider" class="slider-primary" style="margin-top: 5px;"></div>
-                    <input type="hidden" id="stop_order_valid_duration_field" name="stop_order[valid_duration]" />
+                    <input type="hidden" id="stop_order_valid_duration_field" name="valid_duration" />
                   </div>
                   <script type="text/javascript">
 
@@ -177,12 +184,12 @@
                               step: 1,
                               slide: function( event, ui ) {
                                   $( "#stop_order_valid_duration_slider_amount" ).text ( ui.value + " days" );
-                                  $( "#stop_order_valid_duration_field" ).text ( ui.value );
+                                  $( "#stop_order_valid_duration_field" ).val ( ui.value );
                               }
                           });
 
                           $( "#stop_order_valid_duration_slider_amount" ).text ( $( "#stop_order_valid_duration_slider" ).slider( "value" )  + " days");
-                          $( "#stop_order_valid_duration_field" ).text ( $( "#stop_order_valid_duration_slider" ).slider( "value" ) );
+                          $( "#stop_order_valid_duration_field" ).val ( $( "#stop_order_valid_duration_slider" ).slider( "value" ) );
                       });
 
                   </script>
@@ -191,19 +198,19 @@
                   <label class="control-label">What type of trade would you like to make?</label>
                   <div class="controls">
                     <label class="radio">
-                      <input type="radio" name="stop_order[trade_type]" id="stop_order_trade_type_1" value="buy">
+                      <input type="radio" name="trade_type" id="stop_order_trade_type_1" value="buy" checked="checked">
                       Buy
                     </label>
                     <label class="radio">
-                      <input type="radio" name="stop_order[trade_type]" id="stop_order_trade_type_2" value="sell">
+                      <input type="radio" name="trade_type" id="stop_order_trade_type_2" value="sell">
                       Sell
                     </label>
                     <label class="radio">
-                      <input type="radio" name="stop_order[trade_type]" id="stop_order_trade_type_3" value="short">
+                      <input type="radio" name="trade_type" id="stop_order_trade_type_3" value="short">
                       Short Sell
                     </label>
                     <label class="radio">
-                      <input type="radio" name="stop_order[trade_type]" id="stop_order_trade_type_4" value="cover">
+                      <input type="radio" name="trade_type" id="stop_order_trade_type_4" value="cover">
                       Buy to Cover
                     </label>
                   </div>
@@ -211,7 +218,7 @@
                 <div class="control-group">
                   <label class="control-label" for="stop_order_league">In which league?</label>
                   <div class="controls">
-                    <select id="stop_order_league" name="stop_order[league]" class="league_select">
+                    <select id="stop_order_league" name="league" class="league_select">
                       <% @league_portfolios.each do |league_portfolio| %>
                           <%= raw("<option value='/leagues/"+league_portfolio[:league].id.to_s+"/portfolios/"+league_portfolio[:portfolio].id.to_s+"'>"+league_portfolio[:league].name+"</option>"); %>
                       <% end %>
@@ -231,13 +238,14 @@
 
             </div>
             <div class="tab-pane fade" id="tab3">
-              <%=  form_tag("/orders/create/market", :remote => true, :class => ["form-horizontal", "order_form"], :novalidate => "novalidate"); %>
+              <%=  form_tag("", :remote => false, :class => ["form-horizontal", "order_form"], :novalidate => "novalidate"); %>
 
+              <input type="hidden" name="order_type" value="LimitOrder" />
               <fieldset class="modal-fieldset">
                 <div class="control-group">
                   <label class="control-label" for="limit_order_ticker">Company</label>
                   <div class="controls">
-                    <input type="text" class="input-large" name="limit_order[ticker]" id="limit_order_ticker" value="<%=@ticker%>" disabled="disabled">
+                    <input type="text" class="input-large" name="ticker" id="limit_order_ticker" value="<%=@ticker%>" readonly>
                   </div>
                 </div>
                 <div class="control-group">
@@ -245,7 +253,7 @@
                   <div class="controls">
                     <span id="limit_order_quantity_slider_amount" style="border:0; font-weight:bold;"></span>
                     <div id="limit_order_quantity_slider" class="slider-primary" style="margin-top: 5px;"></div>
-                    <input type="hidden" id="limit_order_quantity_field" name="limit_order[quantity]" />
+                    <input type="hidden" id="limit_order_quantity_field" name="quantity" />
                   </div>
                   <script type="text/javascript">
 
@@ -259,12 +267,12 @@
                               step: 1,
                               slide: function( event, ui ) {
                                   $( "#limit_order_quantity_slider_amount" ).text ( ui.value + " shares" );
-                                  $( "#limit_order_quantity_field" ).text ( ui.value );
+                                  $( "#limit_order_quantity_field" ).val ( ui.value );
                               }
                           });
 
                           $( "#limit_order_quantity_slider_amount" ).text ( $( "#limit_order_quantity_slider" ).slider( "value" )  + " shares");
-                          $( "#limit_order_quantity_field" ).text ( $( "#limit_order_quantity_slider" ).slider( "value" ));
+                          $( "#limit_order_quantity_field" ).val ( $( "#limit_order_quantity_slider" ).slider( "value" ));
                       });
 
                   </script>
@@ -272,7 +280,7 @@
                 <div class="control-group">
                   <label class="control-label">At what price would you like this order triggered?</label>
                   <div class="controls">
-                    <input type="text" class="input-large" name="limit_order[threshold_price]" id="limit_order_threshold_price">
+                    <input type="text" class="input-large" name="threshold_price" id="limit_order_threshold_price"  value="<%= @data_now.lastTrade+100 %>">
                   </div>
                 </div>
                 <div class="control-group">
@@ -280,7 +288,7 @@
                   <div class="controls">
                     <span id="limit_order_valid_duration_slider_amount" style="border:0; font-weight:bold;"></span>
                     <div id="limit_order_valid_duration_slider" class="slider-primary" style="margin-top: 5px;"></div>
-                    <input type="hidden" id="limit_order_valid_duration_field" name="limit_order[valid_duration]" />
+                    <input type="hidden" id="limit_order_valid_duration_field" name="valid_duration" />
                   </div>
                   <script type="text/javascript">
 
@@ -294,12 +302,12 @@
                               step: 1,
                               slide: function( event, ui ) {
                                   $( "#limit_order_valid_duration_slider_amount" ).text ( ui.value + " days" );
-                                  $( "#limit_order_valid_duration_field" ).text ( ui.value );
+                                  $( "#limit_order_valid_duration_field" ).val ( ui.value );
                               }
                           });
 
                           $( "#limit_order_valid_duration_slider_amount" ).text ( $( "#limit_order_valid_duration_slider" ).slider( "value" )  + " days");
-                          $( "#limit_order_valid_duration_field" ).text ( $( "#limit_order_valid_duration_slider" ).slider( "value" ) );
+                          $( "#limit_order_valid_duration_field" ).val ( $( "#limit_order_valid_duration_slider" ).slider( "value" ) );
                       });
 
                   </script>
@@ -308,19 +316,19 @@
                   <label class="control-label">What type of trade would you like to make?</label>
                   <div class="controls">
                     <label class="radio">
-                      <input type="radio" name="limit_order[trade_type]" id="limit_order_trade_type_1" value="buy">
+                      <input type="radio" name="trade_type" id="limit_order_trade_type_1" value="buy" checked="checked">
                       Buy
                     </label>
                     <label class="radio">
-                      <input type="radio" name="limit_order[trade_type]" id="limit_order_trade_type_2" value="sell">
+                      <input type="radio" name="trade_type" id="limit_order_trade_type_2" value="sell">
                       Sell
                     </label>
                     <label class="radio">
-                      <input type="radio" name="limit_order[trade_type]" id="limit_order_trade_type_3" value="short">
+                      <input type="radio" name="trade_type" id="limit_order_trade_type_3" value="short">
                       Short Sell
                     </label>
                     <label class="radio">
-                      <input type="radio" name="limit_order[trade_type]" id="limit_order_trade_type_4" value="cover">
+                      <input type="radio" name="trade_type" id="limit_order_trade_type_4" value="cover">
                       Buy to Cover
                     </label>
                   </div>
@@ -328,7 +336,7 @@
                 <div class="control-group">
                   <label class="control-label" for="limit_order_league">In which league?</label>
                   <div class="controls">
-                    <select id="limit_order_league" name="limit_order[league]" class="league_select">
+                    <select id="limit_order_league" name="league" class="league_select">
                       <% @league_portfolios.each do |league_portfolio| %>
                           <%= raw("<option value='/leagues/"+league_portfolio[:league].id.to_s+"/portfolios/"+league_portfolio[:portfolio].id.to_s+"'>"+league_portfolio[:league].name+"</option>"); %>
                       <% end %>
