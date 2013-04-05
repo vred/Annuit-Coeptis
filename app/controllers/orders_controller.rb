@@ -50,7 +50,7 @@ class OrdersController < ApplicationController
       current_portfolio.capital_cents -= new_order.quantity*new_order.price_executed_cents
       current_portfolio.save()
     end
-  end
+  
 
     new_order.save();
 
