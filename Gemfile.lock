@@ -70,6 +70,7 @@ GEM
       capybara (>= 1.1.2)
       cucumber (>= 1.1.8)
       nokogiri (>= 1.5.0)
+    daemon_controller (1.1.2)
     database_cleaner (0.9.1)
     devise (2.2.3)
       bcrypt-ruby (~> 3.0)
@@ -87,6 +88,7 @@ GEM
       railties (>= 3.0.0)
     faker (1.1.2)
       i18n (~> 0.5)
+    fastthread (1.0.7)
     ffi (1.4.0)
     ffi (1.4.0-x86-mingw32)
     fssm (0.2.10)
@@ -117,9 +119,15 @@ GEM
       money (~> 5.1.0)
       railties (>= 3.0)
     multi_json (1.6.1)
+    mysql2 (0.3.11)
     nokogiri (1.5.6)
     nokogiri (1.5.6-x86-mingw32)
     orm_adapter (0.4.0)
+    passenger (3.0.19)
+      daemon_controller (>= 1.0.0)
+      fastthread (>= 1.0.1)
+      rack
+      rake (>= 0.8.1)
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
@@ -215,6 +223,8 @@ DEPENDENCIES
   lazy_high_charts
   money
   money-rails
+  mysql2
+  passenger
   rails (= 3.2.12)
   rspec-rails (= 2.11.0)
   sass-rails (= 3.2.5)
