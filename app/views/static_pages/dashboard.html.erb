@@ -39,6 +39,7 @@
     <div class="whiteSpace"></div>
   <div class="span8">
     <% portfolio = Portfolio.where("user_id = ?",current_user.id).first %>
+    <% unless portfolio.nil? %>
     <% positions = Order.find_positions(portfolio.id)%>
     Current positions: <br>
     <table>
@@ -56,6 +57,7 @@
         <td style="font-weight:bold">Total Value:</td> <td>$<%= number_with_precision(@total_worth, :precision => 2) %></td>
       </tr>
     </table>
+    <% end %>
   </div>
   <div class="span8" id="simple_graph_dashboard"></div>
 
