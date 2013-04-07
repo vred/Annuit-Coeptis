@@ -4,7 +4,8 @@
 
 This is a working (private) development repository for Professor Marsic's Software Engineering Spring 2013 Class, Team 2.
 Entitled "Capital Games," this project will utilize the rails framework to create an online stock market fantasy platform
-for generating and participating in fantasy stock market leagues.
+for generating and participating in fantasy stock market leagues. Full docs are included in the
+"doc" folder.
 
 "Annuit Coeptis," or "he favors our endeavors," is printed on the back of every dollar bill.
 
@@ -29,3 +30,8 @@ and Dario is eating catfish.
 The Models are being overhauled to use Money class objects and have internal counting built in. Also
 RSpec unit tests and Capybara integration tests are being designed, although they aren't thorough
 enough for full production. They should, however, be good enough to not allow any unexpected crashes.
+
+---
+
+## Update Log 4/7/2013
+
