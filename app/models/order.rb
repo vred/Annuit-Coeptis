@@ -20,6 +20,33 @@ class Order < ActiveRecord::Base
   def filled_date_greater_than_placed_date
     :time_filled > :time_placed if :time_filled and :time_placed
   end
+
+
+  def self.find_positions(portfolio_id)
+
+    orders = Order.where("portfolio_id = ?",portfolio_id)
+    orders = orders.group_by{|x| x.ticker}
+    keys = orders.keys
+
+    ticker_totals = []
+
+    keys.each do |key|
+
+      temp_array = orders[key]
+
+      order_array = temp_array.map{|f| f.quantity}
+
+      total = order_array.inject(:+)
+
+      ticker_totals.push([key,total])
+
+    end
+
+    return ticker_totals
+
+
+  end
+
 end
 
 class MarketOrder < Order

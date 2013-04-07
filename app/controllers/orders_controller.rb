@@ -47,10 +47,14 @@ class OrdersController < ApplicationController
       return
     else
       current_portfolio = Portfolio.find(new_order.portfolio_id)
-      current_portfolio.capital_cents -= new_order.quantity*new_order.price_executed_cents
+
+      if(new_order.trade_type == "buy")
+        current_portfolio.capital_cents -= new_order.quantity*new_order.price_executed_cents
+      elsif(new_order.trade_type == "sell")
+        current_portfolio.capital_cents += new_order.quantity*new_order.price_executed_cents
+      end
       current_portfolio.save()
     end
-  
 
     new_order.save();
 
