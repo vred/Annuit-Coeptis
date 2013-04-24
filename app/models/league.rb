@@ -5,6 +5,7 @@ class League < ActiveRecord::Base
   has_many :portfolios, :dependent => :destroy
   has_many :users, :through => :portfolios
   has_many :orders, :through => :portfolios
+  has_many :performances, :dependent => :destroy
 
 
   # Monetize eliminates the need to have a composed_of translation

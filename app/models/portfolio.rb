@@ -5,6 +5,7 @@ class Portfolio < ActiveRecord::Base
   belongs_to :user
   belongs_to :league, :counter_cache => true
   has_many :orders, :dependent => :destroy
+  has_many :performances, :dependent => :destroy
 
 
   # Monetize eliminates the need to have a composed_of translation
