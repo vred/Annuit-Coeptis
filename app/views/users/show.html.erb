@@ -2,26 +2,27 @@
 <% @title=@user.name+"'s Portfolios" %>
 <% @description=""%>
 <div class= "whiteSpace span12"></div>
+<div class="row">
   <div class="span5">
     <%= link_to "Send a message",new_message_path(:send_to => @user.id),:class=>"btn btn-primary" %>
-  <div class="whiteSpace"></div>
-  <h2>Comments</h2>
-  <div class="whiteSpace"></div>
-  <div class="input-append">
-  <%= form_for(Comment.new) do |f| %>
-    <% if @focus %>
-      <%= f.text_field :comment, :autofocus => true %>
-    <% else %>
-      <%= f.text_field :comment %>
+    <div class="whiteSpace"></div>
+    <h2>Comments</h2>
+    <div class="whiteSpace"></div>
+    <div class="input-append">
+      <%= form_for(Comment.new) do |f| %>
+        <% if @focus %>
+          <%= f.text_field :comment, :autofocus => true %>
+        <% else %>
+          <%= f.text_field :comment %>
+        <% end %>
+        <%= f.hidden_field :location_id, :value => @user.id %>
+        <%= f.hidden_field :comment_type, :value => 2 %>
+        <%= f.submit "Send", :class=>"btn" %>
+      <% end %>
+    </div>
+    <% for comment in Comment.where("location_id = ? AND comment_type = ?", @user.id, 2).reverse[0,20] %>
+      <div class="commentsFix"><span style="font-weight:600;"><%=User.find(comment.user_id).name%></span>: <%=comment.comment%></div>
     <% end %>
-    <%= f.hidden_field :location_id, :value => @user.id %>
-    <%= f.hidden_field :comment_type, :value => 2 %>
-    <%= f.submit "Send", :class=>"btn" %>
-  <% end %>
-  </div>
-  <% for comment in Comment.where("location_id = ? AND comment_type = ?", @user.id, 2).reverse[0,20] %>
-    <div class="commentsFix"><span style="font-weight:600;"><%=User.find(comment.user_id).name%></span>: <%=comment.comment%></div>
-  <% end %>
   </div>
   <div class="span1"></div>
   <div class="span6">
@@ -38,7 +39,6 @@
     <% end %>
   </div>  
 </div>
+</div>
 
-
-  </div>
 

@@ -2,11 +2,12 @@
 <% @description = "Find a league here!" %>
 <div class="container">
 <div class="whiteSpace"></div>
+<div class="row">
 <div class="span5">
   <%= link_to "Create a league",new_league_path, :class=>"btn btn-primary btn-league" %>
 </div>
 <h1 class="span2 or-text"><center>or</center></h1>
-<div class="span5"> 
+<div class="span4"> 
   <div class="input-append">
     <%= form_tag("/leagues", :method => "get") do %> 
     <%= text_field_tag :filter,nil, :class=>"league-bar", :placeholder=>"Search for a league" %> 
@@ -14,7 +15,9 @@
     <% end %> 
   </div> <!-- input-append -->
 </div> <!-- span4 -->
+</div>
 <% numLeagues = @leags.length %>
+<div class="row">
 <div class="span12">
 <h1> There <% if numLeagues == 1 %>is<%else%>are<%end%> <%= numLeagues %> league<% if numLeagues != 1 %>s<%end%><%if @filtered%> after filtering with "<%=params[:filter]%>"<%end%>. </h1>
 <table class="table table-bordered table-striped table-highlight">
@@ -38,6 +41,7 @@
   </tbody>  
   </tbody>
 </table>
+</div>
 </div>
 
 <!-- Leave this when we implement pagination

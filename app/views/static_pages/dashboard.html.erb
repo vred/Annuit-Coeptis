@@ -1,9 +1,10 @@
 <% @title = "Welcome, "+current_user.name+"." %>
 <% @description = "Your Dashboard" %>
 <div class="container">
+  <div class="row">
   <div class="span4">
     <div class="whiteSpace"></div>
-    <h2>Leagues</h2>
+    <h2 class="span12">Leagues</h2>
     <div class="searchWhiteSpace span12"></div>
     <div class="span4">
       <%= link_to "Create a league",new_league_path, :class=>"btn btn-primary btn-league" %>
@@ -36,12 +37,12 @@
   </div>
   <div class="whiteSpace"></div>
   <h2 class="fixTextAlign">Your performance</h2>
-    <div class="whiteSpace"></div>
+  <div class="whiteSpace"></div>
   <div class="span8">
     <% portfolio = Portfolio.where("user_id = ?",current_user.id).first %>
     <% unless portfolio.nil? %>
     <% positions = Order.find_positions(portfolio.id)%>
-    Current positions: <br>
+    Current positions: </br>
     <table>
       <tr>
         <td style="font-weight:bold">Capital:</td> <td>$<%= number_with_precision(portfolio.capital,:precision => 2) %></td>
@@ -58,8 +59,9 @@
       </tr>
     </table>
     <% end %>
+  <div id="simple_graph_dashboard"></div>
   </div>
-  <div class="span8" id="simple_graph_dashboard"></div>
+  </div>
 
 <script type="text/javascript" charset="utf-8">
     $(function() {

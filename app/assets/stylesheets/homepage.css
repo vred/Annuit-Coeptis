@@ -15,10 +15,6 @@ body
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
 }
 
-.span4
-{
-	margin-left:10px !important;
-}
 .huge
 {
 	width:80%;

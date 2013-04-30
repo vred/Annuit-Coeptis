@@ -1,5 +1,6 @@
 <div class="whiteSpace"></div>
 <div class="container">
+<div class="row">
 <div class="span3">
 <% if @portfolio.id.nil? %>
     <%= form_for [@league, @portfolio] do |f| %>
@@ -40,44 +41,47 @@
     </tr>
   </table>
 </div>
+</div>
+<div class="row">
 <div class="span12 whiteSpace"></div>
-<div class="span12">
-<table class="table table-bordered table-striped table-highlight span5 league-table">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>User</th>
-      <th>Account created</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% for portfolio in @portfolios %>
+</div>
+<div class="row">
+  <table class="table table-bordered table-striped table-highlight span5 league-table">
+    <thead>
       <tr>
-        <td><%= portfolio.id %></td>
-        <td><a href="<%=league_portfolio_path(@league.id,portfolio.id)%>"><%if User.all[portfolio.user_id-1]%><%= User.all[portfolio.user_id-1].name  %><% end %></a></td>
-        <td><%= portfolio.created_at %></td>
+        <th>#</th>
+        <th>User</th>
+        <th>Account created</th>
       </tr>
+    </thead>
+    <tbody>
+      <% for portfolio in @portfolios %>
+        <tr>
+          <td><%= portfolio.id %></td>
+          <td><a href="<%=league_portfolio_path(@league.id,portfolio.id)%>"><%if User.all[portfolio.user_id-1]%><%= User.all[portfolio.user_id-1].name  %><% end %></a></td>
+          <td><%= portfolio.created_at %></td>
+        </tr>
+      <% end %>
+    </tbody>  
+    </tbody>
+  </table>
+  <div class="span1"></div>
+  <div class="span6">
+    <div class="input-append">
+    <%= form_for(Comment.new) do |f| %>
+      <% if @focus %>
+        <%= f.text_field :comment, :autofocus => true %>
+      <% else %>
+        <%= f.text_field :comment %>
+      <% end %>
+      <%= f.hidden_field :location_id, :value => @league.id %>
+      <%= f.hidden_field :comment_type, :value => 1 %>
+      <%= f.submit "Send", :class=>"btn" %>
     <% end %>
-  </tbody>  
-  </tbody>
-</table>
-<div class="span1"></div>
-<div class="span6">
-  <div class="input-append">
-  <%= form_for(Comment.new) do |f| %>
-    <% if @focus %>
-      <%= f.text_field :comment, :autofocus => true %>
-    <% else %>
-      <%= f.text_field :comment %>
+    </div>
+    <% for comment in Comment.where("location_id = ? AND comment_type = ?", @league.id, 1).reverse[0,20] %>
+      <div class="commentsFix"><span style="font-weight:600;"><%=User.find(comment.user_id).name%></span>: <%=comment.comment%></div>
     <% end %>
-    <%= f.hidden_field :location_id, :value => @league.id %>
-    <%= f.hidden_field :comment_type, :value => 1 %>
-    <%= f.submit "Send", :class=>"btn" %>
-  <% end %>
-  </div>
-  <% for comment in Comment.where("location_id = ? AND comment_type = ?", @league.id, 1).reverse[0,20] %>
-    <div class="commentsFix"><span style="font-weight:600;"><%=User.find(comment.user_id).name%></span>: <%=comment.comment%></div>
-  <% end %>
 </div>
 
 
