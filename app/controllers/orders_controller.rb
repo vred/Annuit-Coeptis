@@ -54,9 +54,23 @@ class OrdersController < ApplicationController
         current_portfolio.capital_cents += new_order.quantity*new_order.price_executed_cents
       end
       current_portfolio.save()
+
+      day_performance = Performance.where("date = ? and portfolio_id = ?",Date.today, current_portfolio.id).first;
+
+      if day_performance.nil?
+        day_performance = Performance.new();
+        day_performance.portfolio_id = current_portfolio.id;
+        day_performance.league_id = new_order.league.id;
+        day_performance.date = Date.today;
+      end
+
+      logger.info(day_performance);
+
+      day_performance.closing_capital_cents = current_portfolio.capital_cents;
     end
 
     new_order.save();
+    day_performance.save();
 
     flash[:success] = "You've successfully placed an order."
     redirect_to(league_portfolio_url(new_order.league_id, new_order.portfolio_id))

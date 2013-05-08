@@ -11,8 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-
-ActiveRecord::Schema.define(:version => 20130508005940) do
+ActiveRecord::Schema.define(:version => 20130508022423) do
 
   create_table "comments", :force => true do |t|
     t.string   "comment"
@@ -90,7 +89,7 @@ ActiveRecord::Schema.define(:version => 20130508005940) do
   add_index "orders", ["portfolio_id", "league_id"], :name => "index_orders_on_portfolio_id_and_league_id"
 
   create_table "performances", :force => true do |t|
-    t.datetime "date"
+    t.date     "date"
     t.integer  "closing_value_cents",      :default => 0,     :null => false
     t.string   "closing_value_currency",   :default => "USD", :null => false
     t.integer  "closing_capital_cents",    :default => 0,     :null => false
