@@ -24,7 +24,14 @@ class Order < ActiveRecord::Base
 
   def self.find_positions(portfolio_id)
 
-    orders = Order.where("portfolio_id = ?",portfolio_id)
+    return find_positions_by_date(portfolio_id, DateTime.now())
+
+  end
+
+
+  def self.find_positions_by_date(portfolio_id, date)
+
+    orders = Order.where("portfolio_id = ? and time_placed <= ?",portfolio_id, date)
     orders = orders.group_by{|x| x.ticker}
     keys = orders.keys
 
@@ -33,6 +40,15 @@ class Order < ActiveRecord::Base
     keys.each do |key|
 
       temp_array = orders[key]
+
+      temp_array.each do |temp|
+
+        if temp.trade_type == "sell"
+          temp.quantity = -1*temp.quantity
+        end
+
+
+      end
 
       order_array = temp_array.map{|f| f.quantity}
 
@@ -47,7 +63,53 @@ class Order < ActiveRecord::Base
 
   end
 
+  def self.find_history(portfolio_id)
+
+
+    graphing_data = []
+
+    orders = Order.where("portfolio_id = ?",portfolio_id)
+    orders = orders.group_by{|x| x.ticker}
+    keys = orders.keys
+    data_by_key = {}
+    keys.each do |keys|
+
+      finance_data = YahooFinance::get_historical_quotes_days(d_order[0], 30)
+      finance_data = finance_data.map{|new_data| [Time.parse(new_data[0]).to_i*1000, new_data[4].to_f]}.sort_by{|d| d[0]}
+      data_by_key[key] = finance_data
+
+    end
+
+    i=0
+    for d in DateTime.now()-29..DateTime.now()
+
+      d_positions = find_positions_by_date(portfolio_id, d)
+
+      d_total = 0 #this their total worth for that day
+
+
+
+      d_positions.each do |d_position|
+
+        d_total += d_position[1] * data_by_key[d_positon[0]][i][1]
+
+
+
+      end
+
+      graphing_data.push([Time.parse(d.to_s).to_i*1000,d_total])
+      i = i + 1
+    end
+
+    return graphing_data
+
+  end
+
+
+
 end
+
+
 
 class MarketOrder < Order
 
