@@ -14,6 +14,7 @@ gem 'bundler'
 gem 'money'
 gem 'money-rails'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+gem 'weekdays'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'      # in case you don't feel like admin'ing a db
@@ -34,7 +35,7 @@ end
 
 group :test do
   gem 'capybara', '1.1.2'     # i think this is  testing library
-  gem 'factory_girl_rails', '4.2.1'  # library for generating objects for tests
+  gem 'factory_girl_rails', '4.2.1', :require => false  # library for generating objects for tests
   gem 'cucumber-rails', '1.3.0', :require => false  # used for BDD
   gem 'database_cleaner', '0.9.1'  # cleans database
   # gem 'launchy', '2.2.0'
