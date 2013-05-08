@@ -72,33 +72,52 @@ class Order < ActiveRecord::Base
     orders = orders.group_by{|x| x.ticker}
     keys = orders.keys
     data_by_key = {}
-    keys.each do |keys|
+    keys.each do |key|
 
-      finance_data = YahooFinance::get_historical_quotes_days(d_order[0], 30)
+      finance_data = YahooFinance::get_historical_quotes_days(key, 30)
       finance_data = finance_data.map{|new_data| [Time.parse(new_data[0]).to_i*1000, new_data[4].to_f]}.sort_by{|d| d[0]}
       data_by_key[key] = finance_data
 
     end
 
     i=0
+    prev = 0
     for d in DateTime.now()-29..DateTime.now()
 
       d_positions = find_positions_by_date(portfolio_id, d)
 
-      d_total = 0 #this their total worth for that day
+      d_total=0
 
-
+      for j in 0..13
+        if d_total == 0
+          the_day = Performance.where(:portfolio_id=>portfolio_id).where(:date=>Date.parse(d.to_s)-j).first
+          unless the_day.nil?
+            d_total = the_day.closing_capital_cents/100 #this their total worth for that day
+          end
+        end
+      end
 
       d_positions.each do |d_position|
 
-        d_total += d_position[1] * data_by_key[d_positon[0]][i][1]
+        unless d_position.nil?
+            unless data_by_key[d_position[0]][i].nil?
+              if Date.parse(d.to_s).weekday?
+                d_total += d_position[1] * data_by_key[d_position[0]][i][1]
+                prev = d_total
+                i = i + 1
+              else
+                d_total = prev
+              end
 
+            end
+        end
 
 
       end
 
+
       graphing_data.push([Time.parse(d.to_s).to_i*1000,d_total])
-      i = i + 1
+
     end
 
     return graphing_data
