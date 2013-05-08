@@ -70,8 +70,11 @@ class LeaguesController < ApplicationController
      @portfolio = @league.portfolios.build if @portfolio.nil?
   end
 
+
   # not implemented
   def edit
+     @league = League.find(params[:id])
+     @title = "League settings" 
   end
   def update
   end
