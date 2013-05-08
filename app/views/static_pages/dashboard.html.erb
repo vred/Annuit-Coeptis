@@ -39,26 +39,46 @@
   <h2 class="fixTextAlign">Your performance</h2>
   <div class="whiteSpace"></div>
   <div class="span8">
-    <% portfolio = Portfolio.where("user_id = ?",current_user.id).first %>
-    <% unless portfolio.nil? %>
-    <% positions = Order.find_positions(portfolio.id)%>
-    Current positions: </br>
-    <table>
-      <tr>
-        <td style="font-weight:bold">Capital:</td> <td>$<%= number_with_precision(portfolio.capital,:precision => 2) %></td>
-      </tr>
-      <% @total_worth = portfolio.capital_cents/100 %>
-      <% positions.each do |position| %>
-      <tr class="green_table_row" style="background-color: #D2E8CF;">
-        <% @total_worth += YahooFinance::get_standard_quotes(position[0])[position[0]].lastTrade*position[1] %>
-        <td style="font-weight:bold"> <%= position[0]%>:</td> <td><%= position[1] %> shares worth $<%= number_with_precision(YahooFinance::get_standard_quotes(position[0])[position[0]].lastTrade*position[1], :precision => 2) %></td>
-      </tr>
-      <% end %>
-      <tr>
-        <td style="font-weight:bold">Total Value:</td> <td>$<%= number_with_precision(@total_worth, :precision => 2) %></td>
-      </tr>
-    </table>
+    Current Positions:
+    <% portfolios = Portfolio.where("user_id = ?",current_user.id) %>
+    <% x = 1 %>
+    <% unless portfolios.nil? %>
+
+    <div class="accordion" id="basic-accordion">
+    <% for portfolio in portfolios %>
+      <% positions = Order.find_positions(portfolio.id)%>
+                  <div class="accordion-group open">
+                    <div class="accordion-heading">
+                      <a class="accordion-toggle" data-toggle="collapse" data-parent="#basic-accordion" href="#collapse<%if x==1%>One<%elsif x==2%>Two<%elsif x==3%>Three<%elsif x==4%>Four<%end%>">
+                        <%=League.find(portfolio.league_id).name%> </br>
+                      </a>
+                    </div>
+                    <div id="collapse<%if x==1%>One<%elsif x==2%>Two<%elsif x==3%>Three<%elsif x==4%>Four<%end%>" class="accordion-body <%if x==1%>in<%end%> collapse">
+<%x=x+1%>
+                      <div class="accordion-inner">
+      <table>
+        <tr>
+          <td style="font-weight:bold">Capital:</td> <td>$<%= number_with_precision(portfolio.capital,:precision => 2) %></td>
+        </tr>
+        <% @total_worth = portfolio.capital_cents/100 %>
+        <% positions.each do |position| %>
+        <tr class="green_table_row" style="background-color: #D2E8CF;">
+          <% @total_worth += YahooFinance::get_standard_quotes(position[0])[position[0]].lastTrade*position[1] %>
+          <td style="font-weight:bold"> <%= position[0]%>:</td> <td><%= position[1] %> shares worth $<%= number_with_precision(YahooFinance::get_standard_quotes(position[0])[position[0]].lastTrade*position[1], :precision => 2) %></td>
+        </tr>
+        <% end %>
+        <tr>
+          <td style="font-weight:bold">Total Value:</td> <td>$<%= number_with_precision(@total_worth, :precision => 2) %></td>
+        </tr>
+      </table>
+
+                      </div>
+                    </div>
+                  </div>
     <% end %>
+  <% end %>
+</div>
+
   <div id="simple_graph_dashboard"></div>
   </div>
   </div>
