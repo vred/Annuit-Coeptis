@@ -3,11 +3,15 @@
 <div class="row">
 <div class="span3">
 <% if @portfolio.id.nil? %>
-    <%= form_for [@league, @portfolio] do |f| %>
-        <%= f.submit "Join this League", class: "btn btn-primary btn-quarter fixedButtons" %>
-    <% end %>
+  <%= form_for [@league, @portfolio] do |f| %>
+    <%= f.submit "Join this League", class: "btn btn-primary btn-quarter fixedButtons" %>
+  <% end %> 
 <% else %>
-  <%= button_to "Leave this League", league_portfolio_path(@league, @portfolio),:method=>:delete, :class=>"btn btn-primary btn-quarter fixedButtons" %>
+  <% if @portfolio.manager %>
+    <%= button_to "League Settings", edit_league_path(@league), :method=>:get,  :class=>"btn btn-primary btn-quarter fixedButtons" %>
+  <% else %>
+    <%= button_to "Leave this League", league_portfolio_path(@league, @portfolio),:method=>:delete, :class=>"btn btn-primary btn-quarter fixedButtons" %>
+  <% end %> 
 <% end %>
 
 </div>

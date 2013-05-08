@@ -2,20 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83663fdd-cff2-478c-902c-df2c5b12be88" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\Nick\Documents\College\Spring 2013\Software Engineering\Annuit-Coeptis\.idea\Project.iml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nick\Documents\College\Spring 2013\Software Engineering\Annuit-Coeptis\doc\5_documentation\user_documentation.pdf" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nick\Documents\College\Spring 2013\Software Engineering\Annuit-Coeptis\doc\Demo1PPT.pdf" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nick\Documents\College\Spring 2013\Software Engineering\Annuit-Coeptis\doc\README1.txt" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nick\Documents\College\Spring 2013\Software Engineering\Annuit-Coeptis\doc\README2.txt" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nick\Documents\College\Spring 2013\Software Engineering\Annuit-Coeptis\doc\README3.txt" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nick\Documents\College\Spring 2013\Software Engineering\Annuit-Coeptis\doc\README4.txt" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nick\Documents\College\Spring 2013\Software Engineering\Annuit-Coeptis\doc\SEpamphlet1.pdf" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nick\Documents\College\Spring 2013\Software Engineering\Annuit-Coeptis\doc\app\app\views\orders\#Untitled-1#.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.rakeTasks" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/order.rb" afterPath="$PROJECT_DIR$/app/models/order.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/images/icons/missing.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/images/missing.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/missing.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/leagues/edit.html.erb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20130508001222_add_description_to_leagues.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20130508005940_add_attachment_icon_to_leagues.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/leagues_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/leagues_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/league.rb" afterPath="$PROJECT_DIR$/app/models/league.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/leagues/show.html.erb" afterPath="$PROJECT_DIR$/app/views/leagues/show.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
     </list>
     <ignored path="Annuit-Coeptis.iws" />
@@ -111,10 +108,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboard.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="dashboard.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/static_pages/dashboard.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="42" selection-start="2754" selection-end="2754" vertical-scroll-proportion="0.519084">
+            <state line="53" column="42" selection-start="2754" selection-end="2754" vertical-scroll-proportion="-10.461538">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="schema.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/db/schema.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="0" selection-start="795" selection-end="795" vertical-scroll-proportion="-2.955595">
               <folding />
             </state>
           </provider>
@@ -143,6 +149,7 @@
         <option value="$PROJECT_DIR$/lib/assets/yfinadaptor/yfinadaptor.rb" />
         <option value="$PROJECT_DIR$/app/controllers/research_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/order.rb" />
+        <option value="$PROJECT_DIR$/db/schema.rb" />
       </list>
     </option>
   </component>
@@ -207,6 +214,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Annuit-Coeptis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Annuit-Coeptis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Annuit-Coeptis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="db" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -654,11 +675,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/static_pages/permission_denied.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="53" selection-start="191" selection-end="191" vertical-scroll-proportion="0.13682093" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/users/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="4" selection-start="1059" selection-end="1117" vertical-scroll-proportion="-10.461538" />
@@ -747,7 +763,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/static_pages/dashboard.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="42" selection-start="2754" selection-end="2754" vertical-scroll-proportion="0.519084">
+        <state line="53" column="42" selection-start="2754" selection-end="2754" vertical-scroll-proportion="-10.461538">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/schema.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="0" selection-start="795" selection-end="795" vertical-scroll-proportion="-2.955595">
           <folding />
         </state>
       </provider>
