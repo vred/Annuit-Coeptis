@@ -13,6 +13,7 @@ gem 'lazy_high_charts'               # plugin for using highcharts
 gem 'bundler'
 gem 'money'
 gem 'money-rails'
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'      # in case you don't feel like admin'ing a db

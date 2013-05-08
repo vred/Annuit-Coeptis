@@ -68,6 +68,12 @@
                     <input type="text" class="input-xxlarge" id="leagueicon" value="">
                   </div> <!-- /controls -->       
                 </div> <!-- /control-group -->
+                <div class="control-group">                     
+                  <label class="control-label" for="leagueicon">Current Icon</label>
+                  <div class="controls">
+<%= image_tag @league.icon.url %>
+                  </div> <!-- /controls -->       
+                </div> <!-- /control-group -->
                   <br>
                 <div class="form-actions">
                   <button type="submit" class="btn btn-primary btn-large">Save Settings</button> 

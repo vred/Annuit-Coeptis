@@ -10,7 +10,7 @@ AnnuitCoeptis::Application.routes.draw do
   match 'learn' => 'static_pages#learn', :format => false
   match 'settings' => 'static_pages#settings', :format => false
   match 'help' => 'static_pages#help', :format => false
-  
+
   resources :leagues do
     resources :portfolios, only: [:create, :show, :destroy] do
       resources :orders, only: [:create, :show, :new]

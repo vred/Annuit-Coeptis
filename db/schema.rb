@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130508001222) do
+ActiveRecord::Schema.define(:version => 20130508005940) do
 
   create_table "comments", :force => true do |t|
     t.string   "comment"
@@ -40,6 +40,10 @@ ActiveRecord::Schema.define(:version => 20130508001222) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "description"
+    t.string   "icon_file_name"
+    t.string   "icon_content_type"
+    t.integer  "icon_file_size"
+    t.datetime "icon_updated_at"
   end
 
   add_index "leagues", ["creator_id"], :name => "index_leagues_on_creator_id"
