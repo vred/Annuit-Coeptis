@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130508022423) do
+ActiveRecord::Schema.define(:version => 20130509232127) do
 
   create_table "comments", :force => true do |t|
     t.string   "comment"
@@ -131,6 +131,10 @@ ActiveRecord::Schema.define(:version => 20130508022423) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

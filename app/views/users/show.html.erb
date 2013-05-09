@@ -3,9 +3,24 @@
 <% @description=""%>
 <div class= "whiteSpace span12"></div>
 <div class="row">
-  <div class="span5">
+  <div class="span6">
     <%= link_to "Send a message",new_message_path(:send_to => @user.id),:class=>"btn btn-primary" %>
+    <br>
+    <%= image_tag @user.picture.url(:medium), :class=>"bordz"%>
     <div class="whiteSpace"></div>
+    Check me out in my leagues:
+    <% portfolios = Portfolio.where("user_id = ?",@user.id) %>
+    <% if portfolios %>
+    <% league_ids = [] %>
+    <% for portfolio in portfolios %>
+    <%   league_ids.push(portfolio.league_id) %>
+    <% end %>
+    <% for league_id in league_ids %>
+      <div><a href="<%=league_path(league_id)%>"><%= League.find(league_id).name %></a></div>
+    <% end %>
+    <% end %>
+  </div>
+  <div class="span6">
     <h2>Comments</h2>
     <div class="whiteSpace"></div>
     <div class="input-append">
@@ -22,20 +37,6 @@
     </div>
     <% for comment in Comment.where("location_id = ? AND comment_type = ?", @user.id, 2).reverse[0,20] %>
       <div class="commentsFix"><span style="font-weight:600;"><%=User.find(comment.user_id).name%></span>: <%=comment.comment%></div>
-    <% end %>
-  </div>
-  <div class="span1"></div>
-  <div class="span6">
-    Check me out in my leagues:
-    <% portfolios = Portfolio.where("user_id = ?",@user.id) %>
-    <% if portfolios %>
-    <% league_ids = [] %>
-    <% for portfolio in portfolios %>
-    <%   league_ids.push(portfolio.league_id) %>
-    <% end %>
-    <% for league_id in league_ids %>
-      <div><a href="<%=league_path(league_id)%>"><%= League.find(league_id).name %></a></div>
-    <% end %>
     <% end %>
   </div>  
 </div>

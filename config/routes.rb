@@ -4,7 +4,7 @@ AnnuitCoeptis::Application.routes.draw do
   resources :messages
 
   devise_for :users
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show, :edit, :update]
   resources :research, only: [:index, :create]
   match 'dashboard' => 'static_pages#dashboard', :format => false
   match 'learn' => 'static_pages#learn', :format => false

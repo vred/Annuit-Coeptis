@@ -7,10 +7,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :name, :admin, :email, :password, :password_confirmation, :remember_me
+  attr_accessible :name, :admin, :email, :password, :password_confirmation, :remember_me, :picture
   has_many :portfolios
   has_many :orders
   has_many :leagues, :through => :portfolios
+  has_many :performances, :dependent => :destroy
+  has_attached_file :picture, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "missing.png"
 
   validates :name, :length => { :minimum => 4, :maximum => 50 }
   # attr_accessible :title, :body
