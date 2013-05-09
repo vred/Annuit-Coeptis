@@ -71,75 +71,77 @@
           <td style="font-weight:bold">Total Value:</td> <td>$<%= number_with_precision(@total_worth, :precision => 2) %></td>
         </tr>
       </table>
+                        <div id="simple_graph_dashboard<%= x %>"></div>
 
                       </div>
                     </div>
                   </div>
-    <% end %>
-  <% end %>
-</div>
 
-  <div id="simple_graph_dashboard"></div>
-  </div>
-  </div>
-
-
-<script type="text/javascript" charset="utf-8">
-    $(function() {
-        var chart = new Highcharts.StockChart({
-            chart: {
-                renderTo: 'simple_graph_dashboard'
+        <script type="text/javascript" charset="utf-8">
+          $(function() {
+            var chart = new Highcharts.StockChart({
+              chart: {
+                renderTo: 'simple_graph_dashboard<%= x %>'
                 // alignTicks: true // by default
-            },
+              },
 
-            yAxis: {
+              yAxis: {
                 title: {
-                    text: 'Your performance'
+                  text: 'Your performance'
                 }
-            },
+              },
 
-            rangeSelector: {
+              rangeSelector: {
                 selected: 1
-            },
+              },
 
-            series: [{
+              series: [{
                 name: 'Your performance',
-                data: <%= Order.find_history(Portfolio.where("user_id = ?",current_user.id).first)  %>
-            }]
-        });
-        var chart2 = new Highcharts.StockChart({
-            chart: {
-                renderTo: 'candlestick_dashboard'
+                data: <%= Order.find_history(portfolio.id)  %>
+              }]
+            });
+            var chart2 = new Highcharts.StockChart({
+              chart: {
+                renderTo: 'candlestick_dashboard<%= x %>'
                 // alignTicks: true // by default
-            },
+              },
 
-            yAxis: {
+              yAxis: {
                 title: {
-                    text: 'Your performance'
+                  text: 'Your performance'
                 }
-            },
+              },
 
-            rangeSelector: {
+              rangeSelector: {
                 selected: 1
-            },
+              },
 
-            series : [{
+              series : [{
                 type : 'candlestick',
                 name : 'Your performance',
                 data : <%= [1,2,3] %>,
                 dataGrouping : {
-                    units : [
-                        ['week', // unit name
-                            [1] // allowed multiples
-                        ], [
-                            'month',
-                            [1, 2, 3, 4, 6]]
-                    ]
+                  units : [
+                    ['week', // unit name
+                      [1] // allowed multiples
+                    ], [
+                      'month',
+                      [1, 2, 3, 4, 6]]
+                  ]
                 }
-            }]
-        });
-    });
-</script>
+              }]
+            });
+          });
+        </script>
+    <% end %>
+  <% end %>
+</div>
+
+  </div>
+  </div>
+
+
+
 
                <script>
                  function switchGraph(){
