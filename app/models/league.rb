@@ -1,14 +1,12 @@
 class League < ActiveRecord::Base
   attr_accessible :commission, :end_date, :member_limit, :margin, :capital, :name,
-                  :private, :start_date, :creator_id
+                  :private, :start_date, :creator_id, :description, :icon
   attr_readonly :portfolios_count
   has_many :portfolios, :dependent => :destroy
   has_many :users, :through => :portfolios
   has_many :orders, :through => :portfolios
   has_many :performances, :dependent => :destroy
-  attr_accessible :icon
   has_attached_file :icon, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "missing.png"
- 
 
 
   # Monetize eliminates the need to have a composed_of translation

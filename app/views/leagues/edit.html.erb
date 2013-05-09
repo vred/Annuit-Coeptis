@@ -47,40 +47,38 @@
             <h2>Edit Basic Settings</h2>
             <p>There are many settings that the admin can change, but here are a few of the most common ones. For more settings, look around in the tabs to your left.</p>
             <br>
-            <form id="edit-profile" class="form-horizontal">
-              <fieldset>
-                <div class="control-group">                     
-                  <label class="control-label" for="leaguename">League Name</label>
-                  <div class="controls">
-                    <input type="text" class="input-large" id="leaguename" value="<%=@league.name%>">
-                    <p class="help-block">Your members will be notified if you change the league name.</p>
-                  </div> <!-- /controls -->       
-                </div> <!-- /control-group -->
-                <div class="control-group">                     
-                  <label class="control-label" for="description">Description</label>
-                  <div class="controls">
-                    <input type="text" class="input-xxlarge" id="description" value="<%=@league.description%>">
-                  </div> <!-- /controls -->       
-                </div> <!-- /control-group -->
-                <div class="control-group">                     
-                  <label class="control-label" for="leagueicon">League Icon</label>
-                  <div class="controls">
-                    <input type="text" class="input-xxlarge" id="leagueicon" value="">
-                  </div> <!-- /controls -->       
-                </div> <!-- /control-group -->
+            <%= form_for(@league, :html => {:multipart => true,  :class=>"form-horizontal"}) do |f| %>
+            <fieldset>
+              <div class="control-group">
+                <%= f.label :name, :class=>"control-label", :for=>"league_name" %>
+                <div class="controls">
+                  <%= f.text_field :name, :id=>"league_name" %>
+                </div>
+              </div>
+              <div class="control-group">
+                <%= f.label :description, :class=>"control-label", :for=>"description" %>
+                <div class="controls">
+                  <%= f.text_field :description %>
+                </div>
+              </div>
+              <div class="control-group">
+                <%= f.label :icon, :class=>"control-label", :for=>"icon" %>
+                <div class="controls">
+                  <%= f.file_field :icon %>
+                </div>
+              </div>
                 <div class="control-group">                     
                   <label class="control-label" for="leagueicon">Current Icon</label>
                   <div class="controls">
-<%= image_tag @league.icon.url %>
+                    <%= image_tag @league.icon.url(:medium) %>
                   </div> <!-- /controls -->       
                 </div> <!-- /control-group -->
-                  <br>
                 <div class="form-actions">
-                  <button type="submit" class="btn btn-primary btn-large">Save Settings</button> 
-                  <button class="btn btn-large">Cancel</button>
+                  <%= f.submit "Save Settings", :class=>"btn btn-primary btn-large" %>
+                  <a href="" class="btn btn-large">Cancel</a>
                 </div> <!-- /form-actions -->
-              </fieldset>
-            </form>
+            </fieldset>
+            <% end %>
           </div> <!-- /#tab1 -->
           <div class="tab-pane" id="tab2">
             <h2>Tab #2</h2>

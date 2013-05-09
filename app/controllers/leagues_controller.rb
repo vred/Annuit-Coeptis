@@ -70,13 +70,16 @@ class LeaguesController < ApplicationController
      @portfolio = @league.portfolios.build if @portfolio.nil?
   end
 
-
   # not implemented
   def edit
      @league = League.find(params[:id])
      @title = "League settings" 
   end
   def update
+   @league = League.find(params[:id])
+   if @league.update_attributes(params[:league])
+     redirect_to :back
+   end
   end
 
   # implemented, shouldn't need to be tested...
