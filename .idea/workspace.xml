@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="83663fdd-cff2-478c-902c-df2c5b12be88" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/static_pages/dashboard.html.erb" afterPath="$PROJECT_DIR$/app/views/static_pages/dashboard.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/factories.rb" afterPath="$PROJECT_DIR$/spec/factories.rb" />
     </list>
     <ignored path="Annuit-Coeptis.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -46,7 +47,7 @@
       <file leaf-file-name="dashboard.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/static_pages/dashboard.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="73" column="63" selection-start="3999" selection-end="3999" vertical-scroll-proportion="-0.12878788">
+            <state line="80" column="29" selection-start="4178" selection-end="4178" vertical-scroll-proportion="0.2594697">
               <folding>
                 <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#2;n#div#5;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#2;n#div#5;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -62,7 +63,7 @@
       <file leaf-file-name="factories.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spec/factories.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="193" selection-start="1716" selection-end="1716" vertical-scroll-proportion="0.0">
+            <state line="66" column="66" selection-start="1589" selection-end="1589" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -127,9 +128,9 @@
         <option value="$PROJECT_DIR$/db/migrate/20130424044309_create_performances.rb" />
         <option value="$PROJECT_DIR$/app/controllers/orders_controller.rb" />
         <option value="$PROJECT_DIR$/db/schema.rb" />
-        <option value="$PROJECT_DIR$/spec/factories.rb" />
         <option value="$PROJECT_DIR$/app/models/performance.rb" />
         <option value="$PROJECT_DIR$/app/models/order.rb" />
+        <option value="$PROJECT_DIR$/spec/factories.rb" />
         <option value="$PROJECT_DIR$/app/views/static_pages/dashboard.html.erb" />
       </list>
     </option>
@@ -655,7 +656,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1378" height="728" extended-state="0" />
+    <frame x="-8" y="0" width="1378" height="728" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -824,14 +825,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/spec/factories.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="193" selection-start="1716" selection-end="1716" vertical-scroll-proportion="0.0">
+        <state line="66" column="66" selection-start="1589" selection-end="1589" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/static_pages/dashboard.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="63" selection-start="3999" selection-end="3999" vertical-scroll-proportion="-0.12878788">
+        <state line="80" column="29" selection-start="4178" selection-end="4178" vertical-scroll-proportion="0.2594697">
           <folding>
             <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#2;n#div#5;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#2;n#div#5;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />

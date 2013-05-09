@@ -1,13 +1,13 @@
 FactoryGirl.define do
   factory :league do
-	name "John's Test League"
+	name "Eric's Test League"
 	private false
 	capital 100000
 	margin   20000
 	commission 50
 	member_limit 1
 	start_date Date.new(2013,4,1)
-	end_date Date.new(2013,4,30)
+	end_date Date.new(2013,5,30)
 	creator_id 0
   end
   
@@ -30,7 +30,7 @@ FactoryGirl.define do
 
   factory :order do
     time_placed 0
-    ticker "GOOG"
+    ticker "AAPL"
     price_executed 0
     quantity 0
     trade_type "buy"
@@ -39,9 +39,9 @@ FactoryGirl.define do
   end
 
   factory :user do
-	name "John John"
+	name "Eric Eric"
 	admin false
-	email "johnjohn@test.com"
+	email "ericeric@test.com"
 	password "testtest"
 
 	factory :user_with_performances do
@@ -56,15 +56,15 @@ FactoryGirl.define do
       c_cap = 100000
 			(from_date..to_date).each do |d|
         if d.weekday?
-          price = YahooFinance.get_historical_quotes("GOOG",d,d)
+          price = YahooFinance.get_historical_quotes("AAPL",d,d)
           c_cap = c_cap - price[0][4].to_f unless price[0].nil?
           FactoryGirl.create(:performance, date: d,	closing_capital: c_cap, league_id: l.id, portfolio_id: po.id) unless price[0].nil?
         end
       end
       (DateTime.now-30..DateTime.now).each do |d|
-        price = YahooFinance.get_historical_quotes("GOOG",d,d)
+        price = YahooFinance.get_historical_quotes("AAPL",d,d)
         if d.weekday?
-          FactoryGirl.create(:order, time_placed: d, ticker: "GOOG", price_executed: price[0][4].to_f, quantity: 1, trade_type: "buy", portfolio_id: po.id, league_id: l.id) unless price[0].nil?
+          FactoryGirl.create(:order, time_placed: d, ticker: "AAPL", price_executed: price[0][4].to_f, quantity: 1, trade_type: "buy", portfolio_id: po.id, league_id: l.id) unless price[0].nil?
         end
       end
 		end
