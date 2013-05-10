@@ -1,0 +1,491 @@
+	  <div class="whiteSpace"></div>
+<div class="container">
+  <div class="row">
+          <span style="font-weight:600; color:red;">
+            Here you can see dynamic charts and statistics regarding any company in the stock market! <br />
+            Research is the first step in becoming active in your league! <br /> <br />
+            Let us now buy stock in Yahoo! <strong>Click the "Trade" button!</strong> <br />
+          </span>
+              <div class="whiteSpace"></div>
+    <div class="span3">
+      <a class="btn btn-primary btn-quarter fixedButtons" id="trade" data-toggle="modal" href="#trade_modalbox">Trade</a>
+    </div>
+    <div class="modal fade hide in" id="trade_modalbox" aria-hidden="false">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h3>Place an Order</h3>
+        <span style="font-weight:600; color:red;">
+            Here you can set Market Orders, Stop Orders, and Limit Orders depending on your tastes.
+          </span>
+        <input type="hidden" id="current_user_id" value="2" />
+      </div>
+      <div class="modal-body">
+          <span style="font-weight:600; color:red;">
+            For this tutorial, let us buy 10 shares of YHOO! You may adjust the slider to experiment and 
+            try any other buttons, but ultimately for the purposes of this tutorial the "Submit" button
+            will buy 10 shares of YHOO. <br /><br />
+            Clicking the "Submit" button will confirm the order, and redirect you to your separate portfolio for
+            the respective league you chose to buy in.
+          </span>
+          <div class="tabbable">
+            <ul id="order_type_tabs" class="nav nav-tabs">
+              <li class="active"><a href="#tab1" data-toggle="tab">Market Order</a></li>
+              <li class=""><a href="#" data-toggle="tab">Stop Order (disabled for tutroial)</a></li>
+              <li class=""><a href="#" data-toggle="tab">Limit Order (disabled for tutroial)</a></li>
+            </ul>
+            <div id="order_type_tabs_content" class="tab-content">
+
+
+              <div class="tab-pane fade active in" id="tab1">
+                <form accept-charset="UTF-8" action="/learn/end" ><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="" type="hidden" value="" /></div>
+
+
+                <input type="hidden" name="order_type" value="MarketOrder" />
+                    <fieldset class="modal-fieldset">
+                      <div class="control-group">
+                        <label class="control-label" for="market_order_ticker">Company</label>
+                        <div class="controls">
+                          <input type="text" class="input-large" name="ticker" id="market_order_ticker" value="YHOO" readonly>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label">Quantity</label>
+                        <div class="controls">
+                          <span id="market_order_quantity_slider_amount" style="border:0; font-weight:bold;"></span>
+                          <div id="market_order_quantity_slider" class="slider-primary" style="margin-top: 5px;"></div>
+                          <input type="hidden" id="market_order_quantity_field" name="quantity" />
+                        </div>
+                        <script type="text/javascript">
+
+                            $(function() {
+                                /* Increment Slider */
+                                $( "#market_order_quantity_slider" ).slider({
+                                    range: "min",
+                                    value:10,
+                                    min: 0,
+                                    max: 100,
+                                    step: 1,
+                                    slide: function( event, ui ) {
+                                        $( "#market_order_quantity_slider_amount" ).text ( ui.value + " shares" );
+                                        $( "#market_order_quantity_field" ).val ( ui.value );
+                                    }
+                                });
+
+                                $( "#market_order_quantity_slider_amount" ).text ( $( "#market_order_quantity_slider" ).slider( "value" )  + " shares");
+                                $( "#market_order_quantity_field" ).val ( $( "#market_order_quantity_slider" ).slider( "value" ));
+                            });
+
+                        </script>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label">What type of trade would you like to make?</label>
+                        <div class="controls">
+                          <label class="radio">
+                            <input type="radio" name="trade_type" id="market_order_trade_type_1" value="buy" checked="checked">
+                            Buy
+                          </label>
+                          <label class="radio">
+                            <input type="radio" name="trade_type" id="market_order_trade_type_2" value="sell">
+                            Sell
+                          </label>
+                          <label class="radio">
+                            <input type="radio" name="trade_type" id="market_order_trade_type_3" value="short">
+                            Short Sell
+                          </label>
+                          <label class="radio">
+                            <input type="radio" name="trade_type" id="market_order_trade_type_4" value="cover">
+                            Buy to Cover
+                          </label>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label" for="market_order_league">In which league?</label>
+                        <div class="controls">
+                          <select id="market_order_league" name="league" class="league_select">
+                          </select>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <div class="controls">
+                          <input class="btn btn-large btn-primary" name="commit" type="submit" value="Submit">
+                        </div>
+                      </div>
+                      <div>
+
+                      </div>
+                    </fieldset>
+                </form>
+              </div>
+              <div class="tab-pane fade" id="tab2">
+                <form accept-charset="UTF-8" action="/learn/end" class="form-horizontal order_form" method="post" novalidate="novalidate"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="VTwVe4/EDcp30uZoxmR/qyoLH8JmnQ6rRI3IeDsckBk=" /></div>
+
+                <input type="hidden" name="order_type" value="StopOrder" />
+                <fieldset class="modal-fieldset">
+                  <div class="control-group">
+                    <label class="control-label" for="stop_order_ticker">Company</label>
+                    <div class="controls">
+                      <input type="text" class="input-large" name="ticker" id="stop_order_ticker" value="YHOO" readonly>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">Quantity</label>
+                    <div class="controls">
+                      <span id="stop_order_quantity_slider_amount" style="border:0; font-weight:bold;"></span>
+                      <div id="stop_order_quantity_slider" class="slider-primary" style="margin-top: 5px;"></div>
+                      <input type="hidden" id="stop_order_quantity_field" name="quantity" />
+                    </div>
+                    <script type="text/javascript">
+
+                        $(function() {
+                            /* Increment Slider */
+                            $( "#stop_order_quantity_slider" ).slider({
+                                range: "min",
+                                value:10,
+                                min: 0,
+                                max: 100,
+                                step: 1,
+                                slide: function( event, ui ) {
+                                    $( "#stop_order_quantity_slider_amount" ).text ( ui.value + " shares" );
+                                    $( "#stop_order_quantity_field" ).val ( ui.value );
+                                }
+                            });
+
+                            $( "#stop_order_quantity_slider_amount" ).text ( $( "#stop_order_quantity_slider" ).slider( "value" )  + " shares");
+                            $( "#stop_order_quantity_field" ).val ( $( "#stop_order_quantity_slider" ).slider( "value" ));
+                        });
+
+                    </script>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">At what price would you like this order triggered?</label>
+                    <div class="controls">
+                      <input type="text" class="input-large" name="threshold_price" id="stop_order_threshold_price" value="126.24">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">How long would you like this order to remain valid?</label>
+                    <div class="controls">
+                      <span id="stop_order_valid_duration_slider_amount" style="border:0; font-weight:bold;"></span>
+                      <div id="stop_order_valid_duration_slider" class="slider-primary" style="margin-top: 5px;"></div>
+                      <input type="hidden" id="stop_order_valid_duration_field" name="valid_duration" />
+                    </div>
+                    <script type="text/javascript">
+
+                        $(function() {
+                            /* Increment Slider */
+                            $( "#stop_order_valid_duration_slider" ).slider({
+                                range: "min",
+                                value:14,
+                                min: 0,
+                                max: 365,
+                                step: 1,
+                                slide: function( event, ui ) {
+                                    $( "#stop_order_valid_duration_slider_amount" ).text ( ui.value + " days" );
+                                    $( "#stop_order_valid_duration_field" ).val ( ui.value );
+                                }
+                            });
+
+                            $( "#stop_order_valid_duration_slider_amount" ).text ( $( "#stop_order_valid_duration_slider" ).slider( "value" )  + " days");
+                            $( "#stop_order_valid_duration_field" ).val ( $( "#stop_order_valid_duration_slider" ).slider( "value" ) );
+                        });
+
+                    </script>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">What type of trade would you like to make?</label>
+                    <div class="controls">
+                      <label class="radio">
+                        <input type="radio" name="trade_type" id="stop_order_trade_type_1" value="buy" checked="checked">
+                        Buy
+                      </label>
+                      <label class="radio">
+                        <input type="radio" name="trade_type" id="stop_order_trade_type_2" value="sell">
+                        Sell
+                      </label>
+                      <label class="radio">
+                        <input type="radio" name="trade_type" id="stop_order_trade_type_3" value="short">
+                        Short Sell
+                      </label>
+                      <label class="radio">
+                        <input type="radio" name="trade_type" id="stop_order_trade_type_4" value="cover">
+                        Buy to Cover
+                      </label>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label" for="stop_order_league">In which league?</label>
+                    <div class="controls">
+                      <select id="stop_order_league" name="league" class="league_select">
+                      </select>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <div class="controls">
+                      <input class="btn btn-large btn-primary" name="commit" type="submit" value="Submit">
+                    </div>
+                  </div>
+                  <div>
+
+                  </div>
+                </fieldset>
+                </form>
+
+              </div>
+              <div class="tab-pane fade" id="tab3">
+                <form accept-charset="UTF-8" action="/learn/end" class="form-horizontal order_form" method="post" novalidate="novalidate"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="VTwVe4/EDcp30uZoxmR/qyoLH8JmnQ6rRI3IeDsckBk=" /></div>
+
+                <input type="hidden" name="order_type" value="LimitOrder" />
+                <fieldset class="modal-fieldset">
+                  <div class="control-group">
+                    <label class="control-label" for="limit_order_ticker">Company</label>
+                    <div class="controls">
+                      <input type="text" class="input-large" name="ticker" id="limit_order_ticker" value="YHOO" readonly>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">Quantity</label>
+                    <div class="controls">
+                      <span id="limit_order_quantity_slider_amount" style="border:0; font-weight:bold;"></span>
+                      <div id="limit_order_quantity_slider" class="slider-primary" style="margin-top: 5px;"></div>
+                      <input type="hidden" id="limit_order_quantity_field" name="quantity" />
+                    </div>
+                    <script type="text/javascript">
+
+                        $(function() {
+                            /* Increment Slider */
+                            $( "#limit_order_quantity_slider" ).slider({
+                                range: "min",
+                                value:10,
+                                min: 0,
+                                max: 100,
+                                step: 1,
+                                slide: function( event, ui ) {
+                                    $( "#limit_order_quantity_slider_amount" ).text ( ui.value + " shares" );
+                                    $( "#limit_order_quantity_field" ).val ( ui.value );
+                                }
+                            });
+
+                            $( "#limit_order_quantity_slider_amount" ).text ( $( "#limit_order_quantity_slider" ).slider( "value" )  + " shares");
+                            $( "#limit_order_quantity_field" ).val ( $( "#limit_order_quantity_slider" ).slider( "value" ));
+                        });
+
+                    </script>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">At what price would you like this order triggered?</label>
+                    <div class="controls">
+                      <input type="text" class="input-large" name="threshold_price" id="limit_order_threshold_price"  value="126.24">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">How long would you like this order to remain valid?</label>
+                    <div class="controls">
+                      <span id="limit_order_valid_duration_slider_amount" style="border:0; font-weight:bold;"></span>
+                      <div id="limit_order_valid_duration_slider" class="slider-primary" style="margin-top: 5px;"></div>
+                      <input type="hidden" id="limit_order_valid_duration_field" name="valid_duration" />
+                    </div>
+                    <script type="text/javascript">
+
+                        $(function() {
+                            /* Increment Slider */
+                            $( "#limit_order_valid_duration_slider" ).slider({
+                                range: "min",
+                                value:14,
+                                min: 0,
+                                max: 365,
+                                step: 1,
+                                slide: function( event, ui ) {
+                                    $( "#limit_order_valid_duration_slider_amount" ).text ( ui.value + " days" );
+                                    $( "#limit_order_valid_duration_field" ).val ( ui.value );
+                                }
+                            });
+
+                            $( "#limit_order_valid_duration_slider_amount" ).text ( $( "#limit_order_valid_duration_slider" ).slider( "value" )  + " days");
+                            $( "#limit_order_valid_duration_field" ).val ( $( "#limit_order_valid_duration_slider" ).slider( "value" ) );
+                        });
+
+                    </script>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">What type of trade would you like to make?</label>
+                    <div class="controls">
+                      <label class="radio">
+                        <input type="radio" name="trade_type" id="limit_order_trade_type_1" value="buy" checked="checked">
+                        Buy
+                      </label>
+                      <label class="radio">
+                        <input type="radio" name="trade_type" id="limit_order_trade_type_2" value="sell">
+                        Sell
+                      </label>
+                      <label class="radio">
+                        <input type="radio" name="trade_type" id="limit_order_trade_type_3" value="short">
+                        Short Sell
+                      </label>
+                      <label class="radio">
+                        <input type="radio" name="trade_type" id="limit_order_trade_type_4" value="cover">
+                        Buy to Cover
+                      </label>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label" for="limit_order_league">In which league?</label>
+                    <div class="controls">
+                      <select id="limit_order_league" name="league" class="league_select">
+                      </select>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <div class="controls">
+                      <input class="btn btn-large btn-primary" name="commit" type="submit" value="Submit">
+                    </div>
+                  </div>
+                  <div>
+
+                  </div>
+                </fieldset>
+                </form>
+
+              </div>
+            </div>
+          </div>
+
+      </div>
+    </div>
+    <div class="span3">
+    <table class="btn-table">
+      <tr class="cell-height">
+        <td class="btn-table-cell top-cell">Last Trade</td>
+      </tr>
+      <tr>
+        <td class="btn-table-cell bottom-cell">26.24
+            <span style="color: red; font-size: .7em;"> &#9660; -0.17 (-0.64%) </span>
+        </td>
+      </tr>
+    </table>
+    </div>
+    <div class="span3">
+    <table class="btn-table">
+      <tr class="cell-height">
+        <td class="btn-table-cell top-cell">Bid</td>
+      </tr>
+      <tr>
+        <td class="btn-table-cell bottom-cell">26.00</td>
+      </tr>
+    </table>
+    </div>
+    <div class="span3">
+    <table class="btn-table">
+      <tr class="cell-height">
+        <td class="btn-table-cell top-cell">Ask</td>
+      </tr>
+      <tr>
+        <td class="btn-table-cell bottom-cell">0.00</td>
+      </tr>
+    </table>
+    </div>
+    </div>
+  <div class="span12 whiteSpace"></div>
+  <div class="span1"> <!-- EMPTY --> </div>
+  <div class="row">
+  <div class="span2">
+    Daily Statistics: <br>
+    <table>
+      <tr>
+        <td style="font-weight:bold">Open:</td> <td>$26.41</td>
+      </tr>
+      <tr class="green_table_row" style="background-color: #D2E8CF;">
+        <td style="font-weight:bold">High:</td> <td>$26.49</td>
+      </tr>
+      <tr>
+        <td style="font-weight:bold">Low:</td> <td>$26.14</td>
+      </tr>
+      <tr class="green_table_row" style="background-color: #D2E8CF;">
+        <td style="font-weight:bold">Volume:</td> <td>11186968</td>
+      </tr>
+      <tr>
+        <td style="font-weight:bold">Avg. Volume:</td> <td>19962600</td>
+      </tr>
+    </table>
+    <br>
+    Switch graph: <a class="btn btn-primary btn-mini" id="graph_switch" onclick="switchGraph()">Candlestick</a>
+
+  </div>
+
+  <div class="span8" id="simple_graph"></div>
+
+  <div class="span8" id="candlestick" style="display:none"></div>
+  </div>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+    $(function() {
+        var chart = new Highcharts.StockChart({
+            chart: {
+                renderTo: 'simple_graph'
+                // alignTicks: true // by default
+            },
+
+            yAxis: {
+                title: {
+                    text: 'YHOO'
+                }
+            },
+
+            rangeSelector: {
+                selected: 1
+            },
+
+            series: [{
+                name: 'YHOO',
+                data: [[1281931200000, 13.79], [1282017600000, 13.94], [1282104000000, 13.99], [1282190400000, 13.85], [1282276800000, 13.79], [1282536000000, 13.65], [1282622400000, 13.4], [1282708800000, 13.26], [1282795200000, 13.21], [1282881600000, 13.43], [1283140800000, 13.18], [1283227200000, 13.11], [1283313600000, 13.37], [1283400000000, 13.51], [1283486400000, 13.62], [1283832000000, 13.53], [1283918400000, 13.75], [1284004800000, 13.65], [1284091200000, 13.68], [1284350400000, 13.73], [1284436800000, 13.63], [1284523200000, 14.27], [1284609600000, 14.19], [1284696000000, 13.89], [1284955200000, 13.86], [1285041600000, 14.18], [1285128000000, 14.04], [1285214400000, 14.17], [1285300800000, 14.5], [1285560000000, 14.28], [1285646400000, 14.39], [1285732800000, 14.34], [1285819200000, 14.17], [1285905600000, 14.27], [1286164800000, 14.28], [1286251200000, 14.61], [1286337600000, 14.52], [1286424000000, 14.23], [1286510400000, 14.49], [1286769600000, 14.41], [1286856000000, 14.43], [1286942400000, 15.25], [1287028800000, 15.93], [1287115200000, 16.25], [1287374400000, 15.93], [1287460800000, 15.49], [1287547200000, 15.8], [1287633600000, 15.97], [1287720000000, 16.31], [1287979200000, 16.4], [1288065600000, 16.46], [1288152000000, 16.42], [1288238400000, 16.4], [1288324800000, 16.49], [1288584000000, 16.15], [1288670400000, 16.19], [1288756800000, 16.17], [1288843200000, 16.2], [1288929600000, 16.27], [1289192400000, 16.44], [1289278800000, 16.97], [1289365200000, 16.94], [1289451600000, 16.8], [1289538000000, 16.55], [1289797200000, 16.6], [1289883600000, 16.24], [1289970000000, 16.15], [1290056400000, 16.99], [1290142800000, 16.57], [1290402000000, 16.56], [1290488400000, 16.19], [1290574800000, 16.41], [1290747600000, 16.22], [1291006800000, 16.38], [1291093200000, 15.82], [1291179600000, 16.15], [1291266000000, 16.33], [1291352400000, 16.35], [1291611600000, 16.33], [1291698000000, 16.94], [1291784400000, 17.02], [1291870800000, 16.95], [1291957200000, 17.01], [1292216400000, 16.7], [1292302800000, 16.63], [1292389200000, 16.45], [1292475600000, 16.51], [1292562000000, 16.38], [1292821200000, 16.28], [1292907600000, 16.6], [1292994000000, 16.63], [1293080400000, 16.72], [1293426000000, 16.48], [1293512400000, 16.43], [1293598800000, 16.61], [1293685200000, 16.76], [1293771600000, 16.63], [1294030800000, 16.75], [1294117200000, 16.59], [1294203600000, 16.91], [1294290000000, 17.06], [1294376400000, 16.9], [1294635600000, 16.6], [1294722000000, 16.58], [1294808400000, 16.65], [1294894800000, 16.75], [1294981200000, 16.81], [1295326800000, 16.5], [1295413200000, 16.31], [1295499600000, 16.23], [1295586000000, 15.97], [1295845200000, 16.09], [1295931600000, 16.02], [1296018000000, 15.57], [1296104400000, 16.2], [1296190800000, 15.83], [1296450000000, 16.12], [1296536400000, 16.38], [1296622800000, 16.57], [1296709200000, 16.69], [1296795600000, 16.79], [1297054800000, 16.8], [1297141200000, 16.6], [1297227600000, 16.43], [1297314000000, 16.62], [1297400400000, 16.85], [1297659600000, 16.89], [1297746000000, 17.2], [1297832400000, 17.76], [1297918800000, 17.77], [1298005200000, 17.66], [1298350800000, 16.91], [1298437200000, 16.58], [1298523600000, 16.37], [1298610000000, 16.5], [1298869200000, 16.4], [1298955600000, 16.1], [1299042000000, 16.63], [1299128400000, 16.86], [1299214800000, 17.08], [1299474000000, 16.7], [1299560400000, 16.94], [1299646800000, 17.65], [1299733200000, 17.06], [1299819600000, 17.42], [1300075200000, 17.31], [1300161600000, 16.33], [1300248000000, 15.91], [1300334400000, 15.86], [1300420800000, 16.03], [1300680000000, 16.29], [1300766400000, 16.36], [1300852800000, 16.13], [1300939200000, 16.83], [1301025600000, 16.96], [1301284800000, 16.58], [1301371200000, 16.75], [1301457600000, 16.74], [1301544000000, 16.68], [1301630400000, 16.84], [1301889600000, 16.87], [1301976000000, 17.11], [1302062400000, 17.05], [1302148800000, 17.0], [1302235200000, 16.77], [1302494400000, 16.59], [1302580800000, 16.36], [1302667200000, 16.64], [1302753600000, 16.69], [1302840000000, 16.62], [1303099200000, 16.35], [1303185600000, 16.12], [1303272000000, 16.87], [1303358400000, 16.85], [1303704000000, 17.11], [1303790400000, 17.28], [1303876800000, 17.26], [1303963200000, 17.51], [1304049600000, 17.7], [1304308800000, 18.14], [1304395200000, 17.92], [1304481600000, 18.2], [1304568000000, 18.43], [1304654400000, 18.65], [1304913600000, 18.56], [1305000000000, 18.55], [1305086400000, 17.2], [1305172800000, 17.17], [1305259200000, 16.55], [1305518400000, 15.81], [1305604800000, 16.0], [1305691200000, 15.96], [1305777600000, 16.35], [1305864000000, 16.3], [1306123200000, 16.06], [1306209600000, 16.14], [1306296000000, 16.15], [1306382400000, 15.98], [1306468800000, 16.02], [1306814400000, 16.55], [1306900800000, 15.85], [1306987200000, 16.02], [1307073600000, 15.68], [1307332800000, 15.45], [1307419200000, 15.45], [1307505600000, 15.1], [1307592000000, 15.22], [1307678400000, 15.2], [1307937600000, 15.16], [1308024000000, 15.2], [1308110400000, 14.81], [1308196800000, 14.78], [1308283200000, 14.7], [1308542400000, 14.99], [1308628800000, 15.35], [1308715200000, 15.23], [1308801600000, 15.08], [1308888000000, 14.89], [1309147200000, 14.88], [1309233600000, 14.95], [1309320000000, 14.89], [1309406400000, 15.04], [1309492800000, 15.45], [1309838400000, 15.49], [1309924800000, 15.72], [1310011200000, 15.81], [1310097600000, 15.61], [1310356800000, 15.05], [1310443200000, 14.86], [1310529600000, 14.91], [1310616000000, 14.63], [1310702400000, 14.69], [1310961600000, 14.42], [1311048000000, 14.59], [1311134400000, 13.48], [1311220800000, 13.59], [1311307200000, 13.98], [1311566400000, 13.69], [1311652800000, 13.94], [1311739200000, 13.59], [1311825600000, 13.5], [1311912000000, 13.1], [1312171200000, 13.1], [1312257600000, 12.76], [1312344000000, 13.02], [1312430400000, 12.0], [1312516800000, 11.74], [1312776000000, 11.09], [1312862400000, 12.09], [1312948800000, 11.77], [1313035200000, 12.86], [1313121600000, 13.59], [1313380800000, 13.47], [1313467200000, 13.48], [1313553600000, 13.47], [1313640000000, 12.96], [1313726400000, 12.92], [1313985600000, 12.84], [1314072000000, 13.35], [1314158400000, 13.15], [1314244800000, 12.87], [1314331200000, 12.74], [1314590400000, 13.68], [1314676800000, 13.84], [1314763200000, 13.61], [1314849600000, 13.35], [1314936000000, 12.87], [1315281600000, 12.91], [1315368000000, 13.61], [1315454400000, 14.44], [1315540800000, 14.48], [1315800000000, 14.26], [1315886400000, 14.26], [1315972800000, 14.55], [1316059200000, 14.89], [1316145600000, 14.97], [1316404800000, 14.61], [1316491200000, 14.36], [1316577600000, 13.96], [1316664000000, 13.99], [1316750400000, 14.71], [1317009600000, 14.75], [1317096000000, 14.54], [1317182400000, 14.19], [1317268800000, 13.42], [1317355200000, 13.17], [1317614400000, 13.53], [1317700800000, 14.46], [1317787200000, 15.92], [1317873600000, 15.65], [1317960000000, 15.47], [1318219200000, 15.84], [1318305600000, 15.86], [1318392000000, 15.77], [1318478400000, 15.93], [1318564800000, 15.91], [1318824000000, 15.7], [1318910400000, 15.47], [1318996800000, 15.94], [1319083200000, 16.18], [1319169600000, 16.12], [1319428800000, 16.71], [1319515200000, 16.24], [1319601600000, 16.3], [1319688000000, 16.63], [1319774400000, 16.56], [1320033600000, 15.64], [1320120000000, 14.93], [1320206400000, 15.1], [1320292800000, 15.48], [1320379200000, 15.24], [1320642000000, 15.69], [1320728400000, 15.97], [1320814800000, 15.92], [1320901200000, 15.95], [1320987600000, 16.27], [1321246800000, 16.0], [1321333200000, 15.93], [1321419600000, 15.72], [1321506000000, 15.34], [1321592400000, 15.38], [1321851600000, 14.99], [1321938000000, 14.97], [1322024400000, 14.94], [1322197200000, 15.1], [1322456400000, 15.35], [1322542800000, 15.7], [1322629200000, 15.71], [1322715600000, 16.23], [1322802000000, 16.05], [1323061200000, 15.89], [1323147600000, 15.84], [1323234000000, 15.62], [1323320400000, 15.61], [1323406800000, 15.94], [1323666000000, 15.47], [1323752400000, 15.42], [1323838800000, 15.02], [1323925200000, 15.16], [1324011600000, 14.96], [1324270800000, 14.62], [1324357200000, 15.11], [1324443600000, 15.99], [1324530000000, 16.0], [1324616400000, 16.19], [1324962000000, 16.09], [1325048400000, 15.78], [1325134800000, 16.13], [1325221200000, 16.13], [1325566800000, 16.29], [1325653200000, 15.78], [1325739600000, 15.64], [1325826000000, 15.52], [1326085200000, 15.46], [1326171600000, 15.51], [1326258000000, 15.53], [1326344400000, 15.66], [1326430800000, 15.48], [1326776400000, 15.43], [1326862800000, 15.92], [1326949200000, 16.12], [1327035600000, 15.96], [1327294800000, 15.68], [1327381200000, 15.69], [1327467600000, 15.56], [1327554000000, 15.53], [1327640400000, 15.74], [1327899600000, 15.55], [1327986000000, 15.47], [1328072400000, 15.73], [1328158800000, 15.72], [1328245200000, 15.92], [1328504400000, 15.82], [1328590800000, 15.83], [1328677200000, 15.78], [1328763600000, 16.0], [1328850000000, 16.14], [1329109200000, 16.12], [1329195600000, 15.37], [1329282000000, 15.12], [1329368400000, 15.36], [1329454800000, 15.01], [1329800400000, 14.75], [1329886800000, 14.5], [1329973200000, 14.78], [1330059600000, 14.89], [1330318800000, 14.86], [1330405200000, 14.9], [1330491600000, 14.83], [1330578000000, 14.93], [1330664400000, 14.72], [1330923600000, 14.62], [1331010000000, 14.42], [1331096400000, 14.62], [1331182800000, 14.62], [1331269200000, 14.63], [1331524800000, 14.49], [1331611200000, 14.55], [1331697600000, 14.63], [1331784000000, 14.89], [1331870400000, 15.18], [1332129600000, 15.15], [1332216000000, 15.41], [1332302400000, 15.51], [1332388800000, 15.49], [1332475200000, 15.39], [1332734400000, 15.54], [1332820800000, 15.43], [1332907200000, 15.32], [1332993600000, 15.3], [1333080000000, 15.22], [1333339200000, 15.46], [1333425600000, 15.18], [1333512000000, 15.27], [1333598400000, 15.07], [1333944000000, 15.1], [1334030400000, 14.99], [1334116800000, 14.88], [1334203200000, 15.06], [1334289600000, 14.87], [1334548800000, 14.79], [1334635200000, 15.01], [1334721600000, 15.49], [1334808000000, 15.4], [1334894400000, 15.6], [1335153600000, 15.33], [1335240000000, 15.43], [1335326400000, 15.5], [1335412800000, 15.53], [1335499200000, 15.57], [1335758400000, 15.54], [1335844800000, 15.63], [1335931200000, 15.67], [1336017600000, 15.4], [1336104000000, 15.15], [1336363200000, 15.35], [1336449600000, 15.36], [1336536000000, 15.3], [1336622400000, 15.44], [1336708800000, 15.19], [1336968000000, 15.5], [1337054400000, 15.4], [1337140800000, 15.28], [1337227200000, 14.87], [1337313600000, 15.42], [1337572800000, 15.58], [1337659200000, 15.29], [1337745600000, 15.38], [1337832000000, 15.35], [1337918400000, 15.36], [1338264000000, 15.47], [1338350400000, 15.25], [1338436800000, 15.24], [1338523200000, 14.92], [1338782400000, 15.01], [1338868800000, 15.1], [1338955200000, 15.36], [1339041600000, 15.36], [1339128000000, 15.65], [1339387200000, 15.3], [1339473600000, 15.47], [1339560000000, 15.34], [1339646400000, 15.36], [1339732800000, 15.36], [1339992000000, 15.49], [1340078400000, 15.65], [1340164800000, 15.74], [1340251200000, 15.52], [1340337600000, 15.61], [1340596800000, 15.44], [1340683200000, 15.35], [1340769600000, 15.52], [1340856000000, 15.45], [1340942400000, 15.83], [1341201600000, 15.84], [1341288000000, 15.98], [1341460800000, 15.85], [1341547200000, 15.78], [1341806400000, 15.75], [1341892800000, 15.82], [1341979200000, 15.8], [1342065600000, 15.69], [1342152000000, 15.74], [1342411200000, 15.65], [1342497600000, 15.6], [1342584000000, 15.7], [1342670400000, 15.73], [1342756800000, 15.92], [1343016000000, 15.76], [1343102400000, 15.43], [1343188800000, 15.5], [1343275200000, 15.8], [1343361600000, 16.11], [1343620800000, 15.98], [1343707200000, 15.84], [1343793600000, 15.99], [1343880000000, 15.75], [1343966400000, 15.97], [1344225600000, 16.04], [1344312000000, 16.22], [1344398400000, 16.17], [1344484800000, 16.01], [1344571200000, 15.15], [1344830400000, 15.02], [1344916800000, 14.73], [1345003200000, 14.76], [1345089600000, 14.99], [1345176000000, 15.03], [1345435200000, 14.96], [1345521600000, 14.97], [1345608000000, 14.92], [1345694400000, 14.87], [1345780800000, 14.92], [1346040000000, 14.85], [1346126400000, 14.72], [1346212800000, 14.84], [1346299200000, 14.67], [1346385600000, 14.65], [1346731200000, 14.89], [1346817600000, 15.09], [1346904000000, 15.11], [1346990400000, 15.22], [1347249600000, 15.11], [1347336000000, 15.16], [1347422400000, 15.4], [1347508800000, 15.6], [1347595200000, 15.77], [1347854400000, 15.68], [1347940800000, 15.91], [1348027200000, 15.86], [1348113600000, 15.79], [1348200000000, 15.74], [1348459200000, 16.0], [1348545600000, 15.68], [1348632000000, 15.61], [1348718400000, 16.04], [1348804800000, 15.98], [1349064000000, 15.83], [1349150400000, 15.94], [1349236800000, 16.21], [1349323200000, 16.27], [1349409600000, 16.09], [1349668800000, 16.03], [1349755200000, 15.85], [1349841600000, 15.83], [1349928000000, 15.92], [1350014400000, 15.88], [1350273600000, 15.68], [1350360000000, 15.92], [1350446400000, 16.09], [1350532800000, 16.0], [1350619200000, 15.84], [1350878400000, 15.77], [1350964800000, 16.67], [1351051200000, 16.55], [1351137600000, 16.61], [1351224000000, 16.79], [1351656000000, 16.84], [1351742400000, 16.95], [1351828800000, 17.11], [1352091600000, 17.37], [1352178000000, 17.46], [1352264400000, 17.39], [1352350800000, 17.24], [1352437200000, 17.26], [1352696400000, 17.51], [1352782800000, 17.85], [1352869200000, 17.83], [1352955600000, 17.89], [1353042000000, 17.86], [1353301200000, 18.36], [1353387600000, 18.24], [1353474000000, 18.4], [1353646800000, 18.57], [1353906000000, 18.76], [1353992400000, 18.93], [1354078800000, 18.91], [1354165200000, 18.87], [1354251600000, 18.77], [1354510800000, 18.55], [1354597200000, 18.93], [1354683600000, 18.89], [1354770000000, 19.2], [1354856400000, 19.2], [1355115600000, 19.43], [1355202000000, 19.52], [1355288400000, 19.38], [1355374800000, 19.35], [1355461200000, 19.64], [1355720400000, 19.69], [1355806800000, 19.62], [1355893200000, 19.6], [1355979600000, 19.69], [1356066000000, 19.35], [1356325200000, 19.65], [1356498000000, 19.57], [1356584400000, 19.6], [1356670800000, 19.5], [1356930000000, 19.9], [1357102800000, 20.08], [1357189200000, 19.78], [1357275600000, 19.86], [1357534800000, 19.4], [1357621200000, 19.66], [1357707600000, 19.32], [1357794000000, 18.99], [1357880400000, 19.29], [1358139600000, 19.43], [1358226000000, 19.52], [1358312400000, 20.07], [1358398800000, 20.13], [1358485200000, 20.02], [1358830800000, 19.9], [1358917200000, 20.11], [1359003600000, 20.44], [1359090000000, 20.37], [1359349200000, 20.31], [1359435600000, 19.7], [1359522000000, 20.12], [1359608400000, 19.63], [1359694800000, 19.76], [1359954000000, 19.34], [1360040400000, 19.66], [1360126800000, 19.85], [1360213200000, 20.32], [1360299600000, 20.5], [1360558800000, 20.9], [1360645200000, 21.21], [1360731600000, 21.15], [1360818000000, 21.18], [1360904400000, 21.02], [1361250000000, 21.29], [1361336400000, 20.92], [1361422800000, 20.83], [1361509200000, 21.22], [1361768400000, 20.73], [1361854800000, 20.76], [1361941200000, 21.16], [1362027600000, 21.31], [1362114000000, 21.94], [1362373200000, 22.7], [1362459600000, 22.95], [1362546000000, 22.8], [1362632400000, 22.7], [1362718800000, 22.9], [1362974400000, 22.6], [1363060800000, 22.4], [1363147200000, 22.34], [1363233600000, 22.43], [1363320000000, 22.07], [1363579200000, 22.01], [1363665600000, 22.17], [1363752000000, 22.1], [1363838400000, 22.86], [1363924800000, 23.26], [1364184000000, 23.38], [1364270400000, 23.59], [1364356800000, 23.59], [1364443200000, 23.53], [1364788800000, 23.5], [1364875200000, 23.78], [1364961600000, 23.38], [1365048000000, 23.52], [1365134400000, 23.3], [1365393600000, 23.48], [1365480000000, 23.83], [1365566400000, 24.2], [1365652800000, 24.49], [1365739200000, 24.69], [1365998400000, 23.98], [1366084800000, 23.79], [1366171200000, 23.7], [1366257600000, 23.26], [1366344000000, 23.47], [1366603200000, 23.95], [1366689600000, 24.38], [1366776000000, 24.75], [1366862400000, 25.2], [1366948800000, 24.68], [1367208000000, 24.43], [1367294400000, 24.73], [1367380800000, 24.3], [1367467200000, 24.97], [1367553600000, 25.07], [1367812800000, 25.17], [1367899200000, 26.07], [1367985600000, 26.41], [1368072000000, 26.24]]
+            }]
+        });
+        var chart2 = new Highcharts.StockChart({
+            chart: {
+                renderTo: 'candlestick'
+                // alignTicks: true // by default
+            },
+
+            yAxis: {
+                title: {
+                    text: 'YHOO'
+                }
+            },
+
+            rangeSelector: {
+                selected: 1
+            },
+
+            series : [{
+                type : 'candlestick',
+                name : 'YHOO',
+                data : [[1281931200000, 13.75, 13.9, 13.68, 13.79], [1282017600000, 13.84, 14.0, 13.75, 13.94], [1282104000000, 13.98, 14.05, 13.84, 13.99], [1282190400000, 13.85, 14.0, 13.8, 13.85], [1282276800000, 13.85, 13.95, 13.74, 13.79], [1282536000000, 13.81, 13.87, 13.54, 13.65], [1282622400000, 13.53, 13.64, 13.39, 13.4], [1282708800000, 13.29, 13.37, 13.14, 13.26], [1282795200000, 13.36, 13.4, 13.21, 13.21], [1282881600000, 13.24, 13.47, 13.03, 13.43], [1283140800000, 13.27, 13.42, 13.18, 13.18], [1283227200000, 13.11, 13.14, 12.94, 13.11], [1283313600000, 13.2, 13.41, 13.13, 13.37], [1283400000000, 13.33, 13.55, 13.26, 13.51], [1283486400000, 13.69, 13.75, 13.56, 13.62], [1283832000000, 13.56, 13.62, 13.5, 13.53], [1283918400000, 13.66, 13.82, 13.62, 13.75], [1284004800000, 13.88, 13.92, 13.57, 13.65], [1284091200000, 13.68, 13.77, 13.54, 13.68], [1284350400000, 13.83, 13.88, 13.61, 13.73], [1284436800000, 13.76, 13.76, 13.6, 13.63], [1284523200000, 14.03, 14.35, 13.77, 14.27], [1284609600000, 14.2, 14.23, 13.98, 14.19], [1284696000000, 14.33, 14.33, 13.88, 13.89], [1284955200000, 13.95, 14.06, 13.84, 13.86], [1285041600000, 13.94, 14.26, 13.92, 14.18], [1285128000000, 14.19, 14.25, 13.97, 14.04], [1285214400000, 13.93, 14.24, 13.93, 14.17], [1285300800000, 14.3, 14.51, 14.24, 14.5], [1285560000000, 14.46, 14.53, 14.25, 14.28], [1285646400000, 14.33, 14.45, 14.14, 14.39], [1285732800000, 14.36, 14.39, 14.06, 14.34], [1285819200000, 14.26, 14.35, 13.99, 14.17], [1285905600000, 14.19, 14.35, 14.13, 14.27], [1286164800000, 14.2, 14.32, 14.13, 14.28], [1286251200000, 14.45, 14.77, 14.4, 14.61], [1286337600000, 14.6, 14.7, 14.34, 14.52], [1286424000000, 14.6, 14.61, 14.14, 14.23], [1286510400000, 14.21, 14.56, 14.18, 14.49], [1286769600000, 14.45, 14.58, 14.38, 14.41], [1286856000000, 14.36, 14.47, 14.27, 14.43], [1286942400000, 14.57, 15.48, 14.5, 15.25], [1287028800000, 16.75, 16.76, 15.75, 15.93], [1287115200000, 16.17, 16.73, 15.9, 16.25], [1287374400000, 16.2, 16.28, 15.75, 15.93], [1287460800000, 15.73, 15.8, 15.37, 15.49], [1287547200000, 15.79, 16.25, 15.79, 15.8], [1287633600000, 15.9, 16.0, 15.73, 15.97], [1287720000000, 15.9, 16.41, 15.86, 16.31], [1287979200000, 16.3, 16.44, 16.15, 16.4], [1288065600000, 16.22, 16.48, 16.2, 16.46], [1288152000000, 16.4, 16.43, 16.2, 16.42], [1288238400000, 16.45, 16.45, 16.31, 16.4], [1288324800000, 16.37, 16.52, 16.33, 16.49], [1288584000000, 16.5, 16.52, 16.08, 16.15], [1288670400000, 16.29, 16.4, 16.18, 16.19], [1288756800000, 16.21, 16.23, 16.01, 16.17], [1288843200000, 16.31, 16.35, 16.02, 16.2], [1288929600000, 16.18, 16.4, 16.18, 16.27], [1289192400000, 16.29, 16.5, 16.25, 16.44], [1289278800000, 17.22, 17.6, 16.86, 16.97], [1289365200000, 17.0, 17.01, 16.75, 16.94], [1289451600000, 16.63, 16.86, 16.52, 16.8], [1289538000000, 16.65, 16.75, 16.4, 16.55], [1289797200000, 16.56, 16.89, 16.33, 16.6], [1289883600000, 16.45, 16.49, 16.1, 16.24], [1289970000000, 16.21, 16.33, 16.11, 16.15], [1290056400000, 16.4, 17.17, 16.29, 16.99], [1290142800000, 16.97, 16.97, 16.52, 16.57], [1290402000000, 16.43, 16.65, 16.25, 16.56], [1290488400000, 16.34, 16.43, 16.04, 16.19], [1290574800000, 16.31, 16.48, 16.15, 16.41], [1290747600000, 16.25, 16.4, 16.22, 16.22], [1291006800000, 16.1, 16.45, 15.95, 16.38], [1291093200000, 16.2, 16.34, 15.77, 15.82], [1291179600000, 16.0, 16.4, 16.0, 16.15], [1291266000000, 16.2, 16.41, 16.12, 16.33], [1291352400000, 16.27, 16.37, 16.2, 16.35], [1291611600000, 16.47, 16.6, 16.3, 16.33], [1291698000000, 16.5, 17.07, 16.5, 16.94], [1291784400000, 17.01, 17.22, 16.96, 17.02], [1291870800000, 17.12, 17.19, 16.8, 16.95], [1291957200000, 16.97, 17.05, 16.91, 17.01], [1292216400000, 16.9, 16.99, 16.69, 16.7], [1292302800000, 16.77, 16.84, 16.57, 16.63], [1292389200000, 16.55, 16.73, 16.42, 16.45], [1292475600000, 16.45, 16.7, 16.44, 16.51], [1292562000000, 16.51, 16.66, 16.32, 16.38], [1292821200000, 16.38, 16.42, 16.15, 16.28], [1292907600000, 16.31, 16.68, 16.2, 16.6], [1292994000000, 16.67, 16.78, 16.56, 16.63], [1293080400000, 16.56, 16.73, 16.45, 16.72], [1293426000000, 16.62, 16.63, 16.4, 16.48], [1293512400000, 16.47, 16.54, 16.33, 16.43], [1293598800000, 16.5, 16.77, 16.43, 16.61], [1293685200000, 16.6, 16.77, 16.52, 16.76], [1293771600000, 16.74, 16.76, 16.47, 16.63], [1294030800000, 16.81, 16.94, 16.67, 16.75], [1294117200000, 16.71, 16.83, 16.57, 16.59], [1294203600000, 16.55, 16.91, 16.34, 16.91], [1294290000000, 16.9, 17.34, 16.77, 17.06], [1294376400000, 17.03, 17.17, 16.65, 16.9], [1294635600000, 16.78, 16.8, 16.5, 16.6], [1294722000000, 16.7, 16.73, 16.53, 16.58], [1294808400000, 16.71, 16.81, 16.59, 16.65], [1294894800000, 16.64, 16.92, 16.57, 16.75], [1294981200000, 16.67, 16.83, 16.6, 16.81], [1295326800000, 16.62, 16.68, 16.42, 16.5], [1295413200000, 16.49, 16.55, 16.23, 16.31], [1295499600000, 16.29, 16.33, 16.09, 16.23], [1295586000000, 16.27, 16.31, 15.93, 15.97], [1295845200000, 16.0, 16.24, 15.76, 16.09], [1295931600000, 16.17, 16.19, 15.85, 16.02], [1296018000000, 15.93, 16.05, 15.41, 15.57], [1296104400000, 15.58, 16.36, 15.58, 16.2], [1296190800000, 16.15, 16.21, 15.68, 15.83], [1296450000000, 15.82, 16.2, 15.79, 16.12], [1296536400000, 16.33, 16.46, 16.23, 16.38], [1296622800000, 16.25, 16.66, 16.25, 16.57], [1296709200000, 16.48, 16.91, 16.4, 16.69], [1296795600000, 16.74, 16.91, 16.45, 16.79], [1297054800000, 16.81, 17.0, 16.77, 16.8], [1297141200000, 16.83, 16.85, 16.48, 16.6], [1297227600000, 16.54, 16.7, 16.35, 16.43], [1297314000000, 16.39, 16.72, 16.35, 16.62], [1297400400000, 16.58, 16.87, 16.54, 16.85], [1297659600000, 16.84, 16.93, 16.72, 16.89], [1297746000000, 16.8, 17.39, 16.78, 17.2], [1297832400000, 17.23, 17.82, 17.21, 17.76], [1297918800000, 17.75, 17.82, 17.5, 17.77], [1298005200000, 17.69, 17.84, 17.57, 17.66], [1298350800000, 17.08, 17.39, 16.87, 16.91], [1298437200000, 17.03, 17.1, 16.35, 16.58], [1298523600000, 16.66, 16.73, 16.04, 16.37], [1298610000000, 16.39, 16.77, 16.38, 16.5], [1298869200000, 16.37, 16.6, 16.28, 16.4], [1298955600000, 16.46, 16.49, 16.08, 16.1], [1299042000000, 16.65, 16.85, 16.6, 16.63], [1299128400000, 16.85, 17.05, 16.76, 16.86], [1299214800000, 16.75, 17.2, 16.72, 17.08], [1299474000000, 17.07, 17.15, 16.49, 16.7], [1299560400000, 16.74, 17.02, 16.72, 16.94], [1299646800000, 16.89, 17.7, 16.85, 17.65], [1299733200000, 17.3, 17.39, 16.93, 17.06], [1299819600000, 17.0, 17.54, 17.0, 17.42], [1300075200000, 17.24, 17.44, 17.09, 17.31], [1300161600000, 16.66, 16.68, 16.04, 16.33], [1300248000000, 16.33, 16.48, 15.85, 15.91], [1300334400000, 16.16, 16.42, 15.81, 15.86], [1300420800000, 16.1, 16.19, 16.01, 16.03], [1300680000000, 16.18, 16.5, 16.16, 16.29], [1300766400000, 16.29, 16.48, 16.16, 16.36], [1300852800000, 16.3, 16.34, 15.98, 16.13], [1300939200000, 16.19, 16.91, 16.17, 16.83], [1301025600000, 16.94, 17.05, 16.7, 16.96], [1301284800000, 17.01, 17.06, 16.58, 16.58], [1301371200000, 16.6, 16.78, 16.53, 16.75], [1301457600000, 16.83, 16.92, 16.68, 16.74], [1301544000000, 16.71, 16.88, 16.65, 16.68], [1301630400000, 16.83, 16.98, 16.72, 16.84], [1301889600000, 16.9, 17.05, 16.81, 16.87], [1301976000000, 16.81, 17.29, 16.79, 17.11], [1302062400000, 17.17, 17.2, 16.94, 17.05], [1302148800000, 16.91, 17.1, 16.79, 17.0], [1302235200000, 17.08, 17.11, 16.77, 16.77], [1302494400000, 16.91, 16.96, 16.37, 16.59], [1302580800000, 16.55, 16.64, 16.29, 16.36], [1302667200000, 16.43, 16.69, 16.43, 16.64], [1302753600000, 16.55, 16.82, 16.43, 16.69], [1302840000000, 16.64, 16.78, 16.54, 16.62], [1303099200000, 16.35, 16.44, 16.06, 16.35], [1303185600000, 16.21, 16.36, 16.08, 16.12], [1303272000000, 16.7, 17.23, 16.59, 16.87], [1303358400000, 16.93, 16.94, 16.74, 16.85], [1303704000000, 17.01, 17.31, 16.9, 17.11], [1303790400000, 17.11, 17.37, 17.02, 17.28], [1303876800000, 17.3, 17.43, 17.18, 17.26], [1303963200000, 17.22, 17.53, 17.17, 17.51], [1304049600000, 17.46, 17.77, 17.36, 17.7], [1304308800000, 17.79, 18.35, 17.57, 18.14], [1304395200000, 18.23, 18.64, 17.88, 17.92], [1304481600000, 17.99, 18.38, 17.96, 18.2], [1304568000000, 18.12, 18.56, 18.05, 18.43], [1304654400000, 18.59, 18.8, 18.38, 18.65], [1304913600000, 18.6, 18.84, 18.54, 18.56], [1305000000000, 18.67, 18.7, 18.42, 18.55], [1305086400000, 18.45, 18.61, 16.74, 17.2], [1305172800000, 17.12, 17.81, 16.93, 17.17], [1305259200000, 16.14, 16.84, 15.96, 16.55], [1305518400000, 16.68, 16.69, 15.63, 15.81], [1305604800000, 15.88, 16.07, 15.73, 16.0], [1305691200000, 16.07, 16.16, 15.75, 15.96], [1305777600000, 16.05, 16.49, 16.04, 16.35], [1305864000000, 16.32, 16.44, 16.15, 16.3], [1306123200000, 16.05, 16.17, 16.0, 16.06], [1306209600000, 16.11, 16.41, 16.05, 16.14], [1306296000000, 16.15, 16.99, 16.1, 16.15], [1306382400000, 16.18, 16.22, 15.88, 15.98], [1306468800000, 16.03, 16.19, 15.95, 16.02], [1306814400000, 16.17, 16.59, 16.12, 16.55], [1306900800000, 16.34, 16.43, 15.79, 15.85], [1306987200000, 16.0, 16.11, 15.87, 16.02], [1307073600000, 15.82, 16.0, 15.63, 15.68], [1307332800000, 15.65, 15.85, 15.41, 15.45], [1307419200000, 15.54, 15.65, 15.32, 15.45], [1307505600000, 15.37, 15.38, 15.08, 15.1], [1307592000000, 15.18, 15.33, 14.94, 15.22], [1307678400000, 15.27, 15.73, 15.11, 15.2], [1307937600000, 15.16, 15.34, 15.1, 15.16], [1308024000000, 15.26, 15.56, 15.19, 15.2], [1308110400000, 15.01, 15.05, 14.5, 14.81], [1308196800000, 15.01, 15.09, 14.65, 14.78], [1308283200000, 14.98, 14.98, 14.56, 14.7], [1308542400000, 14.66, 15.42, 14.66, 14.99], [1308628800000, 15.03, 15.38, 14.91, 15.35], [1308715200000, 15.29, 15.53, 15.19, 15.23], [1308801600000, 15.08, 15.09, 14.72, 15.08], [1308888000000, 15.08, 15.16, 14.85, 14.89], [1309147200000, 14.87, 14.98, 14.77, 14.88], [1309233600000, 14.95, 15.18, 14.88, 14.95], [1309320000000, 14.96, 15.05, 14.68, 14.89], [1309406400000, 14.98, 15.1, 14.64, 15.04], [1309492800000, 15.08, 15.5, 15.02, 15.45], [1309838400000, 15.4, 15.67, 15.25, 15.49], [1309924800000, 15.53, 15.81, 15.52, 15.72], [1310011200000, 15.78, 15.95, 15.7, 15.81], [1310097600000, 15.62, 15.69, 15.44, 15.61], [1310356800000, 15.43, 15.44, 14.99, 15.05], [1310443200000, 15.01, 15.18, 14.85, 14.86], [1310529600000, 15.01, 15.1, 14.87, 14.91], [1310616000000, 14.88, 14.99, 14.6, 14.63], [1310702400000, 14.75, 14.94, 14.61, 14.69], [1310961600000, 14.68, 14.69, 14.37, 14.42], [1311048000000, 14.57, 14.69, 14.45, 14.59], [1311134400000, 14.15, 14.15, 13.45, 13.48], [1311220800000, 13.5, 13.63, 13.36, 13.59], [1311307200000, 13.65, 14.05, 13.57, 13.98], [1311566400000, 13.84, 13.88, 13.68, 13.69], [1311652800000, 13.7, 13.99, 13.65, 13.94], [1311739200000, 13.87, 13.9, 13.57, 13.59], [1311825600000, 13.6, 13.71, 13.43, 13.5], [1311912000000, 13.89, 14.07, 13.04, 13.1], [1312171200000, 13.24, 13.34, 12.95, 13.1], [1312257600000, 12.96, 13.18, 12.75, 12.76], [1312344000000, 12.77, 13.07, 12.53, 13.02], [1312430400000, 12.8, 12.86, 11.99, 12.0], [1312516800000, 12.08, 12.12, 11.41, 11.74], [1312776000000, 11.43, 11.8, 11.09, 11.09], [1312862400000, 11.3, 12.09, 11.25, 12.09], [1312948800000, 11.77, 12.14, 11.62, 11.77], [1313035200000, 11.89, 12.92, 11.88, 12.86], [1313121600000, 12.81, 13.62, 12.76, 13.59], [1313380800000, 13.63, 13.69, 13.27, 13.47], [1313467200000, 13.34, 13.57, 13.18, 13.48], [1313553600000, 13.49, 13.62, 13.32, 13.47], [1313640000000, 13.02, 13.09, 12.8, 12.96], [1313726400000, 12.75, 13.08, 12.72, 12.92], [1313985600000, 13.16, 13.23, 12.77, 12.84], [1314072000000, 12.91, 13.35, 12.75, 13.35], [1314158400000, 13.28, 13.3, 12.79, 13.15], [1314244800000, 13.12, 13.21, 12.81, 12.87], [1314331200000, 12.8, 12.89, 12.52, 12.74], [1314590400000, 12.9, 13.68, 12.69, 13.68], [1314676800000, 13.3, 13.98, 13.23, 13.84], [1314763200000, 13.91, 13.94, 13.54, 13.61], [1314849600000, 13.67, 13.78, 13.32, 13.35], [1314936000000, 13.12, 13.13, 12.86, 12.87], [1315281600000, 12.52, 12.95, 12.45, 12.91], [1315368000000, 13.75, 14.0, 13.24, 13.61], [1315454400000, 13.57, 14.49, 13.37, 14.44], [1315540800000, 14.36, 14.57, 14.07, 14.48], [1315800000000, 14.12, 14.28, 13.92, 14.26], [1315886400000, 14.3, 14.34, 14.12, 14.26], [1315972800000, 14.47, 14.94, 14.34, 14.55], [1316059200000, 14.73, 15.4, 14.51, 14.89], [1316145600000, 15.09, 15.34, 14.94, 14.97], [1316404800000, 14.76, 14.79, 14.4, 14.61], [1316491200000, 14.53, 14.66, 14.28, 14.36], [1316577600000, 14.38, 14.6, 13.96, 13.96], [1316664000000, 14.2, 14.25, 13.69, 13.99], [1316750400000, 14.23, 14.83, 14.12, 14.71], [1317009600000, 14.79, 14.8, 14.23, 14.75], [1317096000000, 14.92, 15.0, 14.44, 14.54], [1317182400000, 14.61, 14.62, 14.15, 14.19], [1317268800000, 14.34, 14.39, 13.15, 13.42], [1317355200000, 13.21, 13.44, 13.11, 13.17], [1317614400000, 13.7, 14.04, 13.37, 13.53], [1317700800000, 14.0, 14.48, 13.87, 14.46], [1317787200000, 14.66, 16.15, 14.39, 15.92], [1317873600000, 15.16, 15.8, 14.92, 15.65], [1317960000000, 15.64, 15.75, 15.38, 15.47], [1318219200000, 15.86, 16.04, 15.62, 15.84], [1318305600000, 15.79, 15.95, 15.59, 15.86], [1318392000000, 15.93, 15.95, 15.67, 15.77], [1318478400000, 15.76, 16.37, 15.54, 15.93], [1318564800000, 16.13, 16.15, 15.66, 15.91], [1318824000000, 15.95, 16.04, 15.65, 15.7], [1318910400000, 15.72, 15.74, 15.11, 15.47], [1318996800000, 16.04, 16.79, 15.73, 15.94], [1319083200000, 16.2, 16.49, 15.97, 16.18], [1319169600000, 16.38, 16.39, 16.06, 16.12], [1319428800000, 16.57, 16.75, 16.31, 16.71], [1319515200000, 16.66, 16.7, 16.18, 16.24], [1319601600000, 16.33, 16.44, 15.86, 16.3], [1319688000000, 16.56, 16.7, 16.45, 16.63], [1319774400000, 16.41, 16.7, 16.25, 16.56], [1320033600000, 16.06, 16.07, 15.45, 15.64], [1320120000000, 14.95, 15.08, 14.75, 14.93], [1320206400000, 15.1, 15.3, 15.0, 15.1], [1320292800000, 15.2, 15.5, 15.03, 15.48], [1320379200000, 15.39, 15.54, 14.95, 15.24], [1320642000000, 15.26, 15.7, 15.25, 15.69], [1320728400000, 15.87, 16.18, 15.81, 15.97], [1320814800000, 16.17, 16.5, 15.87, 15.92], [1320901200000, 16.18, 16.22, 15.84, 15.95], [1320987600000, 15.96, 16.31, 15.91, 16.27], [1321246800000, 16.17, 16.31, 15.93, 16.0], [1321333200000, 15.93, 16.05, 15.7, 15.93], [1321419600000, 15.8, 16.1, 15.7, 15.72], [1321506000000, 15.69, 15.77, 15.2, 15.34], [1321592400000, 15.57, 15.69, 15.37, 15.38], [1321851600000, 15.19, 15.19, 14.77, 14.99], [1321938000000, 14.88, 15.08, 14.75, 14.97], [1322024400000, 15.2, 15.24, 14.83, 14.94], [1322197200000, 15.0, 15.25, 14.9, 15.1], [1322456400000, 15.24, 15.47, 15.21, 15.35], [1322542800000, 15.6, 15.94, 15.45, 15.7], [1322629200000, 15.9, 16.04, 15.65, 15.71], [1322715600000, 16.42, 16.46, 16.09, 16.23], [1322802000000, 16.31, 16.41, 16.03, 16.05], [1323061200000, 16.11, 16.14, 15.83, 15.89], [1323147600000, 15.9, 16.05, 15.84, 15.84], [1323234000000, 15.82, 15.86, 15.56, 15.62], [1323320400000, 15.6, 15.76, 15.53, 15.61], [1323406800000, 15.61, 15.96, 15.6, 15.94], [1323666000000, 15.71, 15.72, 15.41, 15.47], [1323752400000, 15.54, 15.74, 15.35, 15.42], [1323838800000, 15.19, 15.28, 14.8, 15.02], [1323925200000, 15.21, 15.29, 15.01, 15.16], [1324011600000, 15.05, 15.26, 14.92, 14.96], [1324270800000, 14.95, 15.0, 14.57, 14.62], [1324357200000, 14.68, 15.19, 14.68, 15.11], [1324443600000, 15.15, 16.24, 14.74, 15.99], [1324530000000, 16.36, 16.4, 15.95, 16.0], [1324616400000, 16.05, 16.26, 15.87, 16.19], [1324962000000, 16.16, 16.17, 16.01, 16.09], [1325048400000, 16.03, 16.05, 15.67, 15.78], [1325134800000, 15.95, 16.23, 15.8, 16.13], [1325221200000, 16.18, 16.21, 16.03, 16.13], [1325566800000, 16.27, 16.39, 16.2, 16.29], [1325653200000, 16.12, 16.16, 15.74, 15.78], [1325739600000, 15.6, 15.69, 15.44, 15.64], [1325826000000, 15.64, 15.66, 15.4, 15.52], [1326085200000, 15.59, 15.61, 15.35, 15.46], [1326171600000, 15.57, 15.71, 15.5, 15.51], [1326258000000, 15.56, 15.62, 15.35, 15.53], [1326344400000, 15.58, 15.73, 15.45, 15.66], [1326430800000, 15.65, 15.67, 15.43, 15.48], [1326776400000, 15.63, 15.66, 15.39, 15.43], [1326862800000, 15.87, 16.0, 15.69, 15.92], [1326949200000, 15.9, 16.15, 15.89, 16.12], [1327035600000, 16.11, 16.11, 15.85, 15.96], [1327294800000, 15.85, 15.93, 15.64, 15.68], [1327381200000, 15.57, 15.81, 15.55, 15.69], [1327467600000, 15.6, 15.71, 15.46, 15.56], [1327554000000, 15.63, 15.69, 15.42, 15.53], [1327640400000, 15.5, 15.8, 15.46, 15.74], [1327899600000, 15.61, 15.65, 15.5, 15.55], [1327986000000, 15.54, 15.62, 15.41, 15.47], [1328072400000, 15.57, 15.8, 15.53, 15.73], [1328158800000, 15.76, 15.82, 15.69, 15.72], [1328245200000, 15.94, 15.98, 15.83, 15.92], [1328504400000, 15.94, 15.95, 15.76, 15.82], [1328590800000, 15.84, 15.89, 15.74, 15.83], [1328677200000, 15.96, 15.97, 15.72, 15.78], [1328763600000, 16.1, 16.1, 15.9, 16.0], [1328850000000, 16.02, 16.31, 16.0, 16.14], [1329109200000, 16.13, 16.24, 16.05, 16.12], [1329195600000, 16.07, 16.1, 14.92, 15.37], [1329282000000, 15.23, 15.3, 15.08, 15.12], [1329368400000, 15.25, 15.38, 15.1, 15.36], [1329454800000, 15.41, 15.44, 15.0, 15.01], [1329800400000, 15.04, 15.07, 14.75, 14.75], [1329886800000, 14.68, 14.75, 14.43, 14.5], [1329973200000, 14.55, 14.81, 14.37, 14.78], [1330059600000, 14.86, 14.97, 14.83, 14.89], [1330318800000, 14.74, 14.91, 14.72, 14.86], [1330405200000, 14.93, 14.99, 14.76, 14.9], [1330491600000, 14.89, 14.93, 14.78, 14.83], [1330578000000, 14.89, 14.96, 14.79, 14.93], [1330664400000, 14.89, 14.92, 14.66, 14.72], [1330923600000, 14.66, 14.95, 14.52, 14.62], [1331010000000, 14.61, 14.69, 14.35, 14.42], [1331096400000, 14.48, 14.71, 14.44, 14.62], [1331182800000, 14.7, 14.77, 14.52, 14.62], [1331269200000, 14.63, 14.7, 14.61, 14.63], [1331524800000, 14.66, 14.76, 14.48, 14.49], [1331611200000, 14.54, 14.62, 14.39, 14.55], [1331697600000, 14.54, 14.64, 14.42, 14.63], [1331784000000, 14.64, 14.98, 14.57, 14.89], [1331870400000, 14.95, 15.18, 14.92, 15.18], [1332129600000, 15.08, 15.22, 14.92, 15.15], [1332216000000, 15.0, 15.61, 14.92, 15.41], [1332302400000, 15.42, 15.61, 15.17, 15.51], [1332388800000, 15.51, 15.56, 15.38, 15.49], [1332475200000, 15.52, 15.59, 15.31, 15.39], [1332734400000, 15.46, 15.56, 15.36, 15.54], [1332820800000, 15.53, 15.55, 15.41, 15.43], [1332907200000, 15.45, 15.48, 15.14, 15.32], [1332993600000, 15.19, 15.34, 15.11, 15.3], [1333080000000, 15.37, 15.42, 15.18, 15.22], [1333339200000, 15.19, 15.51, 15.11, 15.46], [1333425600000, 15.36, 15.43, 15.06, 15.18], [1333512000000, 15.15, 15.34, 15.0, 15.27], [1333598400000, 15.14, 15.26, 15.0, 15.07], [1333944000000, 15.0, 15.25, 14.96, 15.1], [1334030400000, 15.08, 15.18, 14.91, 14.99], [1334116800000, 15.08, 15.08, 14.84, 14.88], [1334203200000, 14.9, 15.1, 14.84, 15.06], [1334289600000, 14.99, 15.18, 14.86, 14.87], [1334548800000, 15.0, 15.04, 14.73, 14.79], [1334635200000, 14.82, 15.18, 14.82, 15.01], [1334721600000, 15.4, 15.57, 15.3, 15.49], [1334808000000, 15.44, 15.57, 15.36, 15.4], [1334894400000, 15.41, 15.7, 15.39, 15.6], [1335153600000, 15.41, 15.47, 15.29, 15.33], [1335240000000, 15.33, 15.52, 15.33, 15.43], [1335326400000, 15.43, 15.51, 15.38, 15.5], [1335412800000, 15.44, 15.55, 15.38, 15.53], [1335499200000, 15.51, 15.62, 15.49, 15.57], [1335758400000, 15.55, 15.57, 15.45, 15.54], [1335844800000, 15.51, 15.73, 15.5, 15.63], [1335931200000, 15.58, 15.77, 15.54, 15.67], [1336017600000, 15.65, 15.65, 15.33, 15.4], [1336104000000, 15.25, 15.29, 15.09, 15.15], [1336363200000, 15.34, 15.49, 15.16, 15.35], [1336449600000, 15.31, 15.44, 15.09, 15.36], [1336536000000, 15.17, 15.45, 15.03, 15.3], [1336622400000, 15.4, 15.54, 15.3, 15.44], [1336708800000, 14.88, 15.44, 14.8, 15.19], [1336968000000, 15.48, 15.77, 15.4, 15.5], [1337054400000, 15.47, 15.55, 15.34, 15.4], [1337140800000, 15.4, 15.57, 15.26, 15.28], [1337227200000, 15.26, 15.37, 14.85, 14.87], [1337313600000, 15.78, 15.87, 15.36, 15.42], [1337572800000, 16.0, 16.0, 15.1, 15.58], [1337659200000, 15.58, 15.61, 15.19, 15.29], [1337745600000, 15.19, 15.43, 15.14, 15.38], [1337832000000, 15.34, 15.51, 15.22, 15.35], [1337918400000, 15.4, 15.48, 15.28, 15.36], [1338264000000, 15.4, 15.55, 15.28, 15.47], [1338350400000, 15.3, 15.34, 15.16, 15.25], [1338436800000, 15.23, 15.37, 15.12, 15.24], [1338523200000, 15.04, 15.12, 14.85, 14.92], [1338782400000, 14.9, 15.03, 14.81, 15.01], [1338868800000, 15.0, 15.14, 14.91, 15.1], [1338955200000, 15.14, 15.41, 15.14, 15.36], [1339041600000, 15.47, 15.5, 15.33, 15.36], [1339128000000, 15.52, 15.68, 15.4, 15.65], [1339387200000, 15.73, 15.73, 15.27, 15.3], [1339473600000, 15.35, 15.52, 15.26, 15.47], [1339560000000, 15.47, 15.49, 15.27, 15.34], [1339646400000, 15.3, 15.46, 15.25, 15.36], [1339732800000, 15.44, 15.44, 15.33, 15.36], [1339992000000, 15.33, 15.54, 15.27, 15.49], [1340078400000, 15.52, 15.69, 15.51, 15.65], [1340164800000, 15.69, 15.75, 15.58, 15.74], [1340251200000, 15.74, 15.8, 15.47, 15.52], [1340337600000, 15.53, 15.7, 15.52, 15.61], [1340596800000, 15.51, 15.55, 15.31, 15.44], [1340683200000, 15.4, 15.47, 15.19, 15.35], [1340769600000, 15.41, 15.63, 15.38, 15.52], [1340856000000, 15.41, 15.48, 15.29, 15.45], [1340942400000, 15.61, 15.83, 15.53, 15.83], [1341201600000, 15.8, 15.94, 15.76, 15.84], [1341288000000, 15.83, 15.99, 15.82, 15.98], [1341460800000, 15.9, 15.99, 15.81, 15.85], [1341547200000, 15.8, 15.91, 15.68, 15.78], [1341806400000, 15.78, 15.84, 15.7, 15.75], [1341892800000, 15.83, 15.98, 15.71, 15.82], [1341979200000, 15.82, 15.94, 15.68, 15.8], [1342065600000, 15.63, 15.81, 15.54, 15.69], [1342152000000, 15.7, 15.84, 15.69, 15.74], [1342411200000, 15.69, 15.8, 15.6, 15.65], [1342497600000, 15.85, 15.89, 15.42, 15.6], [1342584000000, 15.64, 15.75, 15.51, 15.7], [1342670400000, 15.71, 15.86, 15.64, 15.73], [1342756800000, 15.75, 15.94, 15.68, 15.92], [1343016000000, 15.7, 15.81, 15.59, 15.76], [1343102400000, 15.74, 15.76, 15.23, 15.43], [1343188800000, 15.52, 15.64, 15.4, 15.5], [1343275200000, 15.69, 15.88, 15.62, 15.8], [1343361600000, 15.88, 16.17, 15.84, 16.11], [1343620800000, 16.15, 16.15, 15.9, 15.98], [1343707200000, 16.0, 16.06, 15.81, 15.84], [1343793600000, 15.86, 16.07, 15.83, 15.99], [1343880000000, 15.86, 16.0, 15.64, 15.75], [1343966400000, 15.89, 16.03, 15.82, 15.97], [1344225600000, 16.0, 16.07, 15.95, 16.04], [1344312000000, 16.09, 16.37, 16.07, 16.22], [1344398400000, 16.15, 16.32, 16.09, 16.17], [1344484800000, 16.16, 16.16, 15.98, 16.01], [1344571200000, 15.25, 15.35, 15.01, 15.15], [1344830400000, 15.03, 15.21, 15.0, 15.02], [1344916800000, 15.04, 15.05, 14.69, 14.73], [1345003200000, 14.77, 14.86, 14.65, 14.76], [1345089600000, 14.81, 15.01, 14.75, 14.99], [1345176000000, 15.02, 15.07, 14.85, 15.03], [1345435200000, 14.99, 15.05, 14.88, 14.96], [1345521600000, 14.95, 15.01, 14.88, 14.97], [1345608000000, 14.95, 14.99, 14.86, 14.92], [1345694400000, 14.9, 14.97, 14.82, 14.87], [1345780800000, 14.82, 14.94, 14.77, 14.92], [1346040000000, 14.92, 14.93, 14.77, 14.85], [1346126400000, 14.84, 14.87, 14.69, 14.72], [1346212800000, 14.73, 14.94, 14.7, 14.84], [1346299200000, 14.81, 14.84, 14.64, 14.67], [1346385600000, 14.79, 14.82, 14.59, 14.65], [1346731200000, 14.64, 14.98, 14.59, 14.89], [1346817600000, 14.86, 15.14, 14.85, 15.09], [1346904000000, 15.13, 15.15, 14.96, 15.11], [1346990400000, 15.12, 15.29, 15.1, 15.22], [1347249600000, 15.19, 15.28, 15.11, 15.11], [1347336000000, 15.09, 15.25, 15.06, 15.16], [1347422400000, 15.3, 15.55, 15.28, 15.4], [1347508800000, 15.38, 15.69, 15.37, 15.6], [1347595200000, 15.7, 15.84, 15.62, 15.77], [1347854400000, 15.81, 15.84, 15.63, 15.68], [1347940800000, 15.65, 16.17, 15.6, 15.91], [1348027200000, 15.96, 16.13, 15.84, 15.86], [1348113600000, 15.76, 15.86, 15.65, 15.79], [1348200000000, 15.72, 15.82, 15.66, 15.74], [1348459200000, 15.69, 16.04, 15.6, 16.0], [1348545600000, 16.09, 16.09, 15.67, 15.68], [1348632000000, 15.71, 15.81, 15.55, 15.61], [1348718400000, 15.9, 16.2, 15.79, 16.04], [1348804800000, 16.01, 16.09, 15.93, 15.98], [1349064000000, 16.0, 16.09, 15.77, 15.83], [1349150400000, 16.03, 16.04, 15.88, 15.94], [1349236800000, 16.0, 16.24, 15.99, 16.21], [1349323200000, 16.22, 16.35, 16.15, 16.27], [1349409600000, 16.27, 16.38, 16.09, 16.09], [1349668800000, 16.02, 16.16, 16.0, 16.03], [1349755200000, 16.03, 16.05, 15.81, 15.85], [1349841600000, 15.83, 15.99, 15.8, 15.83], [1349928000000, 15.94, 16.02, 15.84, 15.92], [1350014400000, 15.9, 16.02, 15.86, 15.88], [1350273600000, 15.85, 15.87, 15.65, 15.68], [1350360000000, 15.82, 15.98, 15.76, 15.92], [1350446400000, 15.85, 16.12, 15.83, 16.09], [1350532800000, 16.23, 16.24, 15.83, 16.0], [1350619200000, 16.0, 16.03, 15.83, 15.84], [1350878400000, 15.81, 15.95, 15.74, 15.77], [1350964800000, 16.53, 16.79, 16.26, 16.67], [1351051200000, 16.78, 16.8, 16.48, 16.55], [1351137600000, 16.72, 16.77, 16.49, 16.61], [1351224000000, 16.54, 16.82, 16.52, 16.79], [1351656000000, 16.81, 16.89, 16.6, 16.84], [1351742400000, 16.9, 17.05, 16.86, 16.95], [1351828800000, 17.0, 17.14, 16.95, 17.11], [1352091600000, 17.1, 17.43, 17.01, 17.37], [1352178000000, 17.44, 17.53, 17.32, 17.46], [1352264400000, 17.24, 17.56, 17.18, 17.39], [1352350800000, 17.3, 17.5, 17.23, 17.24], [1352437200000, 17.22, 17.52, 17.18, 17.26], [1352696400000, 17.18, 17.56, 17.17, 17.51], [1352782800000, 17.42, 17.85, 17.38, 17.85], [1352869200000, 17.9, 18.08, 17.75, 17.83], [1352955600000, 17.82, 18.16, 17.74, 17.89], [1353042000000, 17.91, 18.02, 17.76, 17.86], [1353301200000, 18.02, 18.37, 17.87, 18.36], [1353387600000, 18.44, 18.5, 18.19, 18.24], [1353474000000, 18.24, 18.5, 18.2, 18.4], [1353646800000, 18.5, 18.59, 18.4, 18.57], [1353906000000, 18.88, 19.0, 18.7, 18.76], [1353992400000, 18.87, 19.16, 18.8, 18.93], [1354078800000, 18.78, 18.95, 18.53, 18.91], [1354165200000, 18.95, 19.03, 18.85, 18.87], [1354251600000, 18.9, 18.95, 18.69, 18.77], [1354510800000, 18.55, 18.84, 18.34, 18.55], [1354597200000, 18.64, 18.96, 18.6, 18.93], [1354683600000, 18.98, 19.03, 18.77, 18.89], [1354770000000, 18.78, 19.28, 18.77, 19.2], [1354856400000, 19.16, 19.3, 19.06, 19.2], [1355115600000, 19.18, 19.47, 19.15, 19.43], [1355202000000, 19.53, 19.63, 19.43, 19.52], [1355288400000, 19.56, 19.6, 19.34, 19.38], [1355374800000, 19.44, 19.54, 19.26, 19.35], [1355461200000, 19.4, 19.72, 19.4, 19.64], [1355720400000, 19.72, 19.74, 19.53, 19.69], [1355806800000, 19.72, 19.76, 19.58, 19.62], [1355893200000, 19.59, 19.69, 19.58, 19.6], [1355979600000, 19.58, 19.71, 19.41, 19.69], [1356066000000, 19.49, 19.49, 19.23, 19.35], [1356325200000, 19.45, 19.66, 19.38, 19.65], [1356498000000, 19.7, 19.75, 19.52, 19.57], [1356584400000, 19.54, 19.67, 19.44, 19.6], [1356670800000, 19.44, 19.57, 19.28, 19.5], [1356930000000, 19.43, 19.97, 19.4, 19.9], [1357102800000, 20.2, 20.32, 20.01, 20.08], [1357189200000, 20.05, 20.1, 19.72, 19.78], [1357275600000, 19.76, 19.95, 19.72, 19.86], [1357534800000, 19.56, 19.58, 19.28, 19.4], [1357621200000, 19.32, 19.68, 19.3, 19.66], [1357707600000, 19.73, 19.75, 19.22, 19.32], [1357794000000, 19.19, 19.38, 18.93, 18.99], [1357880400000, 19.05, 19.38, 18.89, 19.29], [1358139600000, 19.33, 19.54, 19.25, 19.43], [1358226000000, 19.28, 19.54, 19.28, 19.52], [1358312400000, 19.91, 20.14, 19.62, 20.07], [1358398800000, 20.14, 20.21, 20.0, 20.13], [1358485200000, 20.07, 20.17, 19.97, 20.02], [1358830800000, 19.91, 19.95, 19.72, 19.9], [1358917200000, 19.98, 20.19, 19.91, 20.11], [1359003600000, 20.08, 20.52, 20.07, 20.44], [1359090000000, 20.43, 20.48, 20.23, 20.37], [1359349200000, 20.5, 20.5, 20.2, 20.31], [1359435600000, 20.87, 20.88, 19.68, 19.7], [1359522000000, 19.92, 20.12, 19.69, 20.12], [1359608400000, 19.92, 19.99, 19.57, 19.63], [1359694800000, 19.77, 19.83, 19.58, 19.76], [1359954000000, 19.76, 19.81, 19.31, 19.34], [1360040400000, 19.49, 19.78, 19.42, 19.66], [1360126800000, 19.63, 19.9, 19.59, 19.85], [1360213200000, 20.1, 20.43, 19.93, 20.32], [1360299600000, 20.38, 20.61, 20.3, 20.5], [1360558800000, 20.44, 20.98, 20.39, 20.9], [1360645200000, 20.94, 21.4, 20.89, 21.21], [1360731600000, 21.15, 21.43, 21.07, 21.15], [1360818000000, 21.1, 21.26, 21.06, 21.18], [1360904400000, 21.15, 21.25, 20.9, 21.02], [1361250000000, 21.03, 21.41, 20.97, 21.29], [1361336400000, 21.31, 21.45, 20.9, 20.92], [1361422800000, 20.92, 21.0, 20.74, 20.83], [1361509200000, 20.87, 21.31, 20.85, 21.22], [1361768400000, 21.26, 21.32, 20.72, 20.73], [1361854800000, 20.68, 20.85, 20.58, 20.76], [1361941200000, 20.81, 21.31, 20.69, 21.16], [1362027600000, 21.06, 21.57, 21.05, 21.31], [1362114000000, 21.36, 22.28, 21.26, 21.94], [1362373200000, 22.37, 22.74, 22.2, 22.7], [1362459600000, 22.91, 23.08, 22.61, 22.95], [1362546000000, 23.08, 23.09, 22.71, 22.8], [1362632400000, 22.92, 23.0, 22.65, 22.7], [1362718800000, 22.92, 22.96, 22.71, 22.9], [1362974400000, 22.8, 23.0, 22.57, 22.6], [1363060800000, 22.51, 22.58, 22.19, 22.4], [1363147200000, 22.48, 22.48, 22.16, 22.34], [1363233600000, 22.47, 22.75, 22.41, 22.43], [1363320000000, 22.34, 22.39, 21.97, 22.07], [1363579200000, 21.9, 22.17, 21.87, 22.01], [1363665600000, 22.06, 22.33, 21.89, 22.17], [1363752000000, 22.03, 22.33, 21.95, 22.1], [1363838400000, 22.39, 22.95, 22.36, 22.86], [1363924800000, 22.88, 23.26, 22.72, 23.26], [1364184000000, 23.41, 23.88, 23.31, 23.38], [1364270400000, 23.46, 23.62, 23.35, 23.59], [1364356800000, 23.54, 23.83, 23.41, 23.59], [1364443200000, 23.63, 23.77, 23.45, 23.53], [1364788800000, 23.31, 23.62, 23.19, 23.5], [1364875200000, 23.77, 23.9, 23.6, 23.78], [1364961600000, 23.78, 23.88, 23.24, 23.38], [1365048000000, 23.49, 23.72, 23.36, 23.52], [1365134400000, 23.18, 23.41, 23.01, 23.3], [1365393600000, 23.24, 23.48, 23.13, 23.48], [1365480000000, 23.56, 24.0, 23.44, 23.83], [1365566400000, 24.0, 24.32, 23.95, 24.2], [1365652800000, 24.41, 24.57, 24.31, 24.49], [1365739200000, 24.58, 24.8, 24.34, 24.69], [1365998400000, 24.72, 24.99, 23.83, 23.98], [1366084800000, 24.06, 24.26, 23.76, 23.79], [1366171200000, 23.45, 24.1, 23.13, 23.7], [1366257600000, 23.66, 23.7, 22.7, 23.26], [1366344000000, 23.12, 23.63, 22.83, 23.47], [1366603200000, 23.71, 23.96, 23.47, 23.95], [1366689600000, 23.96, 24.45, 23.96, 24.38], [1366776000000, 24.45, 24.97, 24.44, 24.75], [1366862400000, 24.93, 25.29, 24.88, 25.2], [1366948800000, 25.14, 25.37, 24.58, 24.68], [1367208000000, 24.85, 24.91, 24.35, 24.43], [1367294400000, 24.38, 24.79, 24.36, 24.73], [1367380800000, 24.67, 24.72, 24.26, 24.3], [1367467200000, 24.34, 24.97, 24.18, 24.97], [1367553600000, 25.13, 25.25, 24.99, 25.07], [1367812800000, 25.05, 25.34, 24.92, 25.17], [1367899200000, 26.01, 26.79, 25.55, 26.07], [1367985600000, 26.17, 26.66, 25.96, 26.41], [1368072000000, 26.41, 26.49, 26.14, 26.24]],
+                dataGrouping : {
+                    units : [
+                        ['week', // unit name
+                            [1] // allowed multiples
+                        ], [
+                            'month',
+                            [1, 2, 3, 4, 6]]
+                    ]
+                }
+            }]
+        });
+    });
+</script>
+
+               <script>
+                 function switchGraph(){
+                    if($("#simple_graph").is(":visible")){
+                        $("#simple_graph").hide();
+                        $("#candlestick").show();
+                        $("#graph_switch").text("Simple Graph")
+                    }
+                    else{
+                        $("#simple_graph").show();
+                        $("#candlestick").hide();
+                        $("#graph_switch").text("Candlestick")
+                    }
+
+                 }
+               </script>

@@ -1,3 +1,119 @@
-<div class="error-container">
-<h2>Coming soon!</h2>
+<div class="container">
+<div class="row">
+        <span style="font-weight:600; color:red; margin-left:100px;">
+
+          Welcome to the Capital Games tutorial! This will dynamically simulate a session and teach you how to
+          navigate the dashboard, leagues, and engage in Capital Games! <br /><br />
+
+          This is the dashboard, the first page a user will see upon logging in. This will include an 
+          activity feed following their profile and leagues' comments as well as a dynamic Highcarts 
+          graph displaying your live progress in Capital Games!</span>
+  <div class="span4">
+    <div class="whiteSpace"></div>
+    <h2 class="span12">Leagues</h2>
+    <div class="searchWhiteSpace span12"></div>
+    <div class="span4">
+      <a href="/learn/leagues" class="btn btn-primary btn-league">Create a league (continues tutorial)</a>
+    </div>
+    <div class="whiteSpace span12"></div>
+    <h1 class="span4 or-text"><center>or</center></h1>
+    <div class="whiteSpace span12"></div>
+    <div class="span4 searchDashboard">
+      <div class="input-append">
+        <form accept-charset="UTF-8" action="/learn/leagues"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div> 
+        <input class="long" id="filter" name="filter" placeholder="Search for a league (continues tutorial)" type="text">
+        <input name="commit" class="btn" type="submit" value="Go!">
+</form>      </div> <!-- span5 -->
+      <div class="whiteSpace"></div>
+      <div class="activityContainer">
+        <h1 class="shiftLeft">Activity stream</h1>
+        <div class="innerActivity">
+            <div class="commentsFix"><div><a href="#">Val Red</a> posted a comment on <a href="#">Tutorial League</a>:</div> <span style="font-weight:600;">Welcome to the tutorial league activity feed on your dashboard! Here you will see any recent comments made on your leagues, page, or friends' pages!</span></div>
+            <div class="commentsFix"><div><a href="#">Val Red</a> posted a comment on <a href="#">Tutorial League</a>:</div> <span style="font-weight:600; color:red;">Click the "Create a league" button above to learn about leagues! </span></div>
+        </div> 
+      </div>
+    <div class="whiteSpace"></div>
+    </div> <!-- whiteSpace --> 
+  </div>
+  <div class="span8">
+  <div class="whiteSpace"></div>
+
+  <h2 class="fixTextAlign">Your performance</h2>
+  <div class="whiteSpace"></div>
+    <div id="simple_graph_dashboard"></div>
+    </div>
+    </div>
+
+  <script type="text/javascript" charset="utf-8">
+      $(function() {
+          var chart = new Highcharts.StockChart({
+              chart: {
+                  renderTo: 'simple_graph_dashboard'
+                  // alignTicks: true // by default
+              },
+
+              yAxis: {
+                  title: {
+                      text: 'Your performance'
+                  }
+              },
+
+              rangeSelector: {
+                  selected: 1
+              },
+
+              series: [{
+                  name: 'Your performance',
+                  data: <%= [1,2,3] %>
+              }]
+          });
+          var chart2 = new Highcharts.StockChart({
+              chart: {
+                  renderTo: 'candlestick_dashboard'
+                  // alignTicks: true // by default
+              },
+
+              yAxis: {
+                  title: {
+                      text: 'Your performance'
+                  }
+              },
+
+              rangeSelector: {
+                  selected: 1
+              },
+
+              series : [{
+                  type : 'candlestick',
+                  name : 'Your performance',
+                  data : <%= [1,2,3] %>,
+                  dataGrouping : {
+                      units : [
+                          ['week', // unit name
+                              [1] // allowed multiples
+                          ], [
+                              'month',
+                              [1, 2, 3, 4, 6]]
+                      ]
+                  }
+              }]
+          });
+      });
+  </script>
+
+                 <script>
+                   function switchGraph(){
+                      if($("#simple_graph_dashboard").is(":visible")){
+                          $("#simple_graph_dashboard").hide();
+                          $("#candlestick_dashboard").show();
+                      }
+                      else{
+                          $("#simple_graph_dashboard").show();
+                          $("#candlestick_dashboard").hide();
+                      }
+
+                   }
+                 </script>
+
+</div>
 </div>

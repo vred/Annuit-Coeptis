@@ -8,6 +8,12 @@ AnnuitCoeptis::Application.routes.draw do
   resources :research, only: [:index, :create]
   match 'dashboard' => 'static_pages#dashboard', :format => false
   match 'learn' => 'static_pages#learn', :format => false
+  match 'learn/leagues' => 'static_pages#learnleagues', :format => false 
+  match 'learn/leagues/view' => 'static_pages#learnleagueview', :format => false 
+  match 'learn/leagues/edit' => 'static_pages#learnleagueedit', :format => false
+  match 'learn/research' => 'static_pages#learnresearch', :format => false  
+  match 'learn/research/YHOO' => 'static_pages#learnryhoo', :format => false  
+  match 'learn/end' => 'static_pages#learnend', :format => false  
   match 'settings' => 'static_pages#settings', :format => false
   match 'help' => 'static_pages#help', :format => false
 

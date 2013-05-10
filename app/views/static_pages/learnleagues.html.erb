@@ -1,0 +1,174 @@
+<div class="container">
+<form accept-charset="UTF-8" action="/learn/leagues/view"></div>
+        <span style="font-weight:600; color:red;">This page will give you an overview of how to create
+          a new league, and some of the options you have when creating one. Click "Create my League" at the
+          bottom of the page to continue the tutorial.</span>
+    <div>
+        <label for="league_name">Name</label>
+        <input id="league_name" name="league[name]" placeholder="Tutorial League" size="30" type="text"> 
+        <span style="font-weight:600; color:red;">Here you can choose to enter a <strong>unique</strong> league name!</span>
+    </div>
+    <div>
+          <label for="league_private">Private</label> 
+          <span style="font-weight:600; color:red;">You can select privacy options if you want to close your league to friends, otherwise you may 
+            open it to the world! </span>
+          <input name="league[private]" type="hidden" value="0"><input id="league_private" name="league[private]" type="checkbox" value="1">
+    </div>
+    <div>
+        <label for="league_member_limit">Member limit</label>
+        <input id="league_member_limit" name="league[member_limit]" type="number">
+        <span style="font-weight:600; color:red;">Here you can set a member limit!</span>
+    </div>
+    <div>
+          <label for="league_capital">Capital</label>
+          <input id="league_capital" max="1000000" min="10000" name="league[capital]" placeholder="Between 10000 and 1000000" type="number" value="">
+          <span style="font-weight:600; color:red;">This is the money players will initially have 
+          available to them for their investments in Capital Games! </span>
+    </div>
+    <div>
+        <label for="league_commission">Commission</label>
+        <input id="league_commission" max="10000" min="0" name="league[commission]" placeholder="Between 0 and 10000" type="number" value="">
+        <span style="font-weight:600; color:red;">You may place a fee for trading securities to increase realism and difficulty! </span>
+    </div>
+    <div>
+        <label for="league_margin">Margin</label> 
+        <input id="league_margin" max="1000000" min="0" name="league[margin]" placeholder="Between 0 and 100000" type="number" value="">
+        <span style="font-weight:600; color:red;">You may enforce collateral on players to increase the realism and difficulty! </span>
+    </div>
+
+    <div>
+      <label for="league_start_date">Start date</label> 
+      <select id="league_start_date_1i" name="league[start_date(1i)]">
+<option value="2008">2008</option>
+<option value="2009">2009</option>
+<option value="2010">2010</option>
+<option value="2011">2011</option>
+<option value="2012">2012</option>
+<option selected="selected" value="2013">2013</option>
+<option value="2014">2014</option>
+<option value="2015">2015</option>
+<option value="2016">2016</option>
+<option value="2017">2017</option>
+<option value="2018">2018</option>
+</select>
+<select id="league_start_date_2i" name="league[start_date(2i)]">
+<option value="1">January</option>
+<option value="2">February</option>
+<option value="3">March</option>
+<option value="4">April</option>
+<option selected="selected" value="5">May</option>
+<option value="6">June</option>
+<option value="7">July</option>
+<option value="8">August</option>
+<option value="9">September</option>
+<option value="10">October</option>
+<option value="11">November</option>
+<option value="12">December</option>
+</select>
+<select id="league_start_date_3i" name="league[start_date(3i)]">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option selected="selected" value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+<option value="21">21</option>
+<option value="22">22</option>
+<option value="23">23</option>
+<option value="24">24</option>
+<option value="25">25</option>
+<option value="26">26</option>
+<option value="27">27</option>
+<option value="28">28</option>
+<option value="29">29</option>
+<option value="30">30</option>
+<option value="31">31</option>
+</select>
+
+    </div>
+    <div>
+      <label for="league_end_date">End date</label>
+      <select id="league_end_date_1i" name="league[end_date(1i)]">
+<option value="2008">2008</option>
+<option value="2009">2009</option>
+<option value="2010">2010</option>
+<option value="2011">2011</option>
+<option value="2012">2012</option>
+<option selected="selected" value="2013">2013</option>
+<option value="2014">2014</option>
+<option value="2015">2015</option>
+<option value="2016">2016</option>
+<option value="2017">2017</option>
+<option value="2018">2018</option>
+</select>
+<select id="league_end_date_2i" name="league[end_date(2i)]">
+<option value="1">January</option>
+<option value="2">February</option>
+<option value="3">March</option>
+<option value="4">April</option>
+<option selected="selected" value="5">May</option>
+<option value="6">June</option>
+<option value="7">July</option>
+<option value="8">August</option>
+<option value="9">September</option>
+<option value="10">October</option>
+<option value="11">November</option>
+<option value="12">December</option>
+</select>
+<select id="league_end_date_3i" name="league[end_date(3i)]">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option selected="selected" value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+<option value="21">21</option>
+<option value="22">22</option>
+<option value="23">23</option>
+<option value="24">24</option>
+<option value="25">25</option>
+<option value="26">26</option>
+<option value="27">27</option>
+<option value="28">28</option>
+<option value="29">29</option>
+<option value="30">30</option>
+<option value="31">31</option>
+</select>
+
+    </div>
+
+    <div>
+        <input class="btn btn-large btn-primary" name="commit" type="submit" value="Create my league (continues tutorial)">
+    </div>
+    <br /><br />
+
+</form>
+</div>

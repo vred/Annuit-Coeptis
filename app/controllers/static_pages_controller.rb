@@ -18,6 +18,10 @@ class StaticPagesController < ApplicationController
     @title = "Learn"
   end
 
+  def learnleagues
+    @title = "Learn Leagues"
+  end
+
   def settings
     if !current_user
       redirect_to root_path
