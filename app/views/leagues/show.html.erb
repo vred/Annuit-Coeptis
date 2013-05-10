@@ -89,9 +89,9 @@
     <% for comment in Comment.where("location_id = ? AND comment_type = ?", @league.id, 1).reverse[0,20] %>
       <% @curUser = User.find(comment.user_id)  %>
       <div class="post-container">                
-        <div class="post-thumb"><%= image_tag @curUser.picture.url(:tiny),:class=>"rounded"%></div>
+        <div class="post-thumb"><%= link_to image_tag(@curUser.picture.url(:tiny),:class=>"rounded"), user_path(@curUser.id)%></div>
         <div class="post-content">
-          <h4 class="fleft"><%=@curUser.name%></h4><h5 class="fright"><%= comment.posted_at%></h5><br>
+          <h4 class="fleft"><%=@curUser.name%></h4><h5 class="fright"><%= comment.posted_at.strftime("%b %d %I:%M%p") %></h5><br>
           <p class="commentFix"><%=comment.comment%></p>
         </div>
       </div>
