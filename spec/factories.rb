@@ -67,6 +67,26 @@ FactoryGirl.define do
           FactoryGirl.create(:order, time_placed: d, ticker: "AAPL", price_executed: price[0][4].to_f, quantity: 1, trade_type: "buy", portfolio_id: po.id, league_id: l.id) unless price[0].nil?
         end
       end
+      l = FactoryGirl.create(:league, creator_id: user.id, name: "Another League")
+			po = FactoryGirl.create(:portfolio, user_id: user.id, league_id: l.id, 
+								capital: l.capital, margin: l.margin)
+			from_date = Date.new(2013,4,1)
+			to_date = Date.current()
+      c_cap = 100000
+			(from_date..to_date).each do |d|
+        if d.weekday?
+          price = YahooFinance.get_historical_quotes("SBUX",d,d)
+          c_cap = c_cap - price[0][4].to_f unless price[0].nil?
+          FactoryGirl.create(:performance, date: d,	closing_capital: c_cap, league_id: l.id, portfolio_id: po.id) unless price[0].nil?
+        end
+      end
+      (DateTime.now-30..DateTime.now).each do |d|
+        price = YahooFinance.get_historical_quotes("SBUX",d,d)
+        if d.weekday?
+          FactoryGirl.create(:order, time_placed: d, ticker: "SBUX", price_executed: price[0][4].to_f, quantity: 1, trade_type: "buy", portfolio_id: po.id, league_id: l.id) unless price[0].nil?
+        end
+      end
+      
 		end
 	end
   end

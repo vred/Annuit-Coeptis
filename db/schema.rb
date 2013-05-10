@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130509232127) do
+ActiveRecord::Schema.define(:version => 20130510150156) do
 
   create_table "comments", :force => true do |t|
     t.string   "comment"
@@ -112,6 +112,7 @@ ActiveRecord::Schema.define(:version => 20130509232127) do
     t.integer  "league_id"
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
+    t.string   "today"
   end
 
   add_index "portfolios", ["user_id", "league_id"], :name => "index_portfolios_on_user_id_and_league_id"

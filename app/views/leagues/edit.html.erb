@@ -14,7 +14,7 @@
           <li>
             <a href="#tab2" data-toggle="tab">
               <i class="icon-user"></i>
-              Users
+              Delete League
               <i class="icon-chevron-right"></i>
             </a>                  
           </li>
@@ -81,16 +81,7 @@
             <% end %>
           </div> <!-- /#tab1 -->
           <div class="tab-pane" id="tab2">
-            <h2>Tab #2</h2>
-            <p>
-Aenean interdum faucibus urna, et laoreet dui fringilla eu. In sagittis tempor justo, id auctor risus vestibulum sed. Nulla facilisi. Phasellus sollicitudin interdum lacus, tincidunt rhoncus augue porta et. Cras molestie bibendum sem, nec feugiat mauris consectetur vel. Nunc tellus sapien, ornare at ullamcorper sed, tempor ut ipsum. Nunc ac purus in quam pellentesque aliquam eget sed sapien. Curabitur sed nulla libero, eget pellentesque ante. Etiam condimentum pellentesque tincidunt. Suspendisse non odio mauris, eget tempor quam. Curabitur eget lectus quis metus tempor adipiscing non ut nisi. Curabitur sed neque tellus.
-</p>
-            <p>
-Vestibulum elementum tincidunt est ac placerat. Curabitur nulla sapien, sollicitudin sed cursus at, accumsan vel lorem. Etiam luctus vulputate suscipit. Nulla cursus enim in urna vestibulum auctor. Maecenas ultrices iaculis enim vitae ornare. Morbi arcu lorem, tincidunt vitae aliquam non, venenatis quis nibh. Pellentesque ornare leo sed lectus malesuada imperdiet. Aenean rhoncus, nulla non laoreet lacinia, nisl orci facilisis dolor, in rhoncus mauris odio nec ipsum. Phasellus pellentesque varius odio nec faucibus. Phasellus a lorem quis ipsum lobortis tincidunt in ut quam.
-</p>
-            <p>
-Cras et nisi ac nulla dictum vulputate. Nam laoreet sapien at mi interdum sed molestie quam venenatis. Fusce lacinia malesuada erat, id mollis orci lobortis nec. Quisque at nibh nunc. Aliquam quam diam, iaculis id sollicitudin sit amet, laoreet vel purus. Integer et lectus eget arcu pharetra blandit. Vestibulum id vulputate eros. Vivamus non erat urna. Donec consectetur scelerisque semper. Proin enim arcu, sodales a congue ac, fringilla eu odio. Praesent laoreet nunc eu metus ullamcorper vitae lobortis leo interdum. Morbi feugiat ultrices diam sed auctor. Donec a dolor sit amet lectus posuere cursus vitae quis nulla. Morbi sed mi quis tortor tristique tincidunt ac a elit. Donec enim nisl, lobortis eget vehicula eget, auctor eget enim.
-</p>
+    <%= button_to "Delete this league!", league_path(@league),:method=>:delete, :class=>"btn btn-primary btn-quarter fixedButtons" %>
           </div> <!-- /#tab2 -->
           <div class="tab-pane" id="tab3">
             <h2>Tab #3</h2>

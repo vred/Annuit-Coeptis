@@ -59,6 +59,33 @@ class LeaguesController < ApplicationController
 
   # not implemented
   def destroy
+    
+    league = League.find_by_id(params[:id])
+    performances = Performance.where(:league_id => league.id)
+    comments = Comment.where(:location_id => league.id)
+    for comment in comments
+      if comment.comment_type == 1   
+        comment.delete
+      end
+    end
+    for performance in performances
+      performance.delete
+    end
+    portfolios = Portfolio.where(:league_id => league.id)
+    for portfolio in portfolios
+      portfolio.delete
+    end
+    #Get the portfolio we want to remove
+
+    #Find out if it has already been removed (If someone presses it twice)
+    if league != nil
+      #If not, delete it
+      league.delete
+    end
+    
+
+    #Go back to the league page
+    redirect_to leagues_url
   end
 
   # implemented and partially tested
