@@ -164,7 +164,7 @@
                   <div class="control-group">
                     <label class="control-label">At what price would you like this order triggered?</label>
                     <div class="controls">
-                      <input type="text" class="input-large" name="threshold_price" id="stop_order_threshold_price" value="<%= @data_now.lastTrade+100 %>">
+                      <input type="text" class="input-large" name="threshold_price" id="stop_order_threshold_price" value="<%= @data_now.lastTrade*1.2 %>">
                     </div>
                   </div>
                   <div class="control-group">
@@ -282,7 +282,7 @@
                   <div class="control-group">
                     <label class="control-label">At what price would you like this order triggered?</label>
                     <div class="controls">
-                      <input type="text" class="input-large" name="threshold_price" id="limit_order_threshold_price"  value="<%= @data_now.lastTrade+100 %>">
+                      <input type="text" class="input-large" name="threshold_price" id="limit_order_threshold_price"  value="<%= @data_now.lastTrade*1.2 %>">
                     </div>
                   </div>
                   <div class="control-group">

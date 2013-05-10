@@ -11,11 +11,13 @@ AnnuitCoeptis::Application.routes.draw do
   match 'learn/leagues' => 'static_pages#learnleagues', :format => false 
   match 'learn/leagues/view' => 'static_pages#learnleagueview', :format => false 
   match 'learn/leagues/edit' => 'static_pages#learnleagueedit', :format => false
-  match 'learn/research' => 'static_pages#learnresearch', :format => false  
+  match 'learn/research' => 'static_pages#learnresearch', :format => false
   match 'learn/research/YHOO' => 'static_pages#learnryhoo', :format => false  
   match 'learn/end' => 'static_pages#learnend', :format => false  
   match 'settings' => 'static_pages#settings', :format => false
   match 'help' => 'static_pages#help', :format => false
+  match 'process_async_orders' => 'orders#process_async_orders', :format => false
+
 
   resources :leagues do
     resources :portfolios, only: [:create, :show, :destroy] do
