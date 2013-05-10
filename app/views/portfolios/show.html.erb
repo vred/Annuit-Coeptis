@@ -13,7 +13,7 @@
       <td style="font-weight:bold">Margin:</td> <td>$<%= @portfolio.margin %></td>
     </tr>
     <tr class="green_table_row" style="background-color: #D2E8CF;">
-      <td style="font-weight:bold">Rank:</td> <td>N/A</td>
+      <td style="font-weight:bold">Rank:</td> <td><%= League.find_rank(@portfolio.id, @portfolio.league_id)%></td>
     </tr>
   </table>
   <div class="span1"></div>
