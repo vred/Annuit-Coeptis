@@ -4,13 +4,13 @@
 <div class = "container">
   <table class = "span3">
     <tr>
-      <td style="font-weight:bold">Capital:</td> <td><%=@portfolio.capital%></td>
+      <td style="font-weight:bold">Capital:</td> <td>$<%=Performance.today(@portfolio.id)%></td>
     </tr>
     <tr class="green_table_row" style="background-color: #D2E8CF;">
       <td style="font-weight:bold">Last updated:</td> <td><%= @portfolio.updated_at %></td>
     </tr>
     <tr>
-      <td style="font-weight:bold">Margin:</td> <td><%= @portfolio.margin %></td>
+      <td style="font-weight:bold">Margin:</td> <td>$<%= @portfolio.margin %></td>
     </tr>
     <tr class="green_table_row" style="background-color: #D2E8CF;">
       <td style="font-weight:bold">Rank:</td> <td>N/A</td>
@@ -19,5 +19,29 @@
   <div class="span1"></div>
   <div class="span8">
     <h2>Recent Orders:</h2>
+    <br>
+    <% orders = Order.where("portfolio_id = ?", @portfolio.id).last(10).reverse %>
+
+
+    <% orders.each do |order| %>
+      <table>
+        <tr style="border: solid; border-width: 1px;">
+          <td style="font-weight:bold">Ticker:</td> <td><%= order.ticker %></td>
+        </tr>
+        <tr style="border: solid; border-width: 1px;">
+          <td style="font-weight:bold">Type:</td> <td><%= order.trade_type.capitalize %></td>
+        </tr>
+        <tr style="border: solid; border-width: 1px;">
+          <td style="font-weight:bold">Quantity:</td> <td><%= order.quantity %></td>
+        </tr>
+        <tr style="border: solid; border-width: 1px;">
+          <td style="font-weight:bold">Price:</td> <td>$<%= order.price_executed %></td>
+        </tr>
+        <tr style="border: solid; border-width: 1px;">
+          <td style="font-weight:bold">Time:</td> <td><%= order.time_placed %></td>
+        </tr>
+      </table>
+      <br>
+    <% end %>
   </div>
 </div>
