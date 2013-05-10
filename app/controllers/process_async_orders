@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Set up page header -->
+  <title> </title>
+
+  <!-- Load some predefined stuff from shim.html.erb --> 
+  <!-- [if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svm/trunk/html5.js"></script>
+<![endif]-->
+
+
+  <!-- Set up some mobile support information -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+  
+  <!-- Include all of our css and javascript files -->
+  <link href="/assets/application.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/application2.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,800" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/ui-lightness/jquery-ui-1.8.21.custom.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/global.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/pages/pricing.css?body=1" media="all" rel="stylesheet" type="text/css" />
+  <script src="/assets/jquery.js?body=1" type="text/javascript"></script>
+<script src="/assets/jquery_ujs.js?body=1" type="text/javascript"></script>
+<script src="/assets/plugins/highstock.js?body=1" type="text/javascript"></script>
+<script src="/assets/plugins/highcharts-more.js?body=1" type="text/javascript"></script>
+<script src="/assets/plugins/modules/canvas-tools.js?body=1" type="text/javascript"></script>
+<script src="/assets/plugins/modules/data.js?body=1" type="text/javascript"></script>
+<script src="/assets/plugins/modules/exporting.js?body=1" type="text/javascript"></script>
+<script src="/assets/application.js?body=1" type="text/javascript"></script>
+<script src="/assets/bootstrap.js?body=1" type="text/javascript"></script>
+<script src="/assets/libs/jquery.ui.touch-punch.min.js?body=1" type="text/javascript"></script>
+<script src="/assets/libs/modernizr-2.5.3.min.js?body=1" type="text/javascript"></script>
+<script src="/assets/libs/jquery-ui-1.10.2.custom.min.js?body=1" type="text/javascript"></script>
+<script src="/assets/Theme.js?body=1" type="text/javascript"></script>
+<script src="/assets/Charts.js?body=1" type="text/javascript"></script>
+<script src="/assets/plugins/lightbox/jquery.lightbox.js?body=1" type="text/javascript"></script>
+  
+  <!-- Different stylesheet if we're in the homepage --> 
+
+  <!-- Helps protect from forgery -->
+  <meta content="authenticity_token" name="csrf-param" />
+<meta content="hPhfKDV2PPRHSTDonj2Hp6OqUmDAC+HucUfA/8+3K/s=" name="csrf-token" />
+</head>
+
+<body>
+  <!-- Allows for correct spacing from our page to our footer --> 
+  <div id="wrapper" class="fadefill">
+    
+    <!-- If you are signed in, load the normal header --> 
+		  <div id="topbar">
+	<div class="container"> 
+    <div id="top-nav">
+			<ul class="pull-right">
+				<li><a href="http://localhost:3000/users/sign_up">Sign up</a></li>
+				<li><a href="http://localhost:3000/users/sign_in">Sign in</a></li>
+			</ul>
+		</div> <!-- /#top-nav -->
+	</div> <!-- /.container -->
+</div> <!-- /#topbar -->
+<div id="header">
+	<div class="container">	
+    <a href="/" class="brand" position="absolute"><img alt="Logo" border="0" src="/assets/logo.png" /></a>
+		</div> <!-- /.container -->	
+</div> <!-- /#header -->
+
+
+
+
+	  
+<!--
+
+<h2>Sign in</h2>
+
+<form accept-charset="UTF-8" action="/users/sign_in" class="new_user" id="new_user" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="hPhfKDV2PPRHSTDonj2Hp6OqUmDAC+HucUfA/8+3K/s=" /></div>
+  <div><label for="user_email">Email</label><br />
+  <input autofocus="autofocus" id="user_email" name="user[email]" size="30" type="email" value="" /></div>
+
+  <div><label for="user_password">Password</label><br />
+  <input id="user_password" name="user[password]" size="30" type="password" /></div>
+
+    <div><input name="user[remember_me]" type="hidden" value="0" /><input id="user_remember_me" name="user[remember_me]" type="checkbox" value="1" /> <label for="user_remember_me">Remember me</label></div>
+
+  <div><input name="commit" type="submit" value="Sign in" /></div>
+</form>
+
+  <a href="/users/sign_up">Sign up</a><br />
+
+  <a href="/users/password/new">Forgot your password?</a><br />
+
+
+
+
+
+<body class="login">
+
+-->
+
+<div class="login">
+
+<div class="account-container login stacked">
+  
+  <div class="content clearfix">
+    
+    
+      <h1>Sign In</h1>    
+      
+      <div class="login-fields">
+
+        <form accept-charset="UTF-8" action="/users/sign_in" class="new_user" id="new_user" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="hPhfKDV2PPRHSTDonj2Hp6OqUmDAC+HucUfA/8+3K/s=" /></div> 
+        <p>Sign in using your registered account:</p>
+
+        <div class="field">
+          <label for="user_email">Email</label>
+          <input autofocus="autofocus" class="login username-field" id="user_email" name="user[email]" placeholder="Email" size="30" type="email" value="" />
+        </div> <!-- /field -->
+        
+        <div class="field">
+          <label for="user_password">Password</label>
+          <input class="login password-field" id="user_password" name="user[password]" placeholder="Password" size="30" type="password" />
+        </div> <!-- /password -->
+        
+      </div> <!-- /login-fields -->
+      
+      <div class="login-actions">
+        
+        <span class="login-checkbox">
+                        
+            <input name="user[remember_me]" type="hidden" value="0" /><input class="field login-checkbox" id="user_remember_me" name="user[remember_me]" type="checkbox" value="1" /> <label class="choice" for="user_remember_me">Remember me</label>
+        </span>
+                  
+        <input class="button btn btn-primary btn-large" name="commit" type="submit" value="Sign in" />
+</form>      </div> <!-- .actions -->
+      
+      <div class="login-social">
+        <p>Sign in using social network:</p>
+        
+        <div class="twitter">
+          <a href="#" class="btn_1">Login with Twitter</a>        
+        </div>
+        
+        <div class="fb">
+          <a href="#" class="btn_2">Login with Facebook</a>       
+        </div>
+      </div>
+      
+    
+  </div> <!-- /content -->
+  
+</div> <!-- /account-container -->
+
+
+<!-- Text Under Box -->
+<div class="login-extra">
+  
+  <a href="/users/sign_up">Sign up</a><br />
+
+  <a href="/users/password/new">Forgot your password?</a><br />
+
+
+
+
+</div> <!-- /login-extra -->
+
+
+</div>
+
+
+    <pre class='debug_dump'>--- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+action: new
+controller: devise/sessions
+</pre>
+    <div class="push"></div>
+  </div> <!-- /#wrapper -->
+	<div id="footer">		
+	<div class="container">
+		<div class="row">
+			<div class="span6">
+				© 2013 <a href="http://jumpstartui.com">Capital Games</a>, all rights reserved.
+			</div> <!-- /span6 -->
+		</div> <!-- /row -->
+	</div> <!-- /container -->
+</div> <!-- /#footer -->
+</body>
+</html>

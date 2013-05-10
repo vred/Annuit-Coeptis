@@ -1,6 +1,5 @@
 class OrdersController < ApplicationController
 
-  before_filter :authenticate_user!
   before_filter :check_league_is_open, only: [:new, :create]
 
   # Very much a work in progress
@@ -24,12 +23,16 @@ class OrdersController < ApplicationController
     elsif(params[:order_type] == "StopOrder")
       new_order = StopOrder.new
 
+      new_order.trade_type = params[:trade_type];
+      new_order.ticker = params[:ticker];
       new_order.threshold_price = params[:threshold_price];
       new_order.duration_valid = params[:valid_duration];
       new_order.valid_order = true;
     elsif(params[:order_type] == "LimitOrder")
       new_order = LimitOrder.new
 
+      new_order.trade_type = params[:trade_type];
+      new_order.ticker = params[:ticker];
       new_order.threshold_price = params[:threshold_price];
       new_order.duration_valid = params[:valid_duration];
       new_order.valid_order = true;
@@ -111,14 +114,13 @@ class OrdersController < ApplicationController
 
       logger.info(outstanding_order);
 
-      current_stock_price_cents = YahooFinance::get_standard_quotes(outstanding_order.ticker)[outstanding_order.ticker].ask*100;
-
+      current_stock_price_cents_asking = YahooFinance::get_standard_quotes(outstanding_order.ticker)[outstanding_order.ticker].ask*100;
+      current_stock_price_cents_bidding = YahooFinance::get_standard_quotes(outstanding_order.ticker)[outstanding_order.ticker].bid*100;
+      
       logger.info(outstanding_order.threshold_price_cents);
-      logger.info(current_stock_price_cents);
 
-      logger.info((outstanding_order.threshold_price_cents - current_stock_price_cents).abs);
 
-      if ((outstanding_order.threshold_price_cents - current_stock_price_cents).abs <= 100)
+      if ((outstanding_order.trade_type == "sell" && (outstanding_order.threshold_price_cents <= current_stock_price_cents_bidding)) || (outstanding_order.trade_type == "buy" && (outstanding_order.threshold_price_cents >= current_stock_price_cents_asking)))
 
         outstanding_order.valid_order = false;
 
@@ -126,13 +128,14 @@ class OrdersController < ApplicationController
           logger.info ("Not enough funds.")
           next;
         else
-          outstanding_order.price_executed_cents = current_stock_price_cents;
           outstanding_order.time_filled = DateTime.now;
           current_portfolio = Portfolio.find(outstanding_order.portfolio_id)
 
           if(outstanding_order.trade_type == "buy")
+            outstanding_order.price_executed = current_stock_price_cents_asking/100;
             current_portfolio.capital_cents -= outstanding_order.quantity*outstanding_order.price_executed_cents
           elsif(outstanding_order.trade_type == "sell")
+            outstanding_order.price_executed = current_stock_price_cents_bidding/100;
             current_portfolio.capital_cents += outstanding_order.quantity*outstanding_order.price_executed_cents
           end
           current_portfolio.save()

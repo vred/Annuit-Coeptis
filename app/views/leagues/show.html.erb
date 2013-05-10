@@ -63,11 +63,14 @@
       </tr>
     </thead>
     <tbody>
-      <% for portfolio in @portfolios %>
+    
+      <% for port in @sortedPort %>
+      <% portfolio = Portfolio.find(port[0]) %>
+
         <tr>
-          <td><%= portfolio.id %></td>
+          <td><%= port[1] %></td>
           <td><a href="<%=league_portfolio_path(@league.id,portfolio.id)%>"><%if User.all[portfolio.user_id-1]%><%= User.all[portfolio.user_id-1].name  %><% end %></a></td>
-          <td><%= portfolio.created_at %></td>
+          <td><%=portfolio.updated_at%></td>
         </tr>
       <% end %>
     </tbody>  

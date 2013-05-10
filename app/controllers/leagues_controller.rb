@@ -99,6 +99,11 @@ class LeaguesController < ApplicationController
      # List of portfolios to render
      @portfolios = Portfolio.where(:league_id=>@league.id).paginate(:page=>params[:page], :per_page=>10)
      @performances = Performance.where(:league_id=>@league.id)   
+     @sortedPort = []
+     for portfolio in @portfolios
+       rank = League.find_rank(portfolio.id, portfolio.league_id)
+       @sortedPort.append([portfolio.id,rank])
+     end
 
       # Create a local portfolio if user isn't in league and decides to join
      @portfolio = Portfolio.where("user_id = ? AND league_id = ?",current_user.id, @league.id).first

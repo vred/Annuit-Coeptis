@@ -68,7 +68,7 @@ class League < ActiveRecord::Base
       d_positions.each do |d_position|
 
         unless d_position.nil?
-          unless data_by_key[d_position[0]][0].nil?
+          unless data_by_key[d_position[0]].nil? || data_by_key[d_position[0]][0].nil?
               d_total += d_position[1] * data_by_key[d_position[0]][0][1]
               prev = d_total
             else
