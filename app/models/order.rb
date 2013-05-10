@@ -82,15 +82,27 @@ class Order < ActiveRecord::Base
 
     i=0
     prev = 0
+
+    performances = Performance.where(:portfolio_id=>portfolio_id).last(30)
+
+    p_hash = {}
+
+    performances.each do |performance|
+
+      p_hash[performance.date] = performance
+
+    end
+
     for d in DateTime.now()-29..DateTime.now()
 
       d_positions = find_positions_by_date(portfolio_id, d)
+
 
       d_total=0
 
       for j in 0..13
         if d_total == 0
-          the_day = Performance.where(:portfolio_id=>portfolio_id).where(:date=>Date.parse(d.to_s)-j).first
+          the_day = p_hash[Date.parse(d.to_s)-j]
           unless the_day.nil?
             d_total = the_day.closing_capital_cents/100 #this their total worth for that day
           end
