@@ -12,6 +12,12 @@ class LeaguesController < ApplicationController
         # Create the signed in user's portfolio as a league manager
         @portfolio = create_manager_portfolio(@league)
         if @portfolio.save
+          day_performance = Performance.new();
+          day_performance.portfolio_id = @portfolio.id;
+          day_performance.league_id = @league.id;
+          day_performance.date = Date.today;
+          day_performance.closing_capital_cents = @portfolio.capital_cents;
+          day_performance.save();
           # Flash a success message
           flash[:success] = "Created your league!"
           # Send them to the league

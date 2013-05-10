@@ -48,11 +48,11 @@
       <% positions = Order.find_positions(portfolio.id)%>
                   <div class="accordion-group open">
                     <div class="accordion-heading">
-                      <a class="accordion-toggle" data-toggle="collapse" data-parent="#basic-accordion" href="#collapse<%if x==1%>One<%elsif x==2%>Two<%elsif x==3%>Three<%elsif x==4%>Four<%end%>">
+                      <a class="accordion-toggle" data-toggle="collapse" data-parent="#basic-accordion" href="#collapse<%=x%>">
                         <%=League.find(portfolio.league_id).name%> </br>
                       </a>
                     </div>
-                    <div id="collapse<%if x==1%>One<%elsif x==2%>Two<%elsif x==3%>Three<%elsif x==4%>Four<%end%>" class="accordion-body <%if x==1%>in<%end%> collapse">
+                    <div id="collapse<%=x%>" class="accordion-body <%if x==1%>in<%end%> collapse">
 <%x=x+1%>
                       <div class="accordion-inner">
       <table>

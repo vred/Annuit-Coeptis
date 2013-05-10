@@ -13,6 +13,14 @@ class PortfoliosController < ApplicationController
                                             :league_id => @league.id)
       if @portfolio.save
         flash[:success] = "Welcome to the league!"
+
+        day_performance = Performance.new();
+        day_performance.portfolio_id = @portfolio.id;
+        day_performance.league_id = @league.id;
+        day_performance.date = Date.today;
+        day_performance.closing_capital_cents = @portfolio.capital_cents;
+        day_performance.save();
+
         redirect_to league_url(params[:league_id])
       else
         flash[:fail] = "Sorry, you were unable to join this league."
