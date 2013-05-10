@@ -13,6 +13,8 @@ class OrdersController < ApplicationController
     if(params[:order_type] == "MarketOrder")
       new_order = MarketOrder.new
       new_order.time_filled = DateTime.now;
+      new_order.trade_type = params[:trade_type];
+      new_order.ticker = params[:ticker];
 
       if(new_order.trade_type == "buy")
         new_order.price_executed = YahooFinance::get_standard_quotes(new_order.ticker)[new_order.ticker].ask;
@@ -37,11 +39,9 @@ class OrdersController < ApplicationController
       return
     end
 
-    new_order.ticker = params[:ticker];
     new_order.quantity = params[:quantity];
     new_order.type = params[:order_type];
     new_order.time_placed = DateTime.now;
-    new_order.trade_type = params[:trade_type];
     new_order.league_id = params[:league_id];
     new_order.portfolio_id = params[:portfolio_id];
 
