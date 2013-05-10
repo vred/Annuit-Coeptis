@@ -172,3 +172,37 @@
   {
     border:1px solid black;
   }
+.post-container {
+      min-height:55px;
+clear:left;
+}
+.post-thumb {
+      float: left;
+}
+.post-thumb img {
+      display: block;
+      border-radius:5px;
+}
+.post-content {
+      margin-left: 62px;
+}
+.commentFix {
+      margin-bottom: 0px !important;
+}
+  .fivePix
+  { 
+    height:5px;
+  }
+.fixwidth
+{
+  width:100%;
+}
+.fright
+{
+  float:right;
+  color:gray !important;
+}
+.fleft
+{
+  float:left;
+}

@@ -36,9 +36,17 @@
       <% end %>
     </div>
     <% for comment in Comment.where("location_id = ? AND comment_type = ?", @user.id, 2).reverse[0,20] %>
-      <div class="commentsFix"><span style="font-weight:600;"><%=User.find(comment.user_id).name%></span>: <%=comment.comment%></div>
+    <% @curUser = User.find(comment.user_id)  %>
+<div class="post-container">                
+  <div class="post-thumb"><%= image_tag @curUser.picture.url(:tiny),:class=>"rounded"%></div>
+  <div class="post-content">
+    <h4 class="fleft"><%=@curUser.name%></h4><h5 class="fright"><%= comment.posted_at%></h5><br>
+    <p class="commentFix"><%=comment.comment%></p>
+  </div>
+</div>
+<div class="fivePix fixwidth"></div>
     <% end %>
-  </div>  
+</div>  
 </div>
 </div>
 
