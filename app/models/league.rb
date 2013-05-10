@@ -6,7 +6,7 @@ class League < ActiveRecord::Base
   has_many :users, :through => :portfolios
   has_many :orders, :through => :portfolios
   has_many :performances, :dependent => :destroy
-  has_attached_file :icon, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "missing.png"
+  has_attached_file :icon, :styles => { :medium => "300x300>", :thumb => "100x100>", :tiny=>"55x55#" }, :default_url => "leagues/:style/missing.jpg"
 
 
   # Monetize eliminates the need to have a composed_of translation
